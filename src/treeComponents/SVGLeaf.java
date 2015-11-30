@@ -11,9 +11,9 @@ public class SVGLeaf extends SVGNode {
     SVGElement contentElement;
 
     @Override
-    public Element draw(Document document, String svgNamespace) {
-        Element element = super.draw(document, svgNamespace);
-        element.appendChild(contentElement.draw(document, svgNamespace));
+    public Element draw(Document document) {
+        Element element = super.draw(document);
+        element.appendChild(contentElement.draw(document));
         return element;
     }
 

@@ -3,7 +3,7 @@ package tools;
 /**
  * Created by warzesia on 29/11/15.
  */
-public class Parser {
+public class Parsers {
 
     public static String DoubleToStringPercent(Double val){
         Double percentageVal = val * 100;

@@ -2,6 +2,7 @@ package treeComponents.drawable;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import tools.Constants;
 import tools.Strings;
 import treeComponents.SVGElement;
 
@@ -14,10 +15,10 @@ public class SVGImage extends SVGElement {
     String href = "file:///home/warzesia/Desktop/dissertation/svg_tests/jpg_example.jpg";;
 
     @Override
-    public Element draw(Document document, String svgNamespace) {
-        Element element = document.createElementNS(svgNamespace, Strings.RECTANGLE);
+    public Element draw(Document document) {
+        Element element = document.createElementNS(Constants.SVG_NAMESPACE, Strings.RECTANGLE);
         super.setAttributes(element);
-        element.setAttributeNS(Strings.XLINK_NAMESPACE, Strings.XLINK_HREF, this.getHref());
+        element.setAttributeNS(Constants.XLINK_NAMESPACE, Strings.XLINK_HREF, this.getHref());
         element.setAttributeNS(null, Strings.PRESERVE_ASPECT_RATIO, this.getPreserveAspectRatio());
         return element;
     }

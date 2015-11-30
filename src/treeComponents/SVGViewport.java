@@ -1,6 +1,5 @@
 package treeComponents;
 
-import SVGDomFactory.SVGCreator;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -14,10 +13,10 @@ public class SVGViewport extends SVGNode {
     LinkedList<SVGNode> children;
 
     @Override
-    public Element draw(Document document, String svgNamespace) {
-        Element element = super.draw(document, svgNamespace);
+    public Element draw(Document document) {
+        Element element = super.draw(document);
         for(SVGNode child: children)
-            element.appendChild(child.draw(document, svgNamespace));
+            element.appendChild(child.draw(document));
         return element;
     }
 

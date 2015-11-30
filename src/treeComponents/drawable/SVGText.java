@@ -1,11 +1,10 @@
 package treeComponents.drawable;
 
-import SVGDomFactory.SVGCreator;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import tools.Constants;
 import tools.Strings;
 import treeComponents.SVGElement;
-import treeComponents.drawable.SVGRectangle;
 
 /**
  * Created by warzesia on 29/11/15.
@@ -16,18 +15,18 @@ public class SVGText extends SVGElement {
     SVGRectangle backgroundRectangle;
 
     @Override
-    public Element draw(Document document, String svgNamespace) {
-        Element flowRootElement = document.createElementNS(svgNamespace, Strings.FLOW_ROOT);
+    public Element draw(Document document) {
+        Element flowRootElement = document.createElementNS(Constants.SVG_NAMESPACE, Strings.FLOW_ROOT);
 
-        Element flowRegionElement = document.createElementNS(svgNamespace, Strings.FLOW_REGION);
-        Element flowDivElement = document.createElementNS(svgNamespace, Strings.FLOW_DIV);
+        Element flowRegionElement = document.createElementNS(Constants.SVG_NAMESPACE, Strings.FLOW_REGION);
+        Element flowDivElement = document.createElementNS(Constants.SVG_NAMESPACE, Strings.FLOW_DIV);
         flowRootElement.appendChild(flowRegionElement);
         flowRootElement.appendChild(flowDivElement);
 
-        Element bkgRectangleElement = this.getBackgroundRectangle().draw(document, svgNamespace);
+        Element bkgRectangleElement = this.getBackgroundRectangle().draw(document);
         flowRegionElement.appendChild(bkgRectangleElement);
 
-        Element flowParaElement = document.createElementNS(svgNamespace, Strings.FLOW_PARA);
+        Element flowParaElement = document.createElementNS(Constants.SVG_NAMESPACE, Strings.FLOW_PARA);
         flowParaElement.setTextContent(this.getContent());
         flowDivElement.appendChild(flowParaElement);
 

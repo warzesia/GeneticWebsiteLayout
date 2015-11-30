@@ -2,7 +2,7 @@ package treeComponents;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import tools.Parser;
+import tools.Parsers;
 import tools.Strings;
 
 /**
@@ -15,12 +15,12 @@ public abstract class SVGElement {
     Double width;
     Double height;
 
-    public abstract Element draw(Document document, String svgNamespace);
+    public abstract Element draw(Document document);
     public void setAttributes(Element element){
-        element.setAttributeNS(null, Strings.X, Parser.DoubleToStringPercent(this.getX()));
-        element.setAttributeNS(null, Strings.Y, Parser.DoubleToStringPercent(this.getY()));
-        element.setAttributeNS(null, Strings.WIDTH, Parser.DoubleToStringPercent(this.getWidth()));
-        element.setAttributeNS(null, Strings.HEIGHT, Parser.DoubleToStringPercent(this.getHeight()));
+        element.setAttributeNS(null, Strings.X, Parsers.DoubleToStringPercent(this.getX()));
+        element.setAttributeNS(null, Strings.Y, Parsers.DoubleToStringPercent(this.getY()));
+        element.setAttributeNS(null, Strings.WIDTH, Parsers.DoubleToStringPercent(this.getWidth()));
+        element.setAttributeNS(null, Strings.HEIGHT, Parsers.DoubleToStringPercent(this.getHeight()));
     }
 
 

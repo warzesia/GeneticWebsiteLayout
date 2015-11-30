@@ -1,8 +1,8 @@
 package treeComponents.drawable;
 
-import SVGDomFactory.SVGCreator;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import tools.Constants;
 import tools.Strings;
 import treeComponents.SVGElement;
 
@@ -18,8 +18,8 @@ public class SVGRectangle extends SVGElement {
 
 
     @Override
-    public Element draw(Document document, String svgNamespace) {
-        Element element = document.createElementNS(svgNamespace, Strings.RECTANGLE);
+    public Element draw(Document document) {
+        Element element = document.createElementNS(Constants.SVG_NAMESPACE, Strings.RECTANGLE);
         super.setAttributes(element);
         element.setAttributeNS(null, Strings.FILL, this.getFillColour());
         return element;

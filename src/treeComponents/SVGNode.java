@@ -2,6 +2,7 @@ package treeComponents;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import tools.Constants;
 import tools.Strings;
 
 /**
@@ -12,8 +13,8 @@ public abstract class SVGNode extends SVGElement {
     protected Integer level;
 
     @Override
-    public Element draw(Document document, String svgNamespace) {
-        Element element = document.createElementNS(svgNamespace, Strings.SVG);
+    public Element draw(Document document) {
+        Element element = document.createElementNS(Constants.SVG_NAMESPACE, Strings.SVG);
         super.setAttributes(element);
         return element;
     }
