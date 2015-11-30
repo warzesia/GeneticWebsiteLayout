@@ -33,9 +33,9 @@ public class SVGCreator {
         return (SVGDocument)document;
     }
 
-    public void fillWithTestContent(){
-        SVGRectangle svgRectangle = new SVGRectangle(0.0, 0.0, 0.5, 0.5);
-        svgRectangle.setFillColour("blue");
+    public void fillWithTestContent(String colour){
+        SVGRectangle svgRectangle = new SVGRectangle(0.0, 0.0, 1.0, 1.0);
+        svgRectangle.setFillColour(colour);
         rootElement.appendChild(svgRectangle.draw(this.document));
     }
 
