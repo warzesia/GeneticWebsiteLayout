@@ -1,6 +1,7 @@
 package evolution;
 
-import treeComponents.SVGElement;
+import treeComponents.SVGNode;
+
 import java.util.LinkedList;
 
 /**
@@ -8,8 +9,21 @@ import java.util.LinkedList;
  */
 public class Population {
 
-    static LinkedList<SVGElement> chromosomes = null;
+    private LinkedList<SVGNode> chromosomes = new LinkedList<>();
 
-    static void generate(){};
+    public void generate(Integer populationSize){
+        while (populationSize > 0){
+            chromosomes.add(SVGNode.generateRandomFirstNode(15));
+            populationSize--;
+        }
+
+    }
+
+    public void getBest(){}
+
+    //
+
+
+
 
 }

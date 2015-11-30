@@ -1,3 +1,5 @@
+import evolution.Population;
+import tools.Params;
 import view.MainView;
 import view.SVGCreator;
 
@@ -8,13 +10,13 @@ public class Application {
 
     public static void main(String[] args) {
 
-        SVGCreator svgCreator_1 = new SVGCreator();
-        svgCreator_1.fillWithTestContent("red");
+        Population population = new Population();
+        population.generate(Params.POPULATION_SIZE);
 
-        SVGCreator svgCreator_2 = new SVGCreator();
-        svgCreator_2.fillWithTestContent("yellow");
+        SVGCreator svgCreator = new SVGCreator();
+        svgCreator.fillWithTestContent("red");
 
-        MainView.setSVGDocuments(svgCreator_1.getSVGDocument(), svgCreator_2.getSVGDocument());
+        MainView.setSVGDocument(svgCreator.getSVGDocument());
 
 
     }

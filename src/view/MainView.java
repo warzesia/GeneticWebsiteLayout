@@ -63,5 +63,9 @@ public class MainView {
         MainView.frame.setVisible(true);
     }
 
+    public static void setSVGDocument(SVGDocument svgDocument){
+        MainView.svgCanvas_1.setSVGDocument(svgDocument);
+        MainView.frame.setVisible(true);
+    }
 
 }

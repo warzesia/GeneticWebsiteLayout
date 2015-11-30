@@ -11,6 +11,11 @@ public class SVGLeaf extends SVGNode {
     SVGElement contentElement;
 
     @Override
+    public SVGElement generate() {
+        return null;
+    }
+
+    @Override
     public Element draw(Document document) {
         Element element = super.draw(document);
         element.appendChild(contentElement.draw(document));

@@ -13,6 +13,10 @@ public class SVGViewport extends SVGNode {
     LinkedList<SVGNode> children;
 
     @Override
+    public SVGElement generate() {
+    }
+
+    @Override
     public Element draw(Document document) {
         Element element = super.draw(document);
         for(SVGNode child: children)
