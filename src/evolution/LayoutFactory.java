@@ -1,16 +1,11 @@
 package evolution;
 
+import tools.NodeType;
 import tools.Parameters;
 import tools.Parsers;
-import tools.Ratio;
-import treeComponents.SVGElement;
-import treeComponents.SVGLeaf;
-import treeComponents.SVGNode;
-import treeComponents.SVGViewport;
+import treeComponents.*;
 
-import java.util.DoubleSummaryStatistics;
 import java.util.LinkedList;
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -18,30 +13,11 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class LayoutFactory {
 
-    private static Random rand = new Random();
-
-
     static public SVGElement getRandomDrawable(){
         return null;
     }
 
-    static public SVGNode getRandomNode(Integer parentLevel){
-        return new SVGViewport();
-        //return null;
-    }
-
-    static public LinkedList<SVGNode> twinNode(SVGNode node){
-        return null;
-    }
-
-//    static public LinkedList<SVGNode>
-
-
-    static public SVGNode getRandomNode(Double x, Double y, Double width, Double height, Integer parentLevel){
-        return new SVGLeaf(x, y, width, height, parentLevel);
-    }
-
-    static private LinkedList<SVGNode> getRandomlyPlacedNodes(Integer parentLevel, Boolean twin){
+    static public LinkedList<SVGNode> getRandomlyPlacedNodes(Integer parentLevel, Boolean twin){
 
         LinkedList<SVGNode> nodes = new LinkedList<>();
 
@@ -84,34 +60,21 @@ public class LayoutFactory {
     }
 
 
-    private class Coordinates {
-        Double x;
-        Double y;
-        Double width;
-        Double height;
 
-        public Coordinates(Double x, Double y, Double width, Double height) {
-            this.x = x;
-            this.y = y;
-            this.width = width;
-            this.height = height;
+    static private SVGNode getRandomNode(Double x, Double y, Double width, Double height, Integer parentLevel){
+        NodeType nodeType = Parameters.nodeTypeProbabilityList.
+                get(ThreadLocalRandom.current().nextInt(Parameters.nodeTypeProbabilityList.size()));
+
+        switch (nodeType) {
+            case LEAF: return new SVGLeaf(x, y, width, height, parentLevel);
+            case VIEWPORT: return new SVGViewport(x, y, width, height, parentLevel);
+            case VIEWPORT_GROUP: return new SVGViewportGroup(x, y, width, height, parentLevel);
+            default: return new SVGLeaf(x, y, width, height, parentLevel);
         }
+
     }
 
-    private static Ratio getRandomRatio(){
-        return Parameters.ratioProbabilityList.
-                get(ThreadLocalRandom.current().nextInt(Parameters.ratioProbabilityList.size()));
-    }
 
-    private static Integer getRandomViewportGroupSize(){
-        return Parameters.viewportGroupSizeProbabilityList.
-                get(ThreadLocalRandom.current().nextInt(Parameters.viewportGroupSizeProbabilityList.size()));
-    }
-
-    private static Integer getRandomViewportSize(){
-        return Parameters.viewportSizeProbabilityList.
-                get(ThreadLocalRandom.current().nextInt(Parameters.viewportSizeProbabilityList.size()));
-    }
 
     private static Double getRandomCut(){
         return Parsers.IntegerPercentToDouble(
@@ -133,6 +96,22 @@ public class LayoutFactory {
                         get(ThreadLocalRandom.current().nextInt(Parameters.angleProbabilityList.size()))
         );
     }
+
+
+//    private static Ratio getRandomRatio(){
+//        return Parameters.ratioProbabilityList.
+//                get(ThreadLocalRandom.current().nextInt(Parameters.ratioProbabilityList.size()));
+//    }
+//
+//    private static Integer getRandomViewportGroupSize(){
+//        return Parameters.viewportGroupSizeProbabilityList.
+//                get(ThreadLocalRandom.current().nextInt(Parameters.viewportGroupSizeProbabilityList.size()));
+//    }
+//
+//    private static Integer getRandomViewportSize(){
+//        return Parameters.viewportSizeProbabilityList.
+//                get(ThreadLocalRandom.current().nextInt(Parameters.viewportSizeProbabilityList.size()));
+//    }
 
 
 }

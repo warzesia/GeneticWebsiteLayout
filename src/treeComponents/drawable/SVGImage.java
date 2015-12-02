@@ -14,6 +14,7 @@ public class SVGImage extends SVGElement {
     String preserveAspectRatio;
     String href = "file:///home/warzesia/Desktop/dissertation/svg_tests/jpg_example.jpg";;
 
+
     @Override
     public Element draw(Document document) {
         Element element = document.createElementNS(Constants.SVG_NAMESPACE, Strings.RECTANGLE);

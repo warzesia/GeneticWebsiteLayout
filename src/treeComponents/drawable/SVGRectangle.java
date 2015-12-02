@@ -17,6 +17,7 @@ public class SVGRectangle extends SVGElement {
 //    Double strokeOpacity;
 
 
+
     @Override
     public Element draw(Document document) {
         Element element = document.createElementNS(Constants.SVG_NAMESPACE, Strings.RECTANGLE);

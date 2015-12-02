@@ -14,6 +14,7 @@ public class SVGText extends SVGElement {
     String content;
     SVGRectangle backgroundRectangle;
 
+
     @Override
     public Element draw(Document document) {
         Element flowRootElement = document.createElementNS(Constants.SVG_NAMESPACE, Strings.FLOW_ROOT);

@@ -15,7 +15,6 @@ public abstract class SVGElement {
     Double width;
     Double height;
 
-    public abstract void generate();
 
     public abstract Element draw(Document document);
     public void setAttributes(Element element){

@@ -23,8 +23,8 @@ public class SVGViewport extends SVGNode {
 
     @Override
     public void generate() {
-        children = new LinkedList<>();
-//        LayoutFactory.getRandomNode(this.level);
+        children = LayoutFactory.getRandomlyPlacedNodes(this.level, false);
+        children.forEach(treeComponents.SVGNode::generate);
     }
 
     @Override
@@ -35,7 +35,7 @@ public class SVGViewport extends SVGNode {
         return element;
     }
 
-    public SVGViewport(){}
+
     public SVGViewport(Double x, Double y, Double width, Double height, Integer level) {
         super(x, y, width, height, level);
     }
