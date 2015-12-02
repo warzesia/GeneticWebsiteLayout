@@ -28,6 +28,11 @@ public class SVGLeaf extends SVGNode {
         super(x, y, width, height, level);
     }
 
+    public SVGLeaf(Double x, Double y, Double width, Double height, Integer level, SVGLeaf leaf) {
+        super(x, y, width, height, level);
+        this.contentElement = leaf.getContentElement();
+    }
+
     public SVGElement getContentElement() {
         return contentElement;
     }
@@ -35,4 +40,11 @@ public class SVGLeaf extends SVGNode {
     public void setContentElement(SVGElement contentElement) {
         this.contentElement = contentElement;
     }
+
+    public SVGNode copyWithDifferentPlacement(Double x, Double y, Double width, Double height){
+        SVGLeaf leafCopy = new SVGLeaf(x, y, width, height, this.level);
+        leafCopy.setContentElement(this.contentElement);
+        return leafCopy;
+    }
+
 }

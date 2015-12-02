@@ -4,6 +4,7 @@ import tools.Parameters;
 import tools.Parsers;
 import tools.Ratio;
 import treeComponents.SVGElement;
+import treeComponents.SVGLeaf;
 import treeComponents.SVGNode;
 import treeComponents.SVGViewport;
 
@@ -35,70 +36,51 @@ public class LayoutFactory {
 
 //    static public LinkedList<SVGNode>
 
-    static public LinkedList<SVGNode> getRandomTwinNodes(Integer parentLevel){
-        //according to algorythm, dispose equal space between
-        //later, produce a random twinChild
-        SVGNode twinChild = LayoutFactory.getRandomNode(parentLevel);
-        //and generate a LinkedList of SVGNode, containing a copy of this node
-        //with different coordinates
-        return new LinkedList<>();
+
+    static public SVGNode getRandomNode(Double x, Double y, Double width, Double height, Integer parentLevel){
+        return new SVGLeaf(x, y, width, height, parentLevel);
     }
 
-    static public LinkedList<SVGNode> getRandomNodes(Integer parentLevel){
-        //according to algorythm, dispose equal space between
-        //later, produce a random twinChild
-        SVGNode twinChild = LayoutFactory.getRandomNode(parentLevel);
-        //and generate a LinkedList of SVGNode, containing a copy of this node
-        //with different coordinates
-        return new LinkedList<>();
-    }
+    static private LinkedList<SVGNode> getRandomlyPlacedNodes(Integer parentLevel, Boolean twin){
 
-    static private LinkedList<Coordinates> getRandomNodeCoordinates(Boolean twin){
-        //according to algorytm, dispose random equal space between
-        LinkedList<Coordinates> nodes = new LinkedList<>();
+        LinkedList<SVGNode> nodes = new LinkedList<>();
 
-        Ratio ratio;
-        Integer size;
-
-        do{
-            ratio = LayoutFactory.getRandomRatio();
-        } while (!twin && ratio.equals(Ratio.SQUARE));
-        //do not accept square ratio for a non-twin
-
-        do{
-            size = twin ? LayoutFactory.getRandomViewportGroupSize() : LayoutFactory.getRandomViewportSize();
-        } while (twin && ratio.equals(Ratio.SQUARE) && (size%2)!=0);
-        //do not accept odd-number size for square ratio
-
-
-        Double xUnit = 1.0;
-        Double yUnit = 1.0;
-
+        Double angle = getRandomAngle();
 
         if(twin){
-            if (ratio.equals(Ratio.HORIZONTAL)) {
-                // y = 100%
-                // x = 100% / size
-            }
-            else if (ratio.equals(Ratio.VERTICAL)) {
-                // y = 100% / size
-                // x = 100%
-            }
-            else if (ratio.equals(Ratio.SQUARE)) {
-                // if size>4
-                // blah blah blah
-            }
+            Double radius = getRandomRadius();
+            Integer xUnits = Parsers.DoubleToInteger(Math.cos(angle) * radius);
+            Integer yUnits = Parsers.DoubleToInteger(Math.sin(angle) * radius);
+
+            Double lineCutX = 1.0 / xUnits;
+            Double lineCutY = 1.0 / yUnits;
+
+            SVGNode twinChild = LayoutFactory.getRandomNode(0.0, 0.0, 0.0, 0.0, parentLevel);
+            for(int x=0; x<xUnits; x++)
+                for(int y=0; y<yUnits; y++)
+                    nodes.add(twinChild.copyWithDifferentPlacement(lineCutX*x, lineCutY*y, lineCutX, lineCutY));
+
         } else {
-            if (ratio.equals(Ratio.HORIZONTAL)) {
+            Double lineCutX = getRandomCut();
+            Double lineCutY = getRandomCut();
 
-            }
-            else if (ratio.equals(Ratio.VERTICAL)) {
+            //Let's let the radius decide whether the viewport is gonna be cut horizontally, vertically or into 4
+            if(angle<45){
+                nodes.add(LayoutFactory.getRandomNode(0.0, 0.0, lineCutX, 1.0, parentLevel));
+                nodes.add(LayoutFactory.getRandomNode(lineCutX, 0.0, 1.0-lineCutX, 1.0, parentLevel));
 
+            } else if (angle==45) {
+                nodes.add(LayoutFactory.getRandomNode(0.0, 0.0, lineCutX, lineCutY, parentLevel));
+                nodes.add(LayoutFactory.getRandomNode(lineCutX, 0.0, 1.0-lineCutX, lineCutY, parentLevel));
+                nodes.add(LayoutFactory.getRandomNode(0.0, lineCutY, lineCutX, 1.0-lineCutY, parentLevel));
+                nodes.add(LayoutFactory.getRandomNode(lineCutX, lineCutY, 1.0-lineCutX, 1.0-lineCutY, parentLevel));
+
+            } else if (angle>45){
+                nodes.add(LayoutFactory.getRandomNode(0.0, 0.0, 1.0, lineCutY, parentLevel));
+                nodes.add(LayoutFactory.getRandomNode(0.0, lineCutY, 1.0, 1.0-lineCutY, parentLevel));
             }
         }
-
         return nodes;
-
     }
 
 
@@ -133,11 +115,24 @@ public class LayoutFactory {
 
     private static Double getRandomCut(){
         return Parsers.IntegerPercentToDouble(
-                    Parameters.lineCutProbabilityList.
-                    get(ThreadLocalRandom.current().nextInt(Parameters.lineCutProbabilityList.size()))
-                );
+                Parameters.lineCutProbabilityList.
+                        get(ThreadLocalRandom.current().nextInt(Parameters.lineCutProbabilityList.size()))
+        );
     }
 
+    private static Double getRandomRadius(){
+        return Parsers.IntegerToDouble(
+                Parameters.radiusProbabilityList.
+                        get(ThreadLocalRandom.current().nextInt(Parameters.radiusProbabilityList.size()))
+        );
+    }
+
+    private static Double getRandomAngle(){
+        return Parsers.IntegerToDouble(
+                Parameters.angleProbabilityList.
+                        get(ThreadLocalRandom.current().nextInt(Parameters.angleProbabilityList.size()))
+        );
+    }
 
 
 }

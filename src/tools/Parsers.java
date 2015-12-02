@@ -18,6 +18,14 @@ public class Parsers {
         return val.doubleValue() * 0.01;
     }
 
+    public static Double IntegerToDouble(Integer val){
+        return val.doubleValue();
+    }
+
+    public static Integer DoubleToInteger(Double val){
+        return (int)Math.round(val);
+    }
+
 
 
 }

@@ -13,6 +13,14 @@ public class SVGViewportGroup extends SVGNode {
 
     private LinkedList<SVGNode> twinChildren;
 
+
+    @Override
+    public SVGNode copyWithDifferentPlacement(Double x, Double y, Double width, Double height) {
+        SVGViewportGroup viewportGroup = new SVGViewportGroup(x, y, width, height, this.level);
+        viewportGroup.setTwinChildren(this.twinChildren);
+        return  viewportGroup;
+    }
+
     @Override
     public void generate() {
         SVGNode twinChild = LayoutFactory.getRandomNode(this.level);
@@ -34,5 +42,11 @@ public class SVGViewportGroup extends SVGNode {
         super(x, y, width, height, level);
     }
 
+    public LinkedList<SVGNode> getTwinChildren() {
+        return twinChildren;
+    }
 
+    public void setTwinChildren(LinkedList<SVGNode> twinChildren) {
+        this.twinChildren = twinChildren;
+    }
 }

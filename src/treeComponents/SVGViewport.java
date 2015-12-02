@@ -13,6 +13,14 @@ public class SVGViewport extends SVGNode {
 
     private LinkedList<SVGNode> children;
 
+
+    @Override
+    public SVGNode copyWithDifferentPlacement(Double x, Double y, Double width, Double height) {
+        SVGViewport viewport = new SVGViewport(x, y, width, height, this.level);
+        viewport.setChildren(this.children);
+        return viewport;
+    }
+
     @Override
     public void generate() {
         children = new LinkedList<>();
@@ -31,6 +39,7 @@ public class SVGViewport extends SVGNode {
     public SVGViewport(Double x, Double y, Double width, Double height, Integer level) {
         super(x, y, width, height, level);
     }
+
 
     public LinkedList<SVGNode> getChildren() {
         return children;

@@ -12,6 +12,7 @@ public abstract class SVGNode extends SVGElement {
 
     protected Integer level;
 
+    public abstract SVGNode copyWithDifferentPlacement(Double x, Double y, Double width, Double height);
     public abstract void generate();
     public static SVGNode generateRandomFirstNode(Integer n){
         SVGNode svgNode;
