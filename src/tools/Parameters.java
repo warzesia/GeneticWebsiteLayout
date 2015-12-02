@@ -14,44 +14,41 @@ public class Parameters {
     private static Map<Ratio, Integer> ratioProbabilityMap = new HashMap<>();
     private static Map<Integer, Integer> viewportSizeProbabilityMap = new HashMap<>();
     private static Map<Integer, Integer> viewportGroupSizeProbabilityMap = new HashMap<>();
-    private static Map<Integer, Integer> lineCutProbabilityMap = new HashMap<>();
+    private static final Map<Integer, Integer> lineCutProbabilityMap = new HashMap<>();
+    private static Map<Integer, Integer> radiusProbabilityMap = new HashMap<>();
+    private static Map<Integer, Integer> angleProbabilityMap = new HashMap<>();
 
     public static  ArrayList<NodeType> nodeTypeProbabilityList;
     public static  ArrayList<Ratio> ratioProbabilityList;
     public static  ArrayList<Integer> viewportSizeProbabilityList;
     public static  ArrayList<Integer> viewportGroupSizeProbabilityList;
     public static final ArrayList<Integer> lineCutProbabilityList;
+    public static  ArrayList<Integer> radiusProbabilityList;
+    public static  ArrayList<Integer> angleProbabilityList;
+
+
 
     static {
-        //initialize probabilities for different node types
-        nodeTypeProbabilityMap.put(NodeType.LEAF, 3);
-        nodeTypeProbabilityMap.put(NodeType.VIEWPORT, 5);
-        nodeTypeProbabilityMap.put(NodeType.VIEWPORT_GROUP, 1);
+        initializeNodeTypeProbabilityMap();
         nodeTypeProbabilityList = getNodeTypeProbabilityList();
 
-        //initialize probabilities for different preferred ratio styles
-        ratioProbabilityMap.put(Ratio.HORIZONTAL, 2);
-        ratioProbabilityMap.put(Ratio.VERTICAL, 2);
-        ratioProbabilityMap.put(Ratio.SQUARE, 1);
+        initializeRatioProbabilityMap();
         ratioProbabilityList = getRatioProbabilityList();
 
-        //initialize probabilities for different sizes
-        viewportSizeProbabilityMap.put(2, 4);
-        viewportSizeProbabilityMap.put(3, 1);
-        viewportSizeProbabilityMap.put(4, 6);
+        initializeViewportSizeProbabilityMap();
         viewportSizeProbabilityList = getProbabilityList("ViewportSize");
 
-        //initialize probabilities for different group sizes
-        viewportGroupSizeProbabilityMap.put(1, 1);
-        viewportGroupSizeProbabilityMap.put(2, 3);
-        viewportGroupSizeProbabilityMap.put(3, 6);
-        viewportGroupSizeProbabilityMap.put(4, 6);
-        viewportGroupSizeProbabilityMap.put(5, 3);
-        viewportGroupSizeProbabilityMap.put(6, 2);
+        initializeViewportGroupSizeProbabilityMap();
         viewportGroupSizeProbabilityList = getProbabilityList("ViewportGroupSize");
 
         initializeLineCutProbabilityMap();
         lineCutProbabilityList = getProbabilityList("LineCut");
+
+        initializeRadiusProbabilityMap();
+        radiusProbabilityList = getProbabilityList("Radius");
+
+        initializeAngleProbabilityMap();
+        angleProbabilityList = getProbabilityList("Angle");
 
     }
 
@@ -111,6 +108,10 @@ public class Parameters {
                 break;
             case "LineCut":  probabilityMap = lineCutProbabilityMap;
                 break;
+            case "Radius":  probabilityMap = radiusProbabilityMap;
+                break;
+            case "Angle":  probabilityMap = angleProbabilityMap;
+                break;
             default: probabilityMap = null;
                 break;
         }
@@ -153,8 +154,56 @@ public class Parameters {
 //        }
     }
 
+    private static void initializeNodeTypeProbabilityMap(){
+        //initialize probabilities for different node types
+        nodeTypeProbabilityMap.put(NodeType.LEAF, 3);
+        nodeTypeProbabilityMap.put(NodeType.VIEWPORT, 5);
+        nodeTypeProbabilityMap.put(NodeType.VIEWPORT_GROUP, 1);
+    }
 
+    private static void initializeRatioProbabilityMap(){
+        //initialize probabilities for different preferred ratio styles
+        ratioProbabilityMap.put(Ratio.HORIZONTAL, 2);
+        ratioProbabilityMap.put(Ratio.VERTICAL, 2);
+        ratioProbabilityMap.put(Ratio.SQUARE, 1);
+    }
 
+    private static void initializeViewportSizeProbabilityMap(){
+        //initialize probabilities for different sizes
+        viewportSizeProbabilityMap.put(2, 4);
+        viewportSizeProbabilityMap.put(3, 1);
+        viewportSizeProbabilityMap.put(4, 6);
+    }
+
+    private static void initializeViewportGroupSizeProbabilityMap(){
+        //initialize probabilities for different group sizes
+        viewportGroupSizeProbabilityMap.put(1, 1);
+        viewportGroupSizeProbabilityMap.put(2, 3);
+        viewportGroupSizeProbabilityMap.put(3, 6);
+        viewportGroupSizeProbabilityMap.put(4, 6);
+        viewportGroupSizeProbabilityMap.put(5, 3);
+        viewportGroupSizeProbabilityMap.put(6, 2);
+    }
+
+    private static void initializeRadiusProbabilityMap(){
+        radiusProbabilityMap.put(1, 3);
+        radiusProbabilityMap.put(2, 6);
+        radiusProbabilityMap.put(3, 6);
+        radiusProbabilityMap.put(4, 3);
+        radiusProbabilityMap.put(5, 1);
+        radiusProbabilityMap.put(6, 1);
+        radiusProbabilityMap.put(7, 1);
+        radiusProbabilityMap.put(8, 1);
+
+    }
+
+    private static void initializeAngleProbabilityMap(){
+        angleProbabilityMap.put(0, 5);
+        angleProbabilityMap.put(30, 2);
+        angleProbabilityMap.put(45, 4);
+        angleProbabilityMap.put(60, 2);
+        angleProbabilityMap.put(90, 5);
+    }
 
 
 
