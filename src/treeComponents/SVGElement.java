@@ -15,7 +15,7 @@ public abstract class SVGElement {
     Double width;
     Double height;
 
-    public abstract SVGElement generate();
+    public abstract void generate();
 
     public abstract Element draw(Document document);
     public void setAttributes(Element element){
@@ -25,6 +25,7 @@ public abstract class SVGElement {
         element.setAttributeNS(null, Strings.HEIGHT, Parsers.DoubleToStringPercent(this.getHeight()));
     }
 
+    public SVGElement(){}
     public SVGElement(Double x, Double y, Double width, Double height) {
         this.x = x;
         this.y = y;

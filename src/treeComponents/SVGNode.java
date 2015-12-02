@@ -12,7 +12,7 @@ public abstract class SVGNode extends SVGElement {
 
     protected Integer level;
 
-    public abstract SVGElement generate();
+    public abstract void generate();
     public static SVGNode generateRandomFirstNode(Integer n){
         SVGNode svgNode;
         if (n<10)
@@ -30,6 +30,7 @@ public abstract class SVGNode extends SVGElement {
         return element;
     }
 
+    public SVGNode(){}
     public SVGNode(Double x, Double y, Double width, Double height, Integer level) {
         super(x, y, width, height);
         this.level = level;

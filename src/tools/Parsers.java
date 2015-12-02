@@ -14,6 +14,10 @@ public class Parsers {
         return val.toString();
     }
 
+    public static Double IntegerPercentToDouble(Integer val){
+        return val.doubleValue() * 0.01;
+    }
+
 
 
 }

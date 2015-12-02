@@ -1,5 +1,6 @@
 package treeComponents;
 
+import evolution.LayoutFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -10,10 +11,12 @@ import java.util.LinkedList;
  */
 public class SVGViewport extends SVGNode {
 
-    LinkedList<SVGNode> children;
+    private LinkedList<SVGNode> children;
 
     @Override
-    public SVGElement generate() {
+    public void generate() {
+        children = new LinkedList<>();
+//        LayoutFactory.getRandomNode(this.level);
     }
 
     @Override
@@ -24,6 +27,7 @@ public class SVGViewport extends SVGNode {
         return element;
     }
 
+    public SVGViewport(){}
     public SVGViewport(Double x, Double y, Double width, Double height, Integer level) {
         super(x, y, width, height, level);
     }
