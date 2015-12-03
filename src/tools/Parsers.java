@@ -23,7 +23,7 @@ public class Parsers {
     }
 
     public static Integer DoubleToInteger(Double val){
-        return (int)Math.round(val);
+        return (int)Math.round(Math.floor(val+1.0));
     }
 
 

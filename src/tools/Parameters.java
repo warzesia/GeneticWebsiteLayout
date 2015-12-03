@@ -188,10 +188,10 @@ public class Parameters {
     }
 
     private static void initializeRadiusProbabilityMap(){
-        radiusProbabilityMap.put(1, 3);
-        radiusProbabilityMap.put(2, 6);
+        radiusProbabilityMap.put(1, 0);
+        radiusProbabilityMap.put(2, 3);
         radiusProbabilityMap.put(3, 6);
-        radiusProbabilityMap.put(4, 3);
+        radiusProbabilityMap.put(4, 6);
         radiusProbabilityMap.put(5, 1);
         radiusProbabilityMap.put(6, 1);
         radiusProbabilityMap.put(7, 1);

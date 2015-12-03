@@ -16,17 +16,22 @@ import java.util.concurrent.ThreadLocalRandom;
 public class LayoutFactory {
 
     static public SVGElement getRandomDrawable(){
+        return new SVGRectangle(0.0, 0.0, 0.0, 0.0, "blue", 1.0, "white", 5, 1.0);
+    }
 
-        SVGRectangle rectangle = new SVGRectangle(0.25, 0.25, 0.5, 0.5);
+    static public SVGRectangle getBackgroundRectangle(){
+        return new SVGRectangle(0.0, 0.0, 1.0, 1.0, "blue", 1.0, "white", 5, 1.0);
+    }
+
+    static public String getRandomColor(){
         // Will produce a random colour with more red in it (usually "pink-ish")
         float r = ThreadLocalRandom.current().nextFloat();
         float g = ThreadLocalRandom.current().nextFloat() / 2f;
         float b = ThreadLocalRandom.current().nextFloat() / 2f;
         Color color = new Color(r, g, b);
 
-        rectangle.setFillColour(color.toString());
-        return rectangle;
-
+        //rgb(0,0,255)
+        return "rgb(" + color.getRed() + "," + color.getGreen() + "," + color.getBlue() + ")";
     }
 
     static public LinkedList<SVGNode> getRandomlyPlacedNodes(Integer parentLevel, Boolean twin){
@@ -37,8 +42,8 @@ public class LayoutFactory {
 
         if(twin){
             Double radius = getRandomRadius();
-            Integer xUnits = Parsers.DoubleToInteger(Math.cos(angle) * radius);
-            Integer yUnits = Parsers.DoubleToInteger(Math.sin(angle) * radius);
+            Integer xUnits = Parsers.DoubleToInteger(Math.abs(Math.cos(angle)) * radius);
+            Integer yUnits = Parsers.DoubleToInteger(Math.abs(Math.sin(angle)) * radius);
 
             Double lineCutX = 1.0 / xUnits;
             Double lineCutY = 1.0 / yUnits;

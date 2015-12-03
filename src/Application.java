@@ -12,16 +12,18 @@ public class Application {
 
     public static void main(String[] args) {
 
-//        Population population = new Population();
-//        population.generate(Params.POPULATION_SIZE);
+        Population population = new Population();
+        population.generate(Params.POPULATION_SIZE);
 
         SVGNode rootNode = LayoutFactory.getRandomNode(0.0, 0.0, 1.0, 1.0, 0);
         rootNode.generate();
 
-//        SVGCreator svgCreator = new SVGCreator();
-//        svgCreator.fillWithTestContent("red");
-//
-//        MainView.setSVGDocument(svgCreator.getSVGDocument());
+        SVGCreator svgCreator = new SVGCreator();
+        svgCreator.drawSVGTree(rootNode);
+
+        MainView.setSVGDocument(svgCreator.getSVGDocument());
+
+        System.out.println(LayoutFactory.getRandomColor());
 
 
     }

@@ -4,6 +4,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import tools.Parsers;
 import tools.Strings;
+import treeComponents.drawable.SVGRectangle;
 
 /**
  * Created by warzesia on 29/11/15.
