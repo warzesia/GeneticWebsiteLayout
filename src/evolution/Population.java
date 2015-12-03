@@ -13,7 +13,9 @@ public class Population {
 
     public void generate(Integer populationSize){
         while (populationSize > 0){
-            chromosomes.add(SVGNode.generateRandomFirstNode(15));
+
+
+            //chromosomes.add(SVGNode.generateRandomFirstNode(15));
             populationSize--;
         }
 

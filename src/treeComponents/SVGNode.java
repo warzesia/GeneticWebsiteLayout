@@ -14,20 +14,11 @@ public abstract class SVGNode extends SVGElement {
 
     public abstract SVGNode copyWithDifferentPlacement(Double x, Double y, Double width, Double height);
     public abstract void generate();
-    public static SVGNode generateRandomFirstNode(Integer n){
-        SVGNode svgNode;
-        if (n<10)
-            svgNode = new SVGLeaf(0.0, 0.0, 1.0, 1.0, 0);
-        else
-            svgNode = new SVGViewport(0.0, 0.0, 1.0, 1.0, 0);
-        svgNode.generate();
-        return svgNode;
-    }
 
     @Override
     public Element draw(Document document) {
         Element element = document.createElementNS(Constants.SVG_NAMESPACE, Strings.SVG);
-        super.setAttributes(element);
+        setAttributes(element);
         return element;
     }
 

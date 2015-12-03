@@ -10,6 +10,8 @@ import java.util.Map;
  */
 public class Parameters {
 
+    public static final Integer MAX_SVG_TREE_DEPTH = 5;
+
     private static Map<NodeType, Integer> nodeTypeProbabilityMap = new HashMap<>();
     private static Map<Ratio, Integer> ratioProbabilityMap = new HashMap<>();
     private static Map<Integer, Integer> viewportSizeProbabilityMap = new HashMap<>();
@@ -156,9 +158,9 @@ public class Parameters {
 
     private static void initializeNodeTypeProbabilityMap(){
         //initialize probabilities for different node types
-        nodeTypeProbabilityMap.put(NodeType.LEAF, 3);
-        nodeTypeProbabilityMap.put(NodeType.VIEWPORT, 5);
-        nodeTypeProbabilityMap.put(NodeType.VIEWPORT_GROUP, 1);
+        nodeTypeProbabilityMap.put(NodeType.LEAF, 1);
+        nodeTypeProbabilityMap.put(NodeType.VIEWPORT, 2);
+        nodeTypeProbabilityMap.put(NodeType.VIEWPORT_GROUP, 0); //TODO: check whats happening
     }
 
     private static void initializeRatioProbabilityMap(){

@@ -24,7 +24,9 @@ public class SVGViewport extends SVGNode {
     @Override
     public void generate() {
         children = LayoutFactory.getRandomlyPlacedNodes(this.level, false);
-        children.forEach(treeComponents.SVGNode::generate);
+        for(SVGNode child: children)
+            child.generate();
+        //children.forEach(treeComponents.SVGNode::generate);
     }
 
     @Override

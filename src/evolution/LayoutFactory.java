@@ -4,7 +4,9 @@ import tools.NodeType;
 import tools.Parameters;
 import tools.Parsers;
 import treeComponents.*;
+import treeComponents.drawable.SVGRectangle;
 
+import java.awt.*;
 import java.util.LinkedList;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -14,7 +16,17 @@ import java.util.concurrent.ThreadLocalRandom;
 public class LayoutFactory {
 
     static public SVGElement getRandomDrawable(){
-        return null;
+
+        SVGRectangle rectangle = new SVGRectangle(0.25, 0.25, 0.5, 0.5);
+        // Will produce a random colour with more red in it (usually "pink-ish")
+        float r = ThreadLocalRandom.current().nextFloat();
+        float g = ThreadLocalRandom.current().nextFloat() / 2f;
+        float b = ThreadLocalRandom.current().nextFloat() / 2f;
+        Color color = new Color(r, g, b);
+
+        rectangle.setFillColour(color.toString());
+        return rectangle;
+
     }
 
     static public LinkedList<SVGNode> getRandomlyPlacedNodes(Integer parentLevel, Boolean twin){
@@ -61,15 +73,20 @@ public class LayoutFactory {
 
 
 
-    static private SVGNode getRandomNode(Double x, Double y, Double width, Double height, Integer parentLevel){
-        NodeType nodeType = Parameters.nodeTypeProbabilityList.
-                get(ThreadLocalRandom.current().nextInt(Parameters.nodeTypeProbabilityList.size()));
+    public static SVGNode getRandomNode(Double x, Double y, Double width, Double height, Integer parentLevel){
+
+
+        Integer childLevel = parentLevel+1;
+
+        //the limit
+        NodeType nodeType = (childLevel.equals(Parameters.MAX_SVG_TREE_DEPTH)) ?
+                NodeType.LEAF : getRandomNodeType();
 
         switch (nodeType) {
-            case LEAF: return new SVGLeaf(x, y, width, height, parentLevel);
-            case VIEWPORT: return new SVGViewport(x, y, width, height, parentLevel);
-            case VIEWPORT_GROUP: return new SVGViewportGroup(x, y, width, height, parentLevel);
-            default: return new SVGLeaf(x, y, width, height, parentLevel);
+            case LEAF: return new SVGLeaf(x, y, width, height, childLevel);
+            case VIEWPORT: return new SVGViewport(x, y, width, height, childLevel);
+            case VIEWPORT_GROUP: return new SVGViewportGroup(x, y, width, height, childLevel);
+            default: return new SVGLeaf(x, y, width, height, childLevel);
         }
 
     }
@@ -95,6 +112,11 @@ public class LayoutFactory {
                 Parameters.angleProbabilityList.
                         get(ThreadLocalRandom.current().nextInt(Parameters.angleProbabilityList.size()))
         );
+    }
+
+    private static NodeType getRandomNodeType(){
+        return Parameters.nodeTypeProbabilityList.
+                get(ThreadLocalRandom.current().nextInt(Parameters.nodeTypeProbabilityList.size()));
     }
 
 

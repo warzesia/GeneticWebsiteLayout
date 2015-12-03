@@ -21,7 +21,7 @@ public class SVGRectangle extends SVGElement {
     @Override
     public Element draw(Document document) {
         Element element = document.createElementNS(Constants.SVG_NAMESPACE, Strings.RECTANGLE);
-        super.setAttributes(element);
+        setAttributes(element);
         element.setAttributeNS(null, Strings.FILL, this.getFillColour());
         return element;
     }
