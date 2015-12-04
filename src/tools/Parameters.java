@@ -10,7 +10,7 @@ import java.util.Map;
  */
 public class Parameters {
 
-    public static final Integer MAX_SVG_TREE_DEPTH = 5;
+    public static final Integer MAX_SVG_TREE_DEPTH = 3;
 
     private static Map<NodeType, Integer> nodeTypeProbabilityMap = new HashMap<>();
     private static Map<Ratio, Integer> ratioProbabilityMap = new HashMap<>();
@@ -134,15 +134,15 @@ public class Parameters {
 
     private static void initializeLineCutProbabilityMap(){
 
-        for (Integer i = 0; i < 25; i++)
-            Parameters.lineCutProbabilityMap.put(i, i);
+//        for (Integer i = 0; i < 25; i++)
+//            Parameters.lineCutProbabilityMap.put(i, i);
         for (Integer i = 25; i < 50; i++)
             Parameters.lineCutProbabilityMap.put(i, 50 - i);
         Parameters.lineCutProbabilityMap.put(50, 25);
         for (Integer i = 51; i < 75; i++)
             Parameters.lineCutProbabilityMap.put(i, i - 50);
-        for (Integer i = 75; i < 100; i++)
-            Parameters.lineCutProbabilityMap.put(i, 100 - i);
+//        for (Integer i = 75; i < 100; i++)
+//            Parameters.lineCutProbabilityMap.put(i, 100 - i);
 
 
 //        Integer p;
@@ -158,9 +158,9 @@ public class Parameters {
 
     private static void initializeNodeTypeProbabilityMap(){
         //initialize probabilities for different node types
-        nodeTypeProbabilityMap.put(NodeType.LEAF, 1);
-        nodeTypeProbabilityMap.put(NodeType.VIEWPORT, 2);
-        nodeTypeProbabilityMap.put(NodeType.VIEWPORT_GROUP, 0); //TODO: check whats happening
+        nodeTypeProbabilityMap.put(NodeType.LEAF, 2);
+        nodeTypeProbabilityMap.put(NodeType.VIEWPORT, 3);
+        nodeTypeProbabilityMap.put(NodeType.VIEWPORT_GROUP, 1); //TODO: check whats happening
     }
 
     private static void initializeRatioProbabilityMap(){
@@ -208,7 +208,31 @@ public class Parameters {
     }
 
 
+    public static Map<NodeType, Integer> getNodeTypeProbabilityMap() {
+        return nodeTypeProbabilityMap;
+    }
 
+    public static Map<Ratio, Integer> getRatioProbabilityMap() {
+        return ratioProbabilityMap;
+    }
 
+    public static Map<Integer, Integer> getViewportSizeProbabilityMap() {
+        return viewportSizeProbabilityMap;
+    }
 
+    public static Map<Integer, Integer> getViewportGroupSizeProbabilityMap() {
+        return viewportGroupSizeProbabilityMap;
+    }
+
+    public static Map<Integer, Integer> getLineCutProbabilityMap() {
+        return lineCutProbabilityMap;
+    }
+
+    public static Map<Integer, Integer> getRadiusProbabilityMap() {
+        return radiusProbabilityMap;
+    }
+
+    public static Map<Integer, Integer> getAngleProbabilityMap() {
+        return angleProbabilityMap;
+    }
 }

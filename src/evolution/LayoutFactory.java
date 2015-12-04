@@ -15,6 +15,10 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class LayoutFactory {
 
+    static public SVGNode getRandomRootNode(){
+        return getRandomNode(0.0, 0.0, 1.0, 1.0, 0);
+    }
+
     static public SVGElement getRandomDrawable(){
         return new SVGRectangle(0.0, 0.0, 0.0, 0.0, "blue", 1.0, "white", 5, 1.0);
     }
@@ -34,44 +38,46 @@ public class LayoutFactory {
         return "rgb(" + color.getRed() + "," + color.getGreen() + "," + color.getBlue() + ")";
     }
 
+
+    static public LinkedList<SVGNode> getRandomlyPlacedTwinChildren(SVGNode twinChild){
+
+        LinkedList<SVGNode> nodes = new LinkedList<>();
+        Double angle = getRandomAngle();
+        Double radius = getRandomRadius();
+        Integer xUnits = Parsers.DoubleToInteger(Math.abs(Math.cos(angle)) * radius);
+        Integer yUnits = Parsers.DoubleToInteger(Math.abs(Math.sin(angle)) * radius);
+
+        Double lineCutX = 1.0 / xUnits;
+        Double lineCutY = 1.0 / yUnits;
+
+        for(int x=0; x<xUnits; x++)
+            for(int y=0; y<yUnits; y++)
+                nodes.add(twinChild.copyWithDifferentPlacement(lineCutX*x, lineCutY*y, lineCutX, lineCutY));
+
+        return nodes;
+    }
+
     static public LinkedList<SVGNode> getRandomlyPlacedNodes(Integer parentLevel, Boolean twin){
 
         LinkedList<SVGNode> nodes = new LinkedList<>();
-
         Double angle = getRandomAngle();
+        Double lineCutX = getRandomCut();
+        Double lineCutY = getRandomCut();
 
-        if(twin){
-            Double radius = getRandomRadius();
-            Integer xUnits = Parsers.DoubleToInteger(Math.abs(Math.cos(angle)) * radius);
-            Integer yUnits = Parsers.DoubleToInteger(Math.abs(Math.sin(angle)) * radius);
+        //Let's let the radius decide whether the viewport is gonna be cut horizontally, vertically or into 4
+        if(angle<45){
+            nodes.add(LayoutFactory.getRandomNode(0.0, 0.0, lineCutX, 1.0, parentLevel));
+            nodes.add(LayoutFactory.getRandomNode(lineCutX, 0.0, 1.0-lineCutX, 1.0, parentLevel));
 
-            Double lineCutX = 1.0 / xUnits;
-            Double lineCutY = 1.0 / yUnits;
+        } else if (angle==45) {
+            nodes.add(LayoutFactory.getRandomNode(0.0, 0.0, lineCutX, lineCutY, parentLevel));
+            nodes.add(LayoutFactory.getRandomNode(lineCutX, 0.0, 1.0-lineCutX, lineCutY, parentLevel));
+            nodes.add(LayoutFactory.getRandomNode(0.0, lineCutY, lineCutX, 1.0-lineCutY, parentLevel));
+            nodes.add(LayoutFactory.getRandomNode(lineCutX, lineCutY, 1.0-lineCutX, 1.0-lineCutY, parentLevel));
 
-            SVGNode twinChild = LayoutFactory.getRandomNode(0.0, 0.0, 0.0, 0.0, parentLevel);
-            for(int x=0; x<xUnits; x++)
-                for(int y=0; y<yUnits; y++)
-                    nodes.add(twinChild.copyWithDifferentPlacement(lineCutX*x, lineCutY*y, lineCutX, lineCutY));
-
-        } else {
-            Double lineCutX = getRandomCut();
-            Double lineCutY = getRandomCut();
-
-            //Let's let the radius decide whether the viewport is gonna be cut horizontally, vertically or into 4
-            if(angle<45){
-                nodes.add(LayoutFactory.getRandomNode(0.0, 0.0, lineCutX, 1.0, parentLevel));
-                nodes.add(LayoutFactory.getRandomNode(lineCutX, 0.0, 1.0-lineCutX, 1.0, parentLevel));
-
-            } else if (angle==45) {
-                nodes.add(LayoutFactory.getRandomNode(0.0, 0.0, lineCutX, lineCutY, parentLevel));
-                nodes.add(LayoutFactory.getRandomNode(lineCutX, 0.0, 1.0-lineCutX, lineCutY, parentLevel));
-                nodes.add(LayoutFactory.getRandomNode(0.0, lineCutY, lineCutX, 1.0-lineCutY, parentLevel));
-                nodes.add(LayoutFactory.getRandomNode(lineCutX, lineCutY, 1.0-lineCutX, 1.0-lineCutY, parentLevel));
-
-            } else if (angle>45){
-                nodes.add(LayoutFactory.getRandomNode(0.0, 0.0, 1.0, lineCutY, parentLevel));
-                nodes.add(LayoutFactory.getRandomNode(0.0, lineCutY, 1.0, 1.0-lineCutY, parentLevel));
-            }
+        } else if (angle>45){
+            nodes.add(LayoutFactory.getRandomNode(0.0, 0.0, 1.0, lineCutY, parentLevel));
+            nodes.add(LayoutFactory.getRandomNode(0.0, lineCutY, 1.0, 1.0-lineCutY, parentLevel));
         }
         return nodes;
     }

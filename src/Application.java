@@ -15,15 +15,13 @@ public class Application {
         Population population = new Population();
         population.generate(Params.POPULATION_SIZE);
 
-        SVGNode rootNode = LayoutFactory.getRandomNode(0.0, 0.0, 1.0, 1.0, 0);
+        SVGNode rootNode = LayoutFactory.getRandomRootNode();
         rootNode.generate();
 
         SVGCreator svgCreator = new SVGCreator();
         svgCreator.drawSVGTree(rootNode);
 
         MainView.setSVGDocument(svgCreator.getSVGDocument());
-
-        System.out.println(LayoutFactory.getRandomColor());
 
 
     }

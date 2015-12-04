@@ -23,8 +23,9 @@ public class SVGViewportGroup extends SVGNode {
 
     @Override
     public void generate() {
-        twinChildren = LayoutFactory.getRandomlyPlacedNodes(this.level, true);
-        twinChildren.getFirst().generate();
+        SVGNode twinChild = LayoutFactory.getRandomNode(0.0, 0.0, 0.0, 0.0, this.level);
+        twinChild.generate();
+        twinChildren = LayoutFactory.getRandomlyPlacedTwinChildren(twinChild);
     }
 
     @Override
