@@ -20,7 +20,7 @@ public class Parameters {
     private static Map<Integer, Integer> radiusProbabilityMap = new HashMap<>();
     private static Map<Integer, Integer> angleProbabilityMap = new HashMap<>();
 
-    public static  ArrayList<NodeType> nodeTypeProbabilityList;
+    public static  ArrayList<NodeType> nodeTypeProbabilityList; // for Leaf = * LEVEL, for SVGViewport = / LEVEL
     public static  ArrayList<Ratio> ratioProbabilityList;
     public static  ArrayList<Integer> viewportSizeProbabilityList;
     public static  ArrayList<Integer> viewportGroupSizeProbabilityList;
@@ -32,7 +32,7 @@ public class Parameters {
 
     static {
         initializeNodeTypeProbabilityMap();
-        nodeTypeProbabilityList = getNodeTypeProbabilityList();
+//        nodeTypeProbabilityList = getNodeTypeProbabilityList();
 
         initializeRatioProbabilityMap();
         ratioProbabilityList = getRatioProbabilityList();
@@ -75,6 +75,28 @@ public class Parameters {
         while(valueTypeIterator.hasNext()){
             NodeType currValueType = valueTypeIterator.next();
             int p = nodeTypeProbabilityMap.get(currValueType);
+            while(p>0){
+                probabilityList.add(currValueType);
+                p--;
+            }
+        }
+        return probabilityList;
+    }
+
+    public static ArrayList<NodeType> getNodeTypeProbabilityList(Integer level){
+        ArrayList<NodeType> probabilityList = new ArrayList<>();
+
+        Iterator<NodeType> valueTypeIterator = nodeTypeProbabilityMap.keySet().iterator();
+        while(valueTypeIterator.hasNext()){
+            NodeType currValueType = valueTypeIterator.next();
+            int p;
+            if(currValueType.equals(NodeType.LEAF))
+                p = nodeTypeProbabilityMap.get(currValueType) * level;
+            else if (currValueType.equals(NodeType.VIEWPORT))
+                p = nodeTypeProbabilityMap.get(currValueType) / level;
+            else
+                p = nodeTypeProbabilityMap.get(currValueType) * Math.min(level, 1);
+
             while(p>0){
                 probabilityList.add(currValueType);
                 p--;
@@ -136,10 +158,10 @@ public class Parameters {
 
 //        for (Integer i = 0; i < 25; i++)
 //            Parameters.lineCutProbabilityMap.put(i, i);
-        for (Integer i = 25; i < 50; i++)
+        for (Integer i = 25; i < 35; i++)
             Parameters.lineCutProbabilityMap.put(i, 50 - i);
         Parameters.lineCutProbabilityMap.put(50, 25);
-        for (Integer i = 51; i < 75; i++)
+        for (Integer i = 65; i < 75; i++)
             Parameters.lineCutProbabilityMap.put(i, i - 50);
 //        for (Integer i = 75; i < 100; i++)
 //            Parameters.lineCutProbabilityMap.put(i, 100 - i);
@@ -158,9 +180,9 @@ public class Parameters {
 
     private static void initializeNodeTypeProbabilityMap(){
         //initialize probabilities for different node types
-        nodeTypeProbabilityMap.put(NodeType.LEAF, 2);
-        nodeTypeProbabilityMap.put(NodeType.VIEWPORT, 3);
-        nodeTypeProbabilityMap.put(NodeType.VIEWPORT_GROUP, 1); //TODO: check whats happening
+        nodeTypeProbabilityMap.put(NodeType.LEAF, 1);
+        nodeTypeProbabilityMap.put(NodeType.VIEWPORT, 6);
+        nodeTypeProbabilityMap.put(NodeType.VIEWPORT_GROUP, 2); //TODO: check whats happening
     }
 
     private static void initializeRatioProbabilityMap(){

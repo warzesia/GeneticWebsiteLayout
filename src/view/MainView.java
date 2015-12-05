@@ -22,37 +22,52 @@ import java.awt.event.WindowEvent;
  */
 public class MainView {
 
+    //***************************mainPanel*******************************************
+    //**                                                                           **
+    //**  _________layoutGenerationPanel_______     _________controlPanel________  **
+    //**  ||                                 ||     ||                         ||  **
+    //**  ||     ...svgCanvasPanel....       ||     ||   ....slidersPanel....  ||  **
+    //**  ||     .....................       ||     ||   ....................  ||  **
+    //**  ||                                 ||     ||   ....................  ||  **
+    //**  ||     ....buttonsPanel.....       ||     ||   ....................  ||  **
+    //**  ||     .....................       ||     ||   ....................  ||  **
+    //**  ||                                 ||     ||                         ||  **
+    //**  _____________________________________     _____________________________  **
+    //**                                                                           **
+    //*******************************************************************************
+
+
     public static final JFrame frame = new JFrame(Constants.APP_NAME);
 
     public static final JPanel mainPanel = new JPanel();
 
-    public static final JPanel SVGCanvasPanel = new JPanel();
+    /*****/public static final JPanel layoutGenerationPanel = new JPanel();
+    /*****//*****/public static final JPanel svgCanvasPanel = new JPanel();
+    /*****//*****/public static final JPanel buttonsPanel = new JPanel();
 
-    public static final JPanel ControlPanel = new JPanel();
-    public static final JPanel ButtonsPanel = new JPanel();
-    public static final JPanel SlidersPanel = new JPanel();
+    /*****/public static final JPanel controlPanel = new JPanel();
+    /*****//*****/public static final JPanel slidersPanel = new JPanel();
+    /*****//*****//*****/public static final JPanel leafPanel = new JPanel();
+    /*****//*****//*****/public static final JPanel viewportPanel = new JPanel();
+    /*****//*****//*****/public static final JPanel viewportGroupPanel = new JPanel();
 
 
     public static final JSVGCanvas svgCanvas= new JSVGCanvas();
     public static final JButton nextButton = new JButton();
 
-    public static JSlider SVGLeafSlider = new JSlider(JSlider.HORIZONTAL, 0, 10,
-            Parameters.getNodeTypeProbabilityMap().get(NodeType.LEAF));
-    public static JLabel SVGLeafLabel;
+    public static JSlider leafSlider;
+    public static JLabel leafLabel;
 
-    public static JSlider SVGViewportSlider = new JSlider(JSlider.HORIZONTAL, 0, 10,
-            Parameters.getNodeTypeProbabilityMap().get(NodeType.VIEWPORT));
-    public static JLabel SVGViewportLabel;
+    public static JSlider viewportSlider;
+    public static JLabel viewportLabel;
 
-    public static JSlider SVGViewportGroupSlider = new JSlider(JSlider.HORIZONTAL, 0, 10,
-            Parameters.getNodeTypeProbabilityMap().get(NodeType.VIEWPORT_GROUP));
-    public static JLabel SVGViewportGroupLabel;
+    public static JSlider viewportGroupSlider;
+    public static JLabel viewportGroupLabel;
 
     public static final JButton resetButton = new JButton();
 
 
     static {
-
         setupMainPanel();
 
         MainView.frame.add(mainPanel);
@@ -73,29 +88,30 @@ public class MainView {
 
     private static void setupMainPanel(){
         MainView.mainPanel.setLayout(new BorderLayout());
-        MainView.mainPanel.add("North", ButtonsPanel);
-        MainView.mainPanel.add("Center", SVGCanvasPanel);
-        MainView.mainPanel.add("South", ControlPanel);
-
-        setupButtonsPanel();
-        setupCanvasPanel();
+        MainView.mainPanel.add("West", MainView.layoutGenerationPanel);
+        MainView.mainPanel.add("East", MainView.controlPanel);
+        setupLayoutGenerationPanel();
         setupControlPanel();
     }
 
-    private static void setupCanvasPanel() {
-        MainView.SVGCanvasPanel.setSize(Constants.SVG_CANVAS_WIDTH, Constants.SVG_CANVAS_HEIGHT);
-        MainView.SVGCanvasPanel.add(svgCanvas);
+    private static void setupLayoutGenerationPanel(){
+        MainView.layoutGenerationPanel.setLayout(new BorderLayout());
+        MainView.layoutGenerationPanel.add("Center", MainView.svgCanvasPanel);
+        MainView.layoutGenerationPanel.add("South", MainView.buttonsPanel);
+        setupCanvasPanel();
+        setupButtonsPanel();
     }
 
-    private static void setupControlPanel(){
-        MainView.ControlPanel.setLayout(new FlowLayout());
-        MainView.ControlPanel.add(MainView.SlidersPanel);
-
-        setupSliderPanel();
+    private static void setupCanvasPanel() {
+        MainView.svgCanvasPanel.setSize(Constants.SVG_CANVAS_WIDTH, Constants.SVG_CANVAS_HEIGHT);
+        MainView.svgCanvasPanel.add(svgCanvas);
     }
 
     private static void setupButtonsPanel(){
+        MainView.buttonsPanel.setLayout(new BorderLayout());
+        MainView.buttonsPanel.add("Center", nextButton);
 
+        MainView.nextButton.setBackground(Color.GREEN);
         MainView.nextButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -107,63 +123,100 @@ public class MainView {
                 MainView.frame.setVisible(true);
             }
         });
-
-        MainView.nextButton.setBackground(Color.GREEN);
-        MainView.ButtonsPanel.setLayout(new BorderLayout());
-        MainView.ButtonsPanel.add("Center", nextButton);
     }
 
-    private static void setupSliderPanel(){
+    private static void setupControlPanel(){
 
-        MainView.SVGLeafLabel = new JLabel("SVGLeaf: ", JLabel.CENTER);
-        MainView.SVGLeafLabel.setSize(350, 100);
-        MainView.SVGLeafSlider.setMajorTickSpacing(1);
-        MainView.SVGLeafSlider.setPaintTicks(true);
-        MainView.SVGLeafSlider.addChangeListener(new ChangeListener() {
-            public void stateChanged(ChangeEvent e) {
-                SVGLeafLabel.setText("SVGLeaf:  " + ((JSlider) e.getSource()).getValue());
-            }
-        });
-
-        MainView.SVGViewportLabel = new JLabel("SVGLeaf: ", JLabel.CENTER);
-        MainView.SVGViewportLabel.setSize(350, 100);
-        MainView.SVGViewportSlider.setMajorTickSpacing(1);
-        MainView.SVGViewportSlider.setPaintTicks(true);
-        MainView.SVGViewportSlider.addChangeListener(new ChangeListener() {
-            public void stateChanged(ChangeEvent e) {
-                SVGViewportLabel.setText("SVGVewport:  " + ((JSlider) e.getSource()).getValue());
-            }
-        });
-
-        MainView.SVGViewportGroupLabel = new JLabel("SVGLeaf: ", JLabel.CENTER);
-        MainView.SVGViewportGroupLabel.setSize(350, 100);
-        MainView.SVGViewportGroupSlider.setMajorTickSpacing(1);
-        MainView.SVGViewportGroupSlider.setPaintTicks(true);
-        MainView.SVGViewportGroupSlider.addChangeListener(new ChangeListener() {
-            public void stateChanged(ChangeEvent e) {
-                SVGViewportGroupLabel.setText("SVGVewportGroup:  " + ((JSlider) e.getSource()).getValue());
-            }
-        });
+        MainView.controlPanel.setLayout(new BorderLayout());
+        MainView.controlPanel.add("Center", MainView.slidersPanel);
+        MainView.controlPanel.add("South", MainView.resetButton);
 
         MainView.resetButton.setBackground(Color.GREEN);
-        MainView.resetButton.setText("RESET PROBABILITY");
+        MainView.resetButton.setText("RESET PROBABILITIES");
         MainView.resetButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Parameters.updateNodeTypeProbabilityMap(NodeType.LEAF, SVGLeafSlider.getValue());
-                Parameters.updateNodeTypeProbabilityMap(NodeType.VIEWPORT, SVGViewportSlider.getValue());
-                Parameters.updateNodeTypeProbabilityMap(NodeType.VIEWPORT_GROUP, SVGViewportGroupSlider.getValue());
+                Parameters.updateNodeTypeProbabilityMap(NodeType.LEAF, leafSlider.getValue());
+                Parameters.updateNodeTypeProbabilityMap(NodeType.VIEWPORT, viewportSlider.getValue());
+                Parameters.updateNodeTypeProbabilityMap(NodeType.VIEWPORT_GROUP, viewportGroupSlider.getValue());
             }
         });
 
+        setupSlidersPanel();
+    }
 
-        MainView.SlidersPanel.add(SVGLeafSlider);
-        MainView.SlidersPanel.add(SVGLeafLabel);
-        MainView.SlidersPanel.add(SVGViewportSlider);
-        MainView.SlidersPanel.add(SVGViewportLabel);
-        MainView.SlidersPanel.add(SVGViewportGroupSlider);
-        MainView.SlidersPanel.add(SVGViewportGroupLabel);
-        MainView.SlidersPanel.add(resetButton);
+
+    private static void setupSlidersPanel(){
+
+        setupSliders();
+
+        MainView.slidersPanel.setLayout(new GridLayout(3, 1));
+        MainView.slidersPanel.add(leafPanel);
+        MainView.slidersPanel.add(viewportPanel);
+        MainView.slidersPanel.add(viewportGroupPanel);
+
+        MainView.leafPanel.setSize(50, 20);
+        MainView.leafPanel.setLayout(new BorderLayout());
+        MainView.leafPanel.add("South", leafSlider);
+        MainView.leafPanel.add("North", leafLabel);
+
+        MainView.viewportPanel.setSize(50, 20);
+        MainView.viewportPanel.setLayout(new BorderLayout());
+        MainView.viewportPanel.add("South", viewportSlider);
+        MainView.viewportPanel.add("North", viewportLabel);
+
+        MainView.viewportGroupPanel.setSize(50, 20);
+        MainView.viewportGroupPanel.setLayout(new BorderLayout());
+        MainView.viewportGroupPanel.add("South", viewportGroupSlider);
+        MainView.viewportGroupPanel.add("North", viewportGroupLabel);
+
+    }
+
+    private static void setupSliders(){
+
+        MainView.leafLabel = new JLabel();
+        MainView.leafLabel.setSize(350, 100);
+
+        MainView.leafSlider = new JSlider(JSlider.HORIZONTAL, 0, 10,
+                Parameters.getNodeTypeProbabilityMap().get(NodeType.LEAF));
+//        MainView.leafSlider.setToolTipText("Leaf.");
+        MainView.leafSlider.setName("Leaf.");
+        MainView.leafSlider.setMajorTickSpacing(1);
+        MainView.leafSlider.setPaintTicks(true);
+        MainView.leafSlider.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                leafLabel.setText("" + ((JSlider) e.getSource()).getValue());
+            }
+        });
+
+        MainView.viewportLabel = new JLabel();
+        MainView.viewportLabel.setSize(350, 100);
+
+        MainView.viewportSlider = new JSlider(JSlider.HORIZONTAL, 0, 10,
+                Parameters.getNodeTypeProbabilityMap().get(NodeType.VIEWPORT));
+        MainView.viewportSlider.setToolTipText("Viewport.");
+        MainView.viewportSlider.setMajorTickSpacing(1);
+        MainView.viewportSlider.setPaintTicks(true);
+        MainView.viewportSlider.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                viewportLabel.setText("" + ((JSlider) e.getSource()).getValue());
+            }
+        });
+
+        MainView.viewportGroupLabel = new JLabel();
+        MainView.viewportGroupLabel.setSize(350, 100);
+
+        MainView.viewportGroupSlider = new JSlider(JSlider.HORIZONTAL, 0, 10,
+                Parameters.getNodeTypeProbabilityMap().get(NodeType.VIEWPORT_GROUP));
+        MainView.viewportGroupSlider.setToolTipText("Viewport Group.");
+        MainView.viewportGroupSlider.setMajorTickSpacing(1);
+        MainView.viewportGroupSlider.setPaintTicks(true);
+        MainView.viewportGroupSlider.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                viewportGroupLabel.setText("" + ((JSlider) e.getSource()).getValue());
+            }
+        });
+
     }
 
 }

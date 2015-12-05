@@ -7,6 +7,7 @@ import treeComponents.*;
 import treeComponents.drawable.SVGRectangle;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -91,7 +92,7 @@ public class LayoutFactory {
 
         //the limit
         NodeType nodeType = (childLevel.equals(Parameters.MAX_SVG_TREE_DEPTH)) ?
-                NodeType.LEAF : getRandomNodeType();
+                NodeType.LEAF : getRandomNodeType(childLevel);
 
         switch (nodeType) {
             case LEAF: return new SVGLeaf(x, y, width, height, childLevel);
@@ -125,9 +126,9 @@ public class LayoutFactory {
         );
     }
 
-    private static NodeType getRandomNodeType(){
-        return Parameters.nodeTypeProbabilityList.
-                get(ThreadLocalRandom.current().nextInt(Parameters.nodeTypeProbabilityList.size()));
+    private static NodeType getRandomNodeType(Integer level){
+        ArrayList<NodeType> probabilityList = Parameters.getNodeTypeProbabilityList(level);
+        return probabilityList.get(ThreadLocalRandom.current().nextInt(probabilityList.size()));
     }
 
 
