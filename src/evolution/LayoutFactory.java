@@ -4,9 +4,7 @@ import tools.NodeType;
 import tools.Parameters;
 import tools.Parsers;
 import treeComponents.*;
-import treeComponents.drawable.SVGRectangle;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.concurrent.ThreadLocalRandom;
@@ -18,44 +16,6 @@ public class LayoutFactory {
 
     static public SVGNode getRandomRootNode(){
         return getRandomNode(0.0, 0.0, 1.0, 1.0, 0);
-    }
-
-    static public SVGElement getRandomDrawable(){
-        return new SVGRectangle(0.0, 0.0, 0.0, 0.0, "blue", 1.0, "white", 5, 1.0);
-    }
-
-    static public SVGRectangle getBackgroundRectangle(){
-        return new SVGRectangle(0.0, 0.0, 1.0, 1.0, "blue", 1.0, "white", 5, 1.0);
-    }
-
-    static public String getRandomColor(){
-        // Will produce a random colour with more red in it (usually "pink-ish")
-        float r = ThreadLocalRandom.current().nextFloat();
-        float g = ThreadLocalRandom.current().nextFloat() / 2f;
-        float b = ThreadLocalRandom.current().nextFloat() / 2f;
-        Color color = new Color(r, g, b);
-
-        //rgb(0,0,255)
-        return "rgb(" + color.getRed() + "," + color.getGreen() + "," + color.getBlue() + ")";
-    }
-
-
-    static public LinkedList<SVGNode> getRandomlyPlacedTwinChildren(SVGNode twinChild){
-
-        LinkedList<SVGNode> nodes = new LinkedList<>();
-        Double angle = getRandomAngle();
-        Double radius = getRandomRadius();
-        Integer xUnits = Parsers.DoubleToInteger(Math.abs(Math.cos(angle)) * radius);
-        Integer yUnits = Parsers.DoubleToInteger(Math.abs(Math.sin(angle)) * radius);
-
-        Double lineCutX = 1.0 / xUnits;
-        Double lineCutY = 1.0 / yUnits;
-
-        for(int x=0; x<xUnits; x++)
-            for(int y=0; y<yUnits; y++)
-                nodes.add(twinChild.copyWithDifferentPlacement(lineCutX*x, lineCutY*y, lineCutX, lineCutY));
-
-        return nodes;
     }
 
     static public LinkedList<SVGNode> getRandomlyPlacedNodes(Integer parentLevel, Boolean twin){
@@ -83,11 +43,7 @@ public class LayoutFactory {
         return nodes;
     }
 
-
-
     public static SVGNode getRandomNode(Double x, Double y, Double width, Double height, Integer parentLevel){
-
-
         Integer childLevel = parentLevel+1;
 
         //the limit
@@ -104,13 +60,13 @@ public class LayoutFactory {
     }
 
 
-
     private static Double getRandomCut(){
         return Parsers.IntegerPercentToDouble(
                 Parameters.lineCutProbabilityList.
                         get(ThreadLocalRandom.current().nextInt(Parameters.lineCutProbabilityList.size()))
         );
     }
+
 
     private static Double getRandomRadius(){
         return Parsers.IntegerToDouble(
@@ -126,11 +82,40 @@ public class LayoutFactory {
         );
     }
 
+    static public LinkedList<SVGNode> getRandomlyPlacedTwinChildren(SVGNode twinChild){
+
+        LinkedList<SVGNode> nodes = new LinkedList<>();
+        Double angle = getRandomAngle();
+        Double radius = getRandomRadius();
+        Integer xUnits = Parsers.DoubleToInteger(Math.abs(Math.cos(angle)) * radius);
+        Integer yUnits = Parsers.DoubleToInteger(Math.abs(Math.sin(angle)) * radius);
+
+        Double lineCutX = 1.0 / xUnits;
+        Double lineCutY = 1.0 / yUnits;
+
+        for(int x=0; x<xUnits; x++)
+            for(int y=0; y<yUnits; y++)
+                nodes.add(twinChild.copyWithDifferentPlacement(lineCutX*x, lineCutY*y, lineCutX, lineCutY));
+
+        return nodes;
+    }
+
     private static NodeType getRandomNodeType(Integer level){
         ArrayList<NodeType> probabilityList = Parameters.getNodeTypeProbabilityList(level);
         return probabilityList.get(ThreadLocalRandom.current().nextInt(probabilityList.size()));
     }
 
+
+//    static public String getRandomColor(){
+//        // Will produce a random colour with more red in it (usually "pink-ish")
+//        float r = ThreadLocalRandom.current().nextFloat();
+//        float g = ThreadLocalRandom.current().nextFloat() / 2f;
+//        float b = ThreadLocalRandom.current().nextFloat() / 2f;
+//        Color color = new Color(r, g, b);
+//
+//        //rgb(0,0,255)
+//        return "rgb(" + color.getRed() + "," + color.getGreen() + "," + color.getBlue() + ")";
+//    }
 
 //    private static Ratio getRandomRatio(){
 //        return Parameters.ratioProbabilityList.

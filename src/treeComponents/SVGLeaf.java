@@ -1,6 +1,6 @@
 package treeComponents;
 
-import evolution.LayoutFactory;
+import evolution.ElementFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import tools.Parsers;
@@ -15,7 +15,7 @@ public class SVGLeaf extends SVGNode {
     //generate to przypisanie wartości dla pól które posiada węzeł
     @Override
     public void generate() {
-        contentElement = LayoutFactory.getRandomDrawable();
+        contentElement = ElementFactory.getRandomDrawable();
     }
 
     @Override

@@ -1,6 +1,6 @@
 package treeComponents;
 
-import evolution.LayoutFactory;
+import evolution.ElementFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import tools.Constants;
@@ -13,7 +13,7 @@ import treeComponents.drawable.SVGRectangle;
  */
 public abstract class SVGNode extends SVGElement {
 
-    SVGRectangle backgroungRectangle = LayoutFactory.getBackgroundRectangle();
+    SVGRectangle backgroundRectangle = ElementFactory.getBackgroundRectangle();
     protected Integer level;
 
     public abstract SVGNode copyWithDifferentPlacement(Double x, Double y, Double width, Double height);
@@ -22,7 +22,7 @@ public abstract class SVGNode extends SVGElement {
     @Override
     public Element draw(Document document) {
         Element element = document.createElementNS(Constants.SVG_NAMESPACE, Strings.SVG);
-        element.appendChild(backgroungRectangle.draw(document));
+        element.appendChild(backgroundRectangle.draw(document));
         setAttributes(element);
         return element;
     }
