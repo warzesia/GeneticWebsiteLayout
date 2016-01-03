@@ -22,11 +22,11 @@ public class ElementFactory {
         switch (elementType) {
             case IMAGE: {
                 String href = Parsers.UriToHrefUri(getRandomImage());
-                return new SVGImage(0.0, 0.0, 1.0, 1.0, href);
+                return new SVGImage(0.1, 0.1, 0.8, 0.8, href);
             }
-            case RECTANGLE: return new SVGRectangle(0.0, 0.0, 1.0, 1.0, "green", 1.0, "white", 5, 1.0);
+            case RECTANGLE: return new SVGRectangle(0.1, 0.1, 0.8, 0.8, "green", 1.0, "white", 5, 1.0);
 //            case TEXT: return new SVGViewportGroup(x, y, width, height, childLevel);
-            default: return new SVGRectangle(0.0, 0.0, 1.0, 1.0, "green", 1.0, "white", 5, 1.0);
+            default: return new SVGRectangle(0.1, 0.1, 0.8, 0.8, "green", 1.0, "white", 5, 1.0);
         }
     }
 

@@ -200,7 +200,7 @@ public class Parameters {
         //initialize probabilities for different node types
         nodeTypeProbabilityMap.put(NodeType.LEAF, 1);
         nodeTypeProbabilityMap.put(NodeType.VIEWPORT, 6);
-        nodeTypeProbabilityMap.put(NodeType.VIEWPORT_GROUP, 2);
+        nodeTypeProbabilityMap.put(NodeType.VIEWPORT_GROUP, 0);
     }
 
     private static void initializeElementTypeProbabilityMap(){

@@ -11,7 +11,7 @@ import treeComponents.SVGElement;
  */
 public class SVGImage extends SVGElement {
 
-    String preserveAspectRatio = "xMidYMid slice";
+    String preserveAspectRatio = "xMidYMid meet";
     String href;
 
 
@@ -24,9 +24,9 @@ public class SVGImage extends SVGElement {
         return element;
     }
 
-    public String toString(){
-        return super.toString() + getHref();
-    }
+//    public String toString(){
+//        return super.toString() + getHref();
+//    }
 
     public SVGImage(Double x, Double y, Double width, Double height) {
         super(x, y, width, height);
