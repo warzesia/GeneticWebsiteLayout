@@ -38,6 +38,10 @@ public class Parsers {
         return name.substring(name.lastIndexOf(".") + 1);
     }
 
+    public static String UriToHrefUri(String uri){
+        return "file://" + uri;
+    }
+
 
 
 }

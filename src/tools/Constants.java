@@ -3,6 +3,7 @@ package tools;
 import org.apache.batik.dom.svg12.SVG12DOMImplementation;
 
 import java.awt.*;
+import java.io.File;
 
 /**
  * Created by warzesia on 30/11/15.
@@ -28,5 +29,15 @@ public class Constants {
     static public final String SVG_ROOT_HEIGHT = Integer.toString(SVG_CANVAS_HEIGHT);
 
     static public final String APP_NAME = "Genetic website layout.";
+
+    static public final String RESOURCE_IMAGES_DIR = "/images";
+    static public final String RESOURCE_IMAGES_PATH;
+
+    static{
+        ClassLoader classLoader = Constants.class.getClassLoader();
+        File classpathRoot = new File(classLoader.getResource("").getPath());
+        RESOURCE_IMAGES_PATH = classpathRoot.getPath() + RESOURCE_IMAGES_DIR;
+    }
+
 
 }
