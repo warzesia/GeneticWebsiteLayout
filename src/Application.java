@@ -23,6 +23,7 @@ public class Application {
 
         MainView.setSVGDocument(svgCreator.getSVGDocument());
 
+        System.out.println("bla!");
 
     }
 }

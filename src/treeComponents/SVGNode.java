@@ -5,6 +5,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import tools.Constants;
 import tools.Strings;
+import tools.Parsers;
 import treeComponents.drawable.SVGRectangle;
 
 /**
@@ -24,6 +25,10 @@ public abstract class SVGNode extends SVGElement {
         element.appendChild(backgroungRectangle.draw(document));
         setAttributes(element);
         return element;
+    }
+
+    public String toString(){
+        return Parsers.LevelToPrefix(level) + super.toString();
     }
 
     public SVGNode(){}

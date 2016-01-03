@@ -33,6 +33,11 @@ public abstract class SVGElement {
         this.height = height;
     }
 
+    public String toString(){
+        return  Parsers.ShortenedClassName(this.getClass().toString()) +
+                " [ " + this.x + ", " + this.y + ", " + this.height + ", " + this.width + "] \n";
+    }
+
     public Double getX() {
         return x;
     }

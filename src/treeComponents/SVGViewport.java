@@ -37,6 +37,14 @@ public class SVGViewport extends SVGNode {
         return element;
     }
 
+    public String toString(){
+        String mainAttributes = super.toString();
+        String childrenAttributes = "";
+        for(SVGNode child: children)
+            childrenAttributes += (child.toString());
+        return mainAttributes + childrenAttributes;
+    }
+
 
     public SVGViewport(Double x, Double y, Double width, Double height, Integer level) {
         super(x, y, width, height, level);

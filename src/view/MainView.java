@@ -121,6 +121,7 @@ public class MainView {
                 svgCreator.drawSVGTree(rootNode);
                 MainView.svgCanvas.setSVGDocument(svgCreator.getSVGDocument());
                 MainView.frame.setVisible(true);
+                System.out.print(rootNode.toString());
             }
         });
     }

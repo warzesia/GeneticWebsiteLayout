@@ -3,6 +3,7 @@ package treeComponents;
 import evolution.LayoutFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import tools.Parsers;
 
 /**
  * Created by warzesia on 28/11/15.
@@ -22,6 +23,12 @@ public class SVGLeaf extends SVGNode {
         Element element = super.draw(document);
         element.appendChild(contentElement.draw(document));
         return element;
+    }
+
+    public String toString(){
+        String mainAttributes = super.toString();
+        String childrenAttrbutes = Parsers.LevelToPrefix(this.level+1) + contentElement.toString();
+        return mainAttributes + childrenAttrbutes;
     }
 
     public SVGLeaf(Double x, Double y, Double width, Double height, Integer level) {

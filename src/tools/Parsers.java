@@ -26,6 +26,18 @@ public class Parsers {
         return (int)Math.round(Math.floor(val+1.0));
     }
 
+    public static String LevelToPrefix(Integer level) {
+        StringBuilder s = new StringBuilder();
+        for(int i = 0; i < level; i++){
+            s.append("----");
+        }
+        return s.toString();
+    }
+
+    public static String ShortenedClassName(String name) {
+        return name.substring(name.lastIndexOf(".") + 1);
+    }
+
 
 
 }
