@@ -1,4 +1,5 @@
 import evolution.LayoutFactory;
+import evolution.ElementFactory;
 import evolution.Population;
 import tools.Params;
 import treeComponents.SVGNode;
@@ -24,6 +25,10 @@ public class Application {
         MainView.setSVGDocument(svgCreator.getSVGDocument());
 
         System.out.println("bla!");
+
+        ElementFactory.getRandomImage();
+
+
 
     }
 }

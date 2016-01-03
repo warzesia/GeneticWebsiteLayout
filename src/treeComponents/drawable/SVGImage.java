@@ -11,21 +11,29 @@ import treeComponents.SVGElement;
  */
 public class SVGImage extends SVGElement {
 
-    String preserveAspectRatio;
-    String href = "file:///home/warzesia/Desktop/dissertation/svg_tests/jpg_example.jpg";;
+    String preserveAspectRatio = "xMidYMid slice";
+    String href;
 
 
     @Override
     public Element draw(Document document) {
-        Element element = document.createElementNS(Constants.SVG_NAMESPACE, Strings.RECTANGLE);
+        Element element = document.createElementNS(Constants.SVG_NAMESPACE, Strings.IMAGE);
         super.setAttributes(element);
         element.setAttributeNS(Constants.XLINK_NAMESPACE, Strings.XLINK_HREF, this.getHref());
         element.setAttributeNS(null, Strings.PRESERVE_ASPECT_RATIO, this.getPreserveAspectRatio());
         return element;
     }
 
+    public String toString(){
+        return super.toString() + getHref();
+    }
+
     public SVGImage(Double x, Double y, Double width, Double height) {
         super(x, y, width, height);
+    }
+    public SVGImage(Double x, Double y, Double width, Double height, String href) {
+        super(x, y, width, height);
+        this.href = href;
     }
 
     public String getPreserveAspectRatio() {

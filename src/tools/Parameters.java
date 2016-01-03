@@ -13,6 +13,7 @@ public class Parameters {
     public static final Integer MAX_SVG_TREE_DEPTH = 3;
 
     private static Map<NodeType, Integer> nodeTypeProbabilityMap = new HashMap<>();
+    private static Map<ElementType, Integer> elementTypeProbabilityMap = new HashMap<>();
     private static Map<Ratio, Integer> ratioProbabilityMap = new HashMap<>();
     private static Map<Integer, Integer> viewportSizeProbabilityMap = new HashMap<>();
     private static Map<Integer, Integer> viewportGroupSizeProbabilityMap = new HashMap<>();
@@ -20,19 +21,22 @@ public class Parameters {
     private static Map<Integer, Integer> radiusProbabilityMap = new HashMap<>();
     private static Map<Integer, Integer> angleProbabilityMap = new HashMap<>();
 
-    public static  ArrayList<NodeType> nodeTypeProbabilityList; // for Leaf = * LEVEL, for SVGViewport = / LEVEL
-    public static  ArrayList<Ratio> ratioProbabilityList;
-    public static  ArrayList<Integer> viewportSizeProbabilityList;
-    public static  ArrayList<Integer> viewportGroupSizeProbabilityList;
+    public static ArrayList<ElementType> elementTypeProbabilityList;
+    public static ArrayList<NodeType> nodeTypeProbabilityList; // for Leaf = * LEVEL, for SVGViewport = / LEVEL
+    public static ArrayList<Ratio> ratioProbabilityList;
+    public static ArrayList<Integer> viewportSizeProbabilityList;
+    public static ArrayList<Integer> viewportGroupSizeProbabilityList;
     public static final ArrayList<Integer> lineCutProbabilityList;
-    public static  ArrayList<Integer> radiusProbabilityList;
-    public static  ArrayList<Integer> angleProbabilityList;
+    public static ArrayList<Integer> radiusProbabilityList;
+    public static ArrayList<Integer> angleProbabilityList;
 
 
 
     static {
         initializeNodeTypeProbabilityMap();
 //        nodeTypeProbabilityList = getNodeTypeProbabilityList();
+
+        initializeElementTypeProbabilityMap();
 
         initializeRatioProbabilityMap();
         ratioProbabilityList = getRatioProbabilityList();
@@ -75,6 +79,20 @@ public class Parameters {
         while(valueTypeIterator.hasNext()){
             NodeType currValueType = valueTypeIterator.next();
             int p = nodeTypeProbabilityMap.get(currValueType);
+            while(p>0){
+                probabilityList.add(currValueType);
+                p--;
+            }
+        }
+        return probabilityList;
+    }
+
+    public static ArrayList<ElementType> getElementTypeProbabilityList(){
+        ArrayList<ElementType> probabilityList = new ArrayList<>();
+        Iterator<ElementType> valueTypeIterator = elementTypeProbabilityMap.keySet().iterator();
+        while(valueTypeIterator.hasNext()){
+            ElementType currValueType = valueTypeIterator.next();
+            int p = elementTypeProbabilityMap.get(currValueType);
             while(p>0){
                 probabilityList.add(currValueType);
                 p--;
@@ -182,7 +200,14 @@ public class Parameters {
         //initialize probabilities for different node types
         nodeTypeProbabilityMap.put(NodeType.LEAF, 1);
         nodeTypeProbabilityMap.put(NodeType.VIEWPORT, 6);
-        nodeTypeProbabilityMap.put(NodeType.VIEWPORT_GROUP, 2); //TODO: check whats happening
+        nodeTypeProbabilityMap.put(NodeType.VIEWPORT_GROUP, 2);
+    }
+
+    private static void initializeElementTypeProbabilityMap(){
+        //initialize probabilities for different element types
+        elementTypeProbabilityMap.put(ElementType.IMAGE, 1);
+        elementTypeProbabilityMap.put(ElementType.RECTANGLE, 1);
+        elementTypeProbabilityMap.put(ElementType.TEXT, 0);
     }
 
     private static void initializeRatioProbabilityMap(){

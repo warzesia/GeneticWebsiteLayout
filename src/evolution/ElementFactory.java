@@ -1,11 +1,12 @@
 package evolution;
 
-import tools.Constants;
-import tools.Parameters;
+import tools.*;
 import treeComponents.SVGElement;
+import treeComponents.drawable.SVGImage;
 import treeComponents.drawable.SVGRectangle;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -17,9 +18,19 @@ public class ElementFactory {
     //bla
 
     static public SVGElement getRandomDrawable(){
-        return new SVGRectangle(0.0, 0.0, 0.0, 0.0, "blue", 1.0, "white", 5, 1.0);
+        ElementType elementType = getRandomElementType();
+        switch (elementType) {
+            case IMAGE: {
+                String href = Parsers.UriToHrefUri(getRandomImage());
+                return new SVGImage(0.0, 0.0, 1.0, 1.0, href);
+            }
+            case RECTANGLE: return new SVGRectangle(0.0, 0.0, 1.0, 1.0, "green", 1.0, "white", 5, 1.0);
+//            case TEXT: return new SVGViewportGroup(x, y, width, height, childLevel);
+            default: return new SVGRectangle(0.0, 0.0, 1.0, 1.0, "green", 1.0, "white", 5, 1.0);
+        }
     }
 
+        //return new SVGRectangle(0.0, 0.0, 0.0, 0.0, "blue", 1.0, "white", 5, 1.0);
     static public SVGRectangle getBackgroundRectangle(){
         return new SVGRectangle(0.0, 0.0, 1.0, 1.0, "blue", 1.0, "white", 5, 1.0);
     }
@@ -28,9 +39,15 @@ public class ElementFactory {
     static public String getRandomImage(){
         String[] imageFiles = new File(Constants.RESOURCE_IMAGES_PATH).list();
 
-        for(String filename: imageFiles)
-            System.out.println(filename);
+//        for(String filename: imageFiles)
+//            System.out.println(filename);
 
-        return imageFiles[ThreadLocalRandom.current().nextInt(imageFiles.length)];
+        return Constants.RESOURCE_IMAGES_PATH + "/" +
+                imageFiles[ThreadLocalRandom.current().nextInt(imageFiles.length)];
+    }
+
+    private static ElementType getRandomElementType(){
+        ArrayList<ElementType> probabilityList = Parameters.getElementTypeProbabilityList();
+        return probabilityList.get(ThreadLocalRandom.current().nextInt(probabilityList.size()));
     }
 }
