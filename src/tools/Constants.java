@@ -30,13 +30,21 @@ public class Constants {
 
     static public final String APP_NAME = "Genetic website layout.";
 
+
     static public final String RESOURCE_IMAGES_DIR = "/images";
+    static public final String RESOURCE_PATTERNS_DIR = "/patternLayouts";
+
+    static public final String RESOURCE_PATH;
     static public final String RESOURCE_IMAGES_PATH;
+    static public final String RESOURCE_PATTERNS_PATH;
 
     static{
         ClassLoader classLoader = Constants.class.getClassLoader();
         File classpathRoot = new File(classLoader.getResource("").getPath());
-        RESOURCE_IMAGES_PATH = classpathRoot.getPath() + RESOURCE_IMAGES_DIR;
+        RESOURCE_PATH = classpathRoot.getPath();
+
+        RESOURCE_IMAGES_PATH = RESOURCE_PATH + RESOURCE_IMAGES_DIR;
+        RESOURCE_PATTERNS_PATH = RESOURCE_PATH + RESOURCE_PATTERNS_DIR;
     }
 
 

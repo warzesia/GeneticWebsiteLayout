@@ -26,5 +26,24 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file:///usr/local/lib/loremipsum-1.0" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file:///usr/local/lib/loremipsum-1.0" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///usr/local/lib/json_simple-1.1-all/lib/json_simple-1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
