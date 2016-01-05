@@ -27,7 +27,6 @@ public class Application {
 
         System.out.println("bla!");
 
-        ElementFactory.getRandomImage();
 
 //        JsonTestParser.run();
 

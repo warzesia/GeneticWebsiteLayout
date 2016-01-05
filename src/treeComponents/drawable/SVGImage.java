@@ -1,5 +1,6 @@
 package treeComponents.drawable;
 
+import evolution.ElementFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import tools.Constants;
@@ -12,7 +13,7 @@ import treeComponents.SVGElement;
 public class SVGImage extends SVGElement {
 
     String preserveAspectRatio = "xMidYMid meet";
-    String href;
+    String href = ElementFactory.getRandomImageHref();
 
 
     @Override

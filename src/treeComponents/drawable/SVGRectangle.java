@@ -12,11 +12,11 @@ import treeComponents.SVGElement;
  */
 public class SVGRectangle extends SVGElement {
 
-    String fillColour;
-    String strokeColour;
-    Double fillOpacity;
-    Double strokeOpacity;
-    Integer strokeWidth;
+    String fillColour = "blue";
+    String strokeColour = "black";
+    Double fillOpacity= 0.5;
+    Double strokeOpacity = 1.0;
+    Integer strokeWidth = 4;
 
 
 

@@ -1,61 +1,38 @@
 {
   "NodeType": "VIEWPORT",
-  "x": "0.0",
-  "y": "0.0",
-  "width": "1.0",
-  "height": "1.0",
+  "x": "0.0", "y": "0.0", "width": "1.0", "height": "1.0",
   "children": [
     {
       "NodeType": "VIEWPORT",
-      "x": "0.0",
-      "y": "0.0",
-      "width": "0.72",
-      "height": "1.0",
+      "x": "0.0", "y": "0.0", "width": "0.70", "height": "1.0",
       "children": [
         {
           "NodeType": "LEAF",
-          "x": "0.0",
-          "y": "0.0",
-          "width": "1.0",
-          "height": "0.5",
-          "children": [
-
-          ]
+          "x": "0.0", "y": "0.0", "width": "1.0", "height": "0.5",
+          "contentElement": { "ElementType": "IMAGE", "x": "0.1", "y": "0.1", "width": "0.8", "height": "0.8"}
         },
         {
           "NodeType": "LEAF",
-          "x": "0.0",
-          "y": "0.5",
-          "width": "1.0",
-          "height": "0.5",
-          "children": [
-
-          ]
+          "x": "0.0", "y": "0.5", "width": "1.0", "height": "0.5",
+          "contentElement": { "ElementType": "RECTANGLE", "x": "0.1", "y": "0.1", "width": "0.8", "height": "0.8"}
         }
       ]
     },
     {
       "NodeType": "VIEWPORT",
-      "x": "0.0",
-      "y": "0.72",
-      "width": "0.28",
-      "height": "1.0",
+      "x": "0.0", "y": "0.70", "width": "0.30", "height": "1.0",
       "children": [
-
+        {
+          "NodeType": "LEAF",
+          "x": "0.0", "y": "0.0", "width": "1.0", "height": "0.5",
+          "contentElement": { "ElementType": "Image", "x": "0.1", "y": "0.1", "width": "0.8", "height": "0.8"}
+        },
+        {
+          "NodeType": "LEAF",
+          "x": "0.0", "y": "0.5", "width": "1.0", "height": "0.5",
+          "contentElement": { "ElementType": "RECTANGLE", "x": "0.1", "y": "0.1", "width": "0.8", "height": "0.8"}
+        }
       ]
     }
   ]
 }
-
-
-//\___SVGViewport [ 0.0, 0.0, 1.0, 1.0]
-//    \___SVGViewport [ 0.0, 0.0, 0.72, 1.0]
-//        \___SVGLeaf [ 0.0, 0.0, 1.0, 0.67]
-//            \___SVGImage [ 0.1, 0.1, 0.8, 0.8]
-//        \___SVGLeaf [ 0.67, 0.0, 1.0, 0.33]
-//            \___SVGRectangle [ 0.1, 0.1, 0.8, 0.8]
-//    \___SVGViewport [ 0.0, 0.72, 0.28, 1.0]
-//        \___SVGLeaf [ 0.0, 0.0, 1.0, 0.32]
-//            \___SVGImage [ 0.1, 0.1, 0.8, 0.8]
-//        \___SVGLeaf [ 0.32, 0.0, 1.0, 0.68]
-//            \___SVGRectangle [ 0.1, 0.1, 0.8, 0.8]

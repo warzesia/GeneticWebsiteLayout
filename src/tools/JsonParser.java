@@ -4,11 +4,15 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import treeComponents.*;
+import treeComponents.drawable.SVGImage;
+import treeComponents.drawable.SVGRectangle;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.LinkedList;
 
 /**
  * Created by warzesia on 04/01/16.
@@ -17,41 +21,66 @@ public class JsonParser {
 
     private static final String filePath = Constants.RESOURCE_PATTERNS_PATH + "/1.json";
 
-    public static void run() {
+
+    private static SVGNode parseNode(JSONObject jsonObject, int level){
+
+        NodeType nodeType = (NodeType) jsonObject.get("NodeType");
+        Double x = (Double) jsonObject.get("x");
+        Double y = (Double) jsonObject.get("y");
+        Double width = (Double) jsonObject.get("width");
+        Double height = (Double) jsonObject.get("height");
+
+        switch (nodeType) {
+            case LEAF: {
+                SVGElement contentElement = parseElement((JSONObject)jsonObject.get("contentElement"));
+                SVGLeaf parsedSVGLeaf = new SVGLeaf(x, y, width, height, level);
+                parsedSVGLeaf.setContentElement(contentElement);
+                return parsedSVGLeaf;
+            }
+            case VIEWPORT: {
+                LinkedList<SVGNode> children = new LinkedList<>();
+                JSONArray childrenArray = (JSONArray) jsonObject.get("children");
+                Iterator i = childrenArray.iterator();
+
+                while (i.hasNext()) {
+                    JSONObject innerObj = (JSONObject) i.next();
+                    children.add(parseNode(innerObj, level+1));
+                }
+
+                SVGViewport parsedSVGViewport = new SVGViewport(x, y, width, height, level);
+                parsedSVGViewport.setChildren(children);
+                return parsedSVGViewport;
+            }
+//            case VIEWPORT_GROUP: {
+//                return new SVGViewportGroup(x, y, width, height, childLevel);
+//            }
+            default: return null;
+        }
+    }
+
+    private static SVGElement parseElement(JSONObject jsonObject){
+        ElementType elementType = (ElementType) jsonObject.get("ElementType");
+        Double x = (Double) jsonObject.get("x");
+        Double y = (Double) jsonObject.get("y");
+        Double width = (Double) jsonObject.get("width");
+        Double height = (Double) jsonObject.get("height");
+
+        switch (elementType) {
+            case IMAGE: return new SVGImage(x, y, width, height);
+            case RECTANGLE: return new SVGRectangle(x, y, width, height);
+            default: return null;
+        }
+    }
+
+    public static SVGNode run() {
 
         try {
-            // read the json file
             FileReader reader = new FileReader(filePath);
 
             JSONParser jsonParser = new JSONParser();
             JSONObject jsonObject = (JSONObject) jsonParser.parse(reader);
 
-            // get a String from the JSON object
-            String firstName = (String) jsonObject.get("firstname");
-            System.out.println("The first name is: " + firstName);
-
-            // get a number from the JSON object
-            long id =  (long) jsonObject.get("id");
-            System.out.println("The id is: " + id);
-
-            // get an array from the JSON object
-            JSONArray lang= (JSONArray) jsonObject.get("languages");
-
-            // take the elements of the json array
-            for(int i=0; i<lang.size(); i++){
-                System.out.println("The " + i + " element of the array: " + lang.get(i));
-            }
-            Iterator i = lang.iterator();
-
-            // take each value from the json array separately
-            while (i.hasNext()) {
-                JSONObject innerObj = (JSONObject) i.next();
-                System.out.println("language "+ innerObj.get("lang") +
-                        " with level " + innerObj.get("knowledge"));
-            }
-            // handle a structure into the json object
-            JSONObject structure = (JSONObject) jsonObject.get("job");
-            System.out.println("Into job structure, name: " + structure.get("name"));
+            return parseNode(jsonObject, 1);
 
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
@@ -63,6 +92,7 @@ public class JsonParser {
             ex.printStackTrace();
         }
 
+        return null;
     }
 
 }

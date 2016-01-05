@@ -20,10 +20,7 @@ public class ElementFactory {
     static public SVGElement getRandomDrawable(){
         ElementType elementType = getRandomElementType();
         switch (elementType) {
-            case IMAGE: {
-                String href = Parsers.UriToHrefUri(getRandomImage());
-                return new SVGImage(0.1, 0.1, 0.8, 0.8, href);
-            }
+            case IMAGE:return new SVGImage(0.1, 0.1, 0.8, 0.8, getRandomImageHref());
             case RECTANGLE: return new SVGRectangle(0.1, 0.1, 0.8, 0.8, "green", 1.0, "white", 5, 1.0);
 //            case TEXT: return new SVGViewportGroup(x, y, width, height, childLevel);
             default: return new SVGRectangle(0.1, 0.1, 0.8, 0.8, "green", 1.0, "white", 5, 1.0);
@@ -36,14 +33,14 @@ public class ElementFactory {
     }
 
 
-    static public String getRandomImage(){
+    static public String getRandomImageHref(){
         String[] imageFiles = new File(Constants.RESOURCE_IMAGES_PATH).list();
 
 //        for(String filename: imageFiles)
 //            System.out.println(filename);
 
-        return Constants.RESOURCE_IMAGES_PATH + "/" +
-                imageFiles[ThreadLocalRandom.current().nextInt(imageFiles.length)];
+        return Parsers.UriToHrefUri( Constants.RESOURCE_IMAGES_PATH + "/" +
+                imageFiles[ThreadLocalRandom.current().nextInt(imageFiles.length)] );
     }
 
     private static ElementType getRandomElementType(){
