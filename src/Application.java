@@ -1,6 +1,7 @@
 import evolution.ElementFactory;
 import evolution.LayoutFactory;
 import evolution.Population;
+import tools.JsonParser;
 import tools.JsonTestParser;
 import tools.Params;
 import treeComponents.SVGNode;
@@ -25,7 +26,10 @@ public class Application {
 
         MainView.setSVGDocument(svgCreator.getSVGDocument());
 
-        System.out.println("bla!");
+        System.out.println(JsonParser.run());
+
+
+
 
 
 //        JsonTestParser.run();

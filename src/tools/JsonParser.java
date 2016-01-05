@@ -24,11 +24,11 @@ public class JsonParser {
 
     private static SVGNode parseNode(JSONObject jsonObject, int level){
 
-        NodeType nodeType = (NodeType) jsonObject.get("NodeType");
-        Double x = (Double) jsonObject.get("x");
-        Double y = (Double) jsonObject.get("y");
-        Double width = (Double) jsonObject.get("width");
-        Double height = (Double) jsonObject.get("height");
+        NodeType nodeType = NodeType.valueOf((String)jsonObject.get("NodeType")) ;
+        Double x = (Double.parseDouble((String) jsonObject.get("x")));
+        Double y = (Double.parseDouble((String)jsonObject.get("y")));
+        Double width = (Double.parseDouble((String)jsonObject.get("width")));
+        Double height = (Double.parseDouble((String)jsonObject.get("height")));
 
         switch (nodeType) {
             case LEAF: {
@@ -59,11 +59,11 @@ public class JsonParser {
     }
 
     private static SVGElement parseElement(JSONObject jsonObject){
-        ElementType elementType = (ElementType) jsonObject.get("ElementType");
-        Double x = (Double) jsonObject.get("x");
-        Double y = (Double) jsonObject.get("y");
-        Double width = (Double) jsonObject.get("width");
-        Double height = (Double) jsonObject.get("height");
+        ElementType elementType = ElementType.valueOf((String)jsonObject.get("ElementType")) ;
+        Double x = (Double.parseDouble((String)jsonObject.get("x")));
+        Double y = (Double.parseDouble((String)jsonObject.get("y")));
+        Double width = (Double.parseDouble((String)jsonObject.get("width")));
+        Double height = (Double.parseDouble((String)jsonObject.get("height")));
 
         switch (elementType) {
             case IMAGE: return new SVGImage(x, y, width, height);
