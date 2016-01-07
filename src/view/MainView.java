@@ -1,12 +1,12 @@
 package view;
 
-import evolution.LayoutFactory;
+import contentFactories.ConcreteNodesFactory;
 import org.apache.batik.swing.JSVGCanvas;
 import org.w3c.dom.svg.SVGDocument;
 import tools.Constants;
 import tools.NodeType;
 import tools.Parameters;
-import treeComponents.SVGNode;
+import page_components.tree_components.Node;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -115,7 +115,7 @@ public class MainView {
         MainView.nextButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SVGNode rootNode = LayoutFactory.getRandomRootNode();
+                Node rootNode = ConcreteNodesFactory.getPage(1);
                 rootNode.generate();
                 SVGCreator svgCreator = new SVGCreator();
                 svgCreator.drawSVGTree(rootNode);

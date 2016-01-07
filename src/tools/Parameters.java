@@ -22,7 +22,7 @@ public class Parameters {
     private static Map<Integer, Integer> angleProbabilityMap = new HashMap<>();
 
     public static ArrayList<ElementType> elementTypeProbabilityList;
-    public static ArrayList<NodeType> nodeTypeProbabilityList; // for Leaf = * LEVEL, for SVGViewport = / LEVEL
+    public static ArrayList<NodeType> nodeTypeProbabilityList;
     public static ArrayList<Ratio> ratioProbabilityList;
     public static ArrayList<Integer> viewportSizeProbabilityList;
     public static ArrayList<Integer> viewportGroupSizeProbabilityList;
@@ -207,7 +207,7 @@ public class Parameters {
         //initialize probabilities for different element types
         elementTypeProbabilityMap.put(ElementType.IMAGE, 1);
         elementTypeProbabilityMap.put(ElementType.RECTANGLE, 1);
-        elementTypeProbabilityMap.put(ElementType.TEXT, 0);
+        elementTypeProbabilityMap.put(ElementType.TEXT, 1);
     }
 
     private static void initializeRatioProbabilityMap(){

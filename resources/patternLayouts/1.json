@@ -20,7 +20,7 @@
     },
     {
       "NodeType": "VIEWPORT",
-      "x": "0.0", "y": "0.70", "width": "0.30", "height": "1.0",
+      "x": "0.7", "y": "0.0", "width": "0.30", "height": "1.0",
       "children": [
         {
           "NodeType": "LEAF",

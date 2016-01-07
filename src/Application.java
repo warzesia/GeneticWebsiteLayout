@@ -1,10 +1,8 @@
-import evolution.ElementFactory;
-import evolution.LayoutFactory;
+import contentFactories.LayoutFactory;
 import evolution.Population;
 import tools.JsonParser;
-import tools.JsonTestParser;
 import tools.Params;
-import treeComponents.SVGNode;
+import page_components.tree_components.Node;
 import view.MainView;
 import view.SVGCreator;
 
@@ -18,15 +16,17 @@ public class Application {
         Population population = new Population();
         population.generate(Params.POPULATION_SIZE);
 
-        SVGNode rootNode = LayoutFactory.getRandomRootNode();
+        Node rootNode = LayoutFactory.getRandomRootNode();
         rootNode.generate();
 
         SVGCreator svgCreator = new SVGCreator();
-        svgCreator.drawSVGTree(rootNode);
+        svgCreator.drawSVGTree(JsonParser.run());
 
         MainView.setSVGDocument(svgCreator.getSVGDocument());
 
         System.out.println(JsonParser.run());
+
+//        System.out.println(ConcreteNodesFactory.getPage(1));
 
 
 

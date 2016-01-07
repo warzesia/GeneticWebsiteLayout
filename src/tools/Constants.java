@@ -32,10 +32,12 @@ public class Constants {
 
 
     static public final String RESOURCE_IMAGES_DIR = "/images";
+    static public final String RESOURCE_LOGOS_DIR = "/logos";
     static public final String RESOURCE_PATTERNS_DIR = "/patternLayouts";
 
     static public final String RESOURCE_PATH;
     static public final String RESOURCE_IMAGES_PATH;
+    static public final String RESOURCE_LOGOS_PATH;
     static public final String RESOURCE_PATTERNS_PATH;
 
     static{
@@ -44,6 +46,7 @@ public class Constants {
         RESOURCE_PATH = classpathRoot.getPath();
 
         RESOURCE_IMAGES_PATH = RESOURCE_PATH + RESOURCE_IMAGES_DIR;
+        RESOURCE_LOGOS_PATH = RESOURCE_PATH + RESOURCE_LOGOS_DIR;
         RESOURCE_PATTERNS_PATH = RESOURCE_PATH + RESOURCE_PATTERNS_DIR;
     }
 

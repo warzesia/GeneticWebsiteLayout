@@ -1,6 +1,6 @@
 package evolution;
 
-import treeComponents.SVGNode;
+import page_components.tree_components.Node;
 
 import java.util.LinkedList;
 
@@ -9,13 +9,11 @@ import java.util.LinkedList;
  */
 public class Population {
 
-    private LinkedList<SVGNode> chromosomes = new LinkedList<>();
+    private LinkedList<Node> chromosomes = new LinkedList<>();
 
     public void generate(Integer populationSize){
         while (populationSize > 0){
 
-
-            //chromosomes.add(SVGNode.generateRandomFirstNode(15));
             populationSize--;
         }
 
