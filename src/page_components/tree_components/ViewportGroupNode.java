@@ -1,6 +1,6 @@
 package page_components.tree_components;
 
-import contentFactories.LayoutFactory;
+import content_generators.RandomLayoutGenerator;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -15,17 +15,10 @@ public class ViewportGroupNode extends Node {
 
 
     @Override
-    public Node copyWithDifferentPlacement(Double x, Double y, Double width, Double height) {
-        ViewportGroupNode viewportGroup = new ViewportGroupNode(x, y, width, height, this.level);
-        viewportGroup.setTwinChildren(this.twinChildren);
-        return  viewportGroup;
-    }
-
-    @Override
     public void generate() {
-        Node twinChild = LayoutFactory.getRandomNode(0.0, 0.0, 0.0, 0.0, this.level);
+        Node twinChild = RandomLayoutGenerator.getRandomNode(0.0, 0.0, 0.0, 0.0, this.level);
         twinChild.generate();
-        twinChildren = LayoutFactory.getRandomlyPlacedTwinChildren(twinChild);
+        twinChildren = RandomLayoutGenerator.getRandomlyPlacedTwinChildren(twinChild);
     }
 
     @Override
@@ -36,17 +29,14 @@ public class ViewportGroupNode extends Node {
         return element;
     }
 
-    public String toString(){
-        String mainAttributes = super.toString();
-        String childrenAttributes = "";
-        for(Node child: twinChildren)
-            childrenAttributes += (child.toString());
-        return mainAttributes + childrenAttributes;
+    @Override
+    public Node copyWithDifferentPlacement(Double x, Double y, Double width, Double height) {
+        ViewportGroupNode viewportGroup = new ViewportGroupNode(x, y, width, height, this.level);
+        viewportGroup.setTwinChildren(this.twinChildren);
+        return  viewportGroup;
     }
 
-    public ViewportGroupNode(Integer level) {
-        super(level);
-    }
+    public ViewportGroupNode(Integer level) {super(level);}
     public ViewportGroupNode(Double x, Double y, Double width, Double height, Integer level) {
         super(x, y, width, height, level);
     }
@@ -57,5 +47,13 @@ public class ViewportGroupNode extends Node {
 
     public void setTwinChildren(LinkedList<Node> twinChildren) {
         this.twinChildren = twinChildren;
+    }
+
+    public String toString(){
+        String mainAttributes = super.toString();
+        String childrenAttributes = "";
+        for(Node child: twinChildren)
+            childrenAttributes += (child.toString());
+        return mainAttributes + childrenAttributes;
     }
 }

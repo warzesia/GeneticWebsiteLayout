@@ -1,6 +1,6 @@
 package page_components.tree_components;
 
-import contentFactories.LayoutFactory;
+import content_generators.RandomLayoutGenerator;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -16,7 +16,7 @@ public class ViewportNode extends Node {
 
     @Override
     public void generate() {
-        children = LayoutFactory.getRandomlyPlacedNodes(this.level);
+        children = RandomLayoutGenerator.getRandomlyPlacedNodes(this.level);
         for(Node child: children)
             child.generate();
     }
@@ -36,22 +36,10 @@ public class ViewportNode extends Node {
         return viewport;
     }
 
-    public String toString(){
-        String mainAttributes = super.toString();
-        String childrenAttributes = "";
-        for(Node child: children)
-            childrenAttributes += (child.toString());
-        return mainAttributes + childrenAttributes;
-    }
-
-
-    public ViewportNode(Integer level) {
-        super(level);
-    }
+    public ViewportNode(Integer level) {super(level);}
     public ViewportNode(Double x, Double y, Double width, Double height, Integer level) {
         super(x, y, width, height, level);
     }
-
 
     public LinkedList<Node> getChildren() {
         return children;
@@ -59,5 +47,13 @@ public class ViewportNode extends Node {
 
     public void setChildren(LinkedList<Node> children) {
         this.children = children;
+    }
+
+    public String toString(){
+        String mainAttributes = super.toString();
+        String childrenAttributes = "";
+        for(Node child: children)
+            childrenAttributes += (child.toString());
+        return mainAttributes + childrenAttributes;
     }
 }

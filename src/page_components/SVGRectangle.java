@@ -1,6 +1,7 @@
 package page_components;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import tools.Constants;
 import tools.Parsers;
 import tools.Strings;
@@ -12,35 +13,23 @@ public class SVGRectangle extends DrawablePageElement {
 
     String fillColour = "blue";
     String strokeColour = "black";
-    Double fillOpacity= 0.5;
+    Double fillOpacity= 1.0;
     Double strokeOpacity = 1.0;
     Integer strokeWidth = 4;
 
 
-
     @Override
-    public org.w3c.dom.Element draw(Document document) {
-        org.w3c.dom.Element element = document.createElementNS(Constants.SVG_NAMESPACE, Strings.RECTANGLE);
+    public Element draw(Document document) {
+        Element element = document.createElementNS(Constants.SVG_NAMESPACE, Strings.RECTANGLE);
         setAttributes(element);
         element.setAttributeNS(null, Strings.FILL, this.getFillColour());
-        element.setAttributeNS(null, Strings.STROKE, this.getStrokeColour());
-        element.setAttributeNS(null, Strings.FILL_OPACITY, Parsers.DoubleToString(this.getFillOpacity()));
+//        element.setAttributeNS(null, Strings.STROKE, this.getStrokeColour());
+//        element.setAttributeNS(null, Strings.FILL_OPACITY, Parsers.DoubleToString(this.getFillOpacity()));
         return element;
     }
 
     public SVGRectangle(Double x, Double y, Double width, Double height) {
         super(x, y, width, height);
-    }
-
-    public SVGRectangle(Double x, Double y, Double width, Double height,
-                        String fillColour, Double fillOpacity,
-                        String strokeColour, Integer strokeWidth, Double strokeOpacity) {
-        super(x, y, width, height);
-        this.fillColour = fillColour;
-        this.fillOpacity = fillOpacity;
-        this.strokeColour = strokeColour;
-        this.strokeWidth = strokeWidth;
-        this.strokeOpacity = strokeOpacity;
     }
 
     public String getFillColour() {
@@ -55,7 +44,31 @@ public class SVGRectangle extends DrawablePageElement {
         return strokeColour;
     }
 
+    public void setStrokeColour(String strokeColour) {
+        this.strokeColour = strokeColour;
+    }
+
     public Double getFillOpacity() {
         return fillOpacity;
+    }
+
+    public void setFillOpacity(Double fillOpacity) {
+        this.fillOpacity = fillOpacity;
+    }
+
+    public Double getStrokeOpacity() {
+        return strokeOpacity;
+    }
+
+    public void setStrokeOpacity(Double strokeOpacity) {
+        this.strokeOpacity = strokeOpacity;
+    }
+
+    public Integer getStrokeWidth() {
+        return strokeWidth;
+    }
+
+    public void setStrokeWidth(Integer strokeWidth) {
+        this.strokeWidth = strokeWidth;
     }
 }

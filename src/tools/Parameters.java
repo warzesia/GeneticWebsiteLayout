@@ -1,5 +1,9 @@
 package tools;
 
+import page_components.enums.DrawableType;
+import page_components.tree_components.enums.NodeType;
+import tools.enums.Ratio;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -13,7 +17,7 @@ public class Parameters {
     public static final Integer MAX_SVG_TREE_DEPTH = 3;
 
     private static Map<NodeType, Integer> nodeTypeProbabilityMap = new HashMap<>();
-    private static Map<ElementType, Integer> elementTypeProbabilityMap = new HashMap<>();
+    private static Map<DrawableType, Integer> elementTypeProbabilityMap = new HashMap<>();
     private static Map<Ratio, Integer> ratioProbabilityMap = new HashMap<>();
     private static Map<Integer, Integer> viewportSizeProbabilityMap = new HashMap<>();
     private static Map<Integer, Integer> viewportGroupSizeProbabilityMap = new HashMap<>();
@@ -21,7 +25,7 @@ public class Parameters {
     private static Map<Integer, Integer> radiusProbabilityMap = new HashMap<>();
     private static Map<Integer, Integer> angleProbabilityMap = new HashMap<>();
 
-    public static ArrayList<ElementType> elementTypeProbabilityList;
+    public static ArrayList<DrawableType> drawableTypeProbabilityList;
     public static ArrayList<NodeType> nodeTypeProbabilityList;
     public static ArrayList<Ratio> ratioProbabilityList;
     public static ArrayList<Integer> viewportSizeProbabilityList;
@@ -87,11 +91,11 @@ public class Parameters {
         return probabilityList;
     }
 
-    public static ArrayList<ElementType> getElementTypeProbabilityList(){
-        ArrayList<ElementType> probabilityList = new ArrayList<>();
-        Iterator<ElementType> valueTypeIterator = elementTypeProbabilityMap.keySet().iterator();
+    public static ArrayList<DrawableType> getDrawableTypeProbabilityList(){
+        ArrayList<DrawableType> probabilityList = new ArrayList<>();
+        Iterator<DrawableType> valueTypeIterator = elementTypeProbabilityMap.keySet().iterator();
         while(valueTypeIterator.hasNext()){
-            ElementType currValueType = valueTypeIterator.next();
+            DrawableType currValueType = valueTypeIterator.next();
             int p = elementTypeProbabilityMap.get(currValueType);
             while(p>0){
                 probabilityList.add(currValueType);
@@ -205,9 +209,9 @@ public class Parameters {
 
     private static void initializeElementTypeProbabilityMap(){
         //initialize probabilities for different element types
-        elementTypeProbabilityMap.put(ElementType.IMAGE, 1);
-        elementTypeProbabilityMap.put(ElementType.RECTANGLE, 1);
-        elementTypeProbabilityMap.put(ElementType.TEXT, 1);
+        elementTypeProbabilityMap.put(DrawableType.IMAGE, 1);
+        elementTypeProbabilityMap.put(DrawableType.RECTANGLE, 1);
+        elementTypeProbabilityMap.put(DrawableType.TEXT, 1);
     }
 
     private static void initializeRatioProbabilityMap(){

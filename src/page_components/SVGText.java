@@ -1,6 +1,5 @@
 package page_components;
 
-import contentFactories.ElementFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import tools.Constants;
@@ -12,7 +11,7 @@ import tools.Strings;
 public class SVGText extends DrawablePageElement {
 
     String content;
-    DrawablePageElement background = ElementFactory.getBackgroundRectangle();
+    DrawablePageElement background;
 
 
     @Override
@@ -37,11 +36,6 @@ public class SVGText extends DrawablePageElement {
 
     public SVGText(Double x, Double y, Double width, Double height) {
         super(x, y, width, height);
-    }
-
-    public SVGText(Double x, Double y, Double width, Double height, String content) {
-        super(x, y, width, height);
-        this.content = content;
     }
 
     public String getContent() {

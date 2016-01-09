@@ -1,10 +1,10 @@
 package view;
 
-import contentFactories.ConcreteNodesFactory;
+import content_generators.websiteContentFactories.ConcreteNodesFactory;
 import org.apache.batik.swing.JSVGCanvas;
 import org.w3c.dom.svg.SVGDocument;
 import tools.Constants;
-import tools.NodeType;
+import page_components.tree_components.enums.NodeType;
 import tools.Parameters;
 import page_components.tree_components.Node;
 

@@ -2,7 +2,7 @@ package page_components;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import tools.ContentType;
+import page_components.enums.ContentType;
 import tools.Parsers;
 import tools.Strings;
 
@@ -21,20 +21,15 @@ public abstract class PageElement {
 
     Set<ContentType> metadata = new HashSet<>();
 
-    public abstract org.w3c.dom.Element draw(Document document);
-    public void setAttributes(org.w3c.dom.Element element){
+    public abstract Element draw(Document document);
+    public void setAttributes(Element element){
         element.setAttributeNS(null, Strings.X, Parsers.DoubleToStringPercent(this.getX()));
         element.setAttributeNS(null, Strings.Y, Parsers.DoubleToStringPercent(this.getY()));
         element.setAttributeNS(null, Strings.WIDTH, Parsers.DoubleToStringPercent(this.getWidth()));
         element.setAttributeNS(null, Strings.HEIGHT, Parsers.DoubleToStringPercent(this.getHeight()));
     }
 
-    public PageElement(){
-        this.x = 0.0;
-        this.y = 0.0;
-        this.width = 1.0;
-        this.height = 1.0;
-    }
+    public PageElement(){ this(0.0, 0.0, 1.0, 1.0);}
     public PageElement(Double x, Double y, Double width, Double height) {
         this.x = x;
         this.y = y;
@@ -44,7 +39,7 @@ public abstract class PageElement {
 
     public String toString(){
         return  Parsers.ShortenedClassName(this.getClass().toString()) +
-                " [ " + this.x + ", " + this.y + ", " + this.height + ", " + this.width + "] \n";
+                " [ " + this.x + ", " + this.y + ", " + this.width + ", " + this.height + "] \n";
     }
 
     public Double getX() {
@@ -86,4 +81,6 @@ public abstract class PageElement {
     public Set<ContentType> getMetadata() {
         return metadata;
     }
+
+    public void addMetadata(ContentType tag) {this.metadata.add(tag);}
 }

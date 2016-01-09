@@ -1,4 +1,4 @@
-import contentFactories.LayoutFactory;
+import content_generators.RandomLayoutGenerator;
 import evolution.Population;
 import tools.JsonParser;
 import tools.Params;
@@ -16,7 +16,7 @@ public class Application {
         Population population = new Population();
         population.generate(Params.POPULATION_SIZE);
 
-        Node rootNode = LayoutFactory.getRandomRootNode();
+        Node rootNode = RandomLayoutGenerator.getRandomRootNode();
         rootNode.generate();
 
         SVGCreator svgCreator = new SVGCreator();
@@ -30,9 +30,6 @@ public class Application {
 
 
 
-
-
-//        JsonTestParser.run();
 
 
 

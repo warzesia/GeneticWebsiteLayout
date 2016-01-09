@@ -1,7 +1,9 @@
 package page_components;
 
-import contentFactories.ElementFactory;
+import content_generators.RandomContentGenerator;
+import content_generators.RandomElementGenerator;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import tools.Constants;
 import tools.Strings;
 
@@ -11,28 +13,20 @@ import tools.Strings;
 public class SVGImage extends DrawablePageElement {
 
     String preserveAspectRatio = "xMidYMid meet";
-    String href = ElementFactory.getRandomImageHref();
+    String href = RandomContentGenerator.getRandomImageHref();
 
 
     @Override
-    public org.w3c.dom.Element draw(Document document) {
-        org.w3c.dom.Element element = document.createElementNS(Constants.SVG_NAMESPACE, Strings.IMAGE);
+    public Element draw(Document document) {
+        Element element = document.createElementNS(Constants.SVG_NAMESPACE, Strings.IMAGE);
         super.setAttributes(element);
         element.setAttributeNS(Constants.XLINK_NAMESPACE, Strings.XLINK_HREF, this.getHref());
         element.setAttributeNS(null, Strings.PRESERVE_ASPECT_RATIO, this.getPreserveAspectRatio());
         return element;
     }
 
-//    public String toString(){
-//        return super.toString() + getHref();
-//    }
-
     public SVGImage(Double x, Double y, Double width, Double height) {
         super(x, y, width, height);
-    }
-    public SVGImage(Double x, Double y, Double width, Double height, String href) {
-        super(x, y, width, height);
-        this.href = href;
     }
 
     public String getPreserveAspectRatio() {
