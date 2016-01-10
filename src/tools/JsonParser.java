@@ -31,7 +31,7 @@ import java.util.LinkedList;
  */
 public class JsonParser {
 
-    private static final String filePath = Constants.RESOURCE_PATTERNS_PATH + "/7.json";
+    private static final String filePath = Constants.RESOURCE_PATTERNS_PATH + "/5.json";
 
 
     private static Node parseNode(JSONObject jsonObject, int level){

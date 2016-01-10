@@ -3,65 +3,97 @@
   "x": "0.0", "y": "0.0", "width": "1.0", "height": "1.0",
   "children": [
     {
-      "NodeType": "LEAF",
-      "x": "0.0", "y": "0.0", "width": "1.0", "height": "0.2",
-      "contentElement": { "DrawableType": "IMAGE", "x": "0.1", "y": "0.1", "width": "0.8", "height": "0.8" }
+      "NodeType": "VIEWPORT_GROUP",
+      "tag": "BUTTONS",
+      "x": "0.0", "y": "0.0", "width": "1.0", "height": "0.1",
+      "children": [
+        {
+          "NodeType": "LEAF",
+          "tag": "BUTTONS",
+          "x": "0.0", "y": "0.0", "width": "0.25", "height": "1.0",
+          "contentElement": { "DrawableType": "TEXT", "x": "0.15", "y": "0.3", "width": "0.7", "height": "0.4" }
+        },
+        {"x": "0.25", "y": "0.00", "width": "0.25", "height": "1.00"},
+        {"x": "0.50", "y": "0.00", "width": "0.25", "height": "1.00"},
+        {"x": "0.75", "y": "0.00", "width": "0.25", "height": "1.00"}
+      ]
     },
     {
-      "NodeType": "VIEWPORT_GROUP",
-      "x": "0.0", "y": "0.2", "width": "1.0", "height": "0.1",
+      "NodeType": "VIEWPORT",
+      "tag": "INFO",
+      "x": "0.0", "y": "0.1", "width": "1.0", "height": "0.4",
       "children": [
         {
           "NodeType": "VIEWPORT",
-          "x": "0.0", "y": "0.0", "width": "0.25", "height": "1.0",
+          "tag": "PARAGRAPH",
+          "x": "0.0", "y": "0.0", "width": "0.5", "height": "1.0",
           "children": [
             {
               "NodeType": "LEAF",
+              "tag": "TITLE",
               "x": "0.0", "y": "0.0", "width": "1.0", "height": "0.5",
-              "contentElement": { "DrawableType": "RECTANGLE", "x": "0.1", "y": "0.7", "width": "0.8", "height": "0.1" }
+              "contentElement": { "DrawableType": "TEXT", "x": "0.2", "y": "0.5", "width": "0.6", "height": "0.5" }
             },
             {
               "NodeType": "LEAF",
+              "tag": "PARAGRAPH",
               "x": "0.0", "y": "0.5", "width": "1.0", "height": "0.5",
-              "contentElement": { "DrawableType": "TEXT", "x": "0.1", "y": "0.1", "width": "0.8", "height": "0.4" }
+              "contentElement": { "DrawableType": "TEXT", "x": "0.2", "y": "0.0", "width": "0.6", "height": "0.5" }
             }
           ]
         },
         {
           "NodeType": "LEAF",
-          "x": "0.25", "y": "0.0", "width": "0.25", "height": "1.0",
-          "contentElement": { "DrawableType": "TEXT", "x": "0.1", "y": "0.1", "width": "0.8", "height": "0.8" }
-        },
-        {
-          "NodeType": "LEAF",
-          "x": "0.5", "y": "0.0", "width": "0.25", "height": "1.0",
-          "contentElement": { "DrawableType": "TEXT", "x": "0.1", "y": "0.1", "width": "0.8", "height": "0.8" }
-        },
-        {
-          "NodeType": "LEAF",
-          "x": "0.75", "y": "0.0", "width": "0.25", "height": "1.0",
-          "contentElement": { "DrawableType": "TEXT", "x": "0.1", "y": "0.1", "width": "0.8", "height": "0.8" }
-        }
-      ]
-    },
-    {
-      "NodeType": "VIEWPORT",
-      "x": "0.0", "y": "0.3", "width": "1.0", "height": "0.65",
-      "children": [
-        {
-          "NodeType": "LEAF",
-          "x": "0.0", "y": "0.0", "width": "0.5", "height": "1.0",
-          "contentElement": { "DrawableType": "TEXT", "x": "0.3", "y": "0.2", "width": "0.6", "height": "0.5" }
-        },
-        {
-          "NodeType": "LEAF",
+          "tag": "LOGO",
           "x": "0.5", "y": "0.0", "width": "0.5", "height": "1.0",
           "contentElement": { "DrawableType": "IMAGE", "x": "0.1", "y": "0.1", "width": "0.8", "height": "0.8" }
         }
       ]
     },
     {
+      "NodeType": "VIEWPORT_GROUP",
+      "x": "0.0", "y": "0.5", "width": "1.0", "height": "0.45",
+      "children": [
+        {
+          "NodeType": "VIEWPORT",
+          "tag": "INFO",
+          "x": "0.0", "y": "0.0", "width": "0.5", "height": "0.5",
+          "children": [
+            {
+              "NodeType": "LEAF",
+              "tag": "PICTURE",
+              "x": "0.0", "y": "0.0", "width": "0.5", "height": "1.0",
+              "contentElement": { "DrawableType": "IMAGE", "x": "0.1", "y": "0.1", "width": "0.8", "height": "0.8" }
+            },
+            {
+              "NodeType": "VIEWPORT",
+              "tag": "PARAGRAPH",
+              "x": "0.5", "y": "0.0", "width": "0.5", "height": "1.0",
+              "children": [
+                {
+                  "NodeType": "LEAF",
+                  "tag": "TITLE",
+                  "x": "0.0", "y": "0.0", "width": "1.0", "height": "0.5",
+                  "contentElement": { "DrawableType": "TEXT", "x": "0.1", "y": "0.5", "width": "0.6", "height": "0.5" }
+                },
+                {
+                  "NodeType": "LEAF",
+                  "tag": "PARAGRAPH",
+                  "x": "0.0", "y": "0.5", "width": "1.0", "height": "0.5",
+                  "contentElement": { "DrawableType": "TEXT", "x": "0.1", "y": "0.0", "width": "0.6", "height": "0.5" }
+                }
+              ]
+            }
+          ]
+        },
+        {"x": "0.5", "y": "0.0", "width": "0.5", "height": "0.5"},
+        {"x": "0.0", "y": "0.5", "width": "0.5", "height": "0.5"},
+        {"x": "0.5", "y": "0.5", "width": "0.5", "height": "0.5"}
+      ]
+    },
+    {
       "NodeType": "LEAF",
+      "tag": "FOOTER",
       "x": "0.0", "y": "0.95", "width": "1.0", "height": "0.05",
       "contentElement": { "DrawableType": "TEXT", "x": "0.1", "y": "0.1", "width": "0.8", "height": "0.8" }
     }
