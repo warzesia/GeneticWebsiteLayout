@@ -29,12 +29,15 @@ public class Strings {
     static public final String STROKE= "stroke";
     static public final String STROKE_OPACITY= "stroke-opacity";
     static public final String STROKE_WIDTH = "stroke-width";
-    static public final String FONTSIZE = "font-size";
+    static public final String FONT_SIZE = "font-size";
+    static public final String TEXT_ANCHOR = "text-anchor";
     static public final String VIEWBOX = "viewBox";
     static public final String PRESERVE_ASPECT_RATIO = "preserveAspectRatio";
 
     static public final String XLINK_NAMESPACE = "http://www.w3.org/1999/xlink";
     static public final String SVG_NAMESPACE = SVG12DOMImplementation.SVG_NAMESPACE_URI;
+
+    static public final String WHITE_HEX = "#000000";
 
 
 }

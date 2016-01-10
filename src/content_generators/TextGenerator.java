@@ -16,11 +16,11 @@ public class TextGenerator {
     }
 
     public String getWord(){
-        return loremIpsum.getWords(1);
+        return loremIpsum.getWords(1, ThreadLocalRandom.current().nextInt(25));
     }
 
     public String getSentence(){
-        return loremIpsum.getWords(ThreadLocalRandom.current().nextInt(15), ThreadLocalRandom.current().nextInt(25));
+        return loremIpsum.getWords(ThreadLocalRandom.current().nextInt(7)+7, ThreadLocalRandom.current().nextInt(25));
     }
 
     public String getParagraph(){

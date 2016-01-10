@@ -36,17 +36,17 @@ public class ColourGenerator {
     }
 
     public String getRandomColour(){
-        //return palette[ThreadLocalRandom.current().nextInt(palette.length)];
-        return shadeColor(this.colour, getRandomPercent());
+        return palette[ThreadLocalRandom.current().nextInt(palette.length)];
+//        return shadeColor(this.colour, getRandomPercent());
     }
 
 
     private int getRandomPercent(){
-        return (ThreadLocalRandom.current().nextInt(20)-10)*10;
+        return (ThreadLocalRandom.current().nextInt(12)-6)*10;
     }
 
 
-    private String shadeColor(String color, Integer percent) {
+    public static String shadeColor(String color, Integer percent) {
 
         int r =  Integer.parseInt(color.substring(1,3),16);
         int g = Integer.parseInt(color.substring(3, 5), 16);
@@ -69,6 +69,55 @@ public class ColourGenerator {
         bb = bb.length() == 1 ? "0"+bb : bb;
 
         return "#"+rr+gg+bb;
+    }
+
+    public static String grayscaleColor(String color) {
+
+        int r =  Integer.parseInt(color.substring(1,3),16);
+        int g = Integer.parseInt(color.substring(3, 5), 16);
+        int b = Integer.parseInt(color.substring(5, 7), 16);
+
+        int res = (r + g + b) / 3;
+        r = g = b = res;
+
+        r = (r<255) ? r : 255;
+        g = (g<255) ? g : 255;
+        b = (b<255) ? b : 255;
+
+        String rr = Integer.toHexString(r);
+        String gg = Integer.toHexString(g);
+        String bb = Integer.toHexString(b);
+
+        rr = rr.length() == 1 ? "0"+rr : rr;
+        gg = gg.length() == 1 ? "0"+gg : gg;
+        bb = bb.length() == 1 ? "0"+bb : bb;
+
+        return "#"+rr+gg+bb;
+    }
+
+    public static String getContrastColour(String color){
+        String plusShade = shadeColor(color, 100);
+        String minusShade = shadeColor(color, -100);
+
+        int r =  Integer.parseInt(color.substring(1, 3), 16);
+        int g = Integer.parseInt(color.substring(3, 5), 16);
+        int b = Integer.parseInt(color.substring(5, 7), 16);
+        int rgb = r + g + b;
+
+        int rPlus =  Integer.parseInt(plusShade.substring(1,3),16);
+        int gPlus  = Integer.parseInt(plusShade.substring(3, 5), 16);
+        int bPlus  = Integer.parseInt(plusShade.substring(5, 7), 16);
+        int rgbPlus = rPlus + gPlus + bPlus;
+
+        int rMinus =  Integer.parseInt(minusShade.substring(1,3),16);
+        int gMinus = Integer.parseInt(minusShade.substring(3, 5), 16);
+        int bMinus = Integer.parseInt(minusShade.substring(5, 7), 16);
+        int rgbMinus = rMinus + gMinus + bMinus;
+
+        int plusDiff = Math.abs(r - rPlus) + Math.abs(g - gPlus) + Math.abs(b - bPlus);
+        int minusDiff = Math.abs(r - rMinus) + Math.abs(g - gMinus) + Math.abs(b - bMinus);
+
+        return plusDiff > minusDiff ? plusShade : minusShade;
     }
 
 

@@ -31,7 +31,7 @@ import java.util.LinkedList;
  */
 public class JsonParser {
 
-    private static final String filePath = Constants.RESOURCE_PATTERNS_PATH + "/4.json";
+    private static final String filePath = Constants.RESOURCE_PATTERNS_PATH + "/7.json";
 
 
     private static Node parseNode(JSONObject jsonObject, int level){
@@ -41,7 +41,7 @@ public class JsonParser {
         Double y = (Double.parseDouble((String)jsonObject.get("y")));
         Double width = (Double.parseDouble((String)jsonObject.get("width")));
         Double height = (Double.parseDouble((String)jsonObject.get("height")));
-        String contentType  = (String)jsonObject.get("ContentType");
+        String contentType  = (String)jsonObject.get("tag");
         ContentType tag = contentType == null ? ContentType.DECOR : ContentType.valueOf(contentType) ;
 
         switch (nodeType) {
@@ -99,6 +99,8 @@ public class JsonParser {
         Double y = (Double.parseDouble((String)jsonObject.get("y")));
         Double width = (Double.parseDouble((String)jsonObject.get("width")));
         Double height = (Double.parseDouble((String)jsonObject.get("height")));
+
+        System.out.println("Szukam contentu dla " + drawableType + " o tagu " + tag);
 
         return RandomContentGenerator.getContent(drawableType, tag, x, y, width, height);
 
