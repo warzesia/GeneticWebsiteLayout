@@ -14,7 +14,12 @@ public abstract class Node extends PageElement {
 
     protected Integer level;
 
+    public Node copy() {
+        return copyWithDifferentPlacement(this.getX(), this.getY(), this.getWidth(), this.getHeight());
+    }
     public abstract Node copyWithDifferentPlacement(Double x, Double y, Double width, Double height);
+    public abstract Node getMutation();
+    public abstract void paintBackground(String colour);
     public abstract void generate();
 
     @Override

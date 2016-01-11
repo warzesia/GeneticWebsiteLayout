@@ -1,11 +1,8 @@
 package content_generators;
 
+import page_components.*;
 import page_components.enums.DrawableType;
 import tools.*;
-import page_components.PageElement;
-import page_components.SVGImage;
-import page_components.SVGRectangle;
-import page_components.SVGText;
 
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
@@ -40,7 +37,16 @@ public class RandomElementGenerator {
         return text;
     }
 
-    static public PageElement getRandomDrawable(){
+    static public DrawablePageElement getRandomDrawable(Double x, Double y, Double width, Double height){
+        DrawableType drawableType = getRandomDrawableType();
+        switch (drawableType) {
+            case IMAGE: return getRandomSVGImage(x, y, width, height);
+            case RECTANGLE: return getRandomSVGRectangle(x, y, width, height);
+            case TEXT: return getRandomSVGText(x, y, width, height);
+            default: return null;
+        }
+    }
+    static public DrawablePageElement getRandomDrawable(){
         DrawableType drawableType = getRandomDrawableType();
         switch (drawableType) {
             case IMAGE: return getRandomSVGImage();
@@ -48,6 +54,30 @@ public class RandomElementGenerator {
             case TEXT: return getRandomSVGText();
             default: return null;
         }
+    }
+
+    static public DrawablePageElement getRandomlyPlacedDrawable(){
+        Integer x1 = ThreadLocalRandom.current().nextInt(101);
+        Integer y1 = ThreadLocalRandom.current().nextInt(101);
+        Integer x2, y2;
+
+        do{
+            x2 = ThreadLocalRandom.current().nextInt(101);
+            y2 = ThreadLocalRandom.current().nextInt(101);
+        } while ((Math.abs(x1 - x2) < 30) && (Math.abs(y1 - y2) < 30));
+
+        Double x, y, width, height;
+        width = Parsers.IntegerToDouble(Math.abs(x1 - x2));
+        height = Parsers.IntegerToDouble(Math.abs(y1 - y2));
+        x = Parsers.IntegerToDouble(Math.min(x1, x2));
+        y = Parsers.IntegerToDouble(Math.min(y1, y2));
+
+        return getRandomDrawable(x, y, width, height);
+    }
+
+    static public DrawablePageElement getRandomlyPlacedDrawable(DrawablePageElement drawable){
+        DrawablePageElement randomDrawable = getRandomlyPlacedDrawable();
+        return drawable.copyWithDifferentPlacement(randomDrawable.getX(), randomDrawable.getY(), randomDrawable.getWidth(), randomDrawable.getHeight());
     }
 
     private static DrawableType getRandomDrawableType(){

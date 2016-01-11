@@ -22,6 +22,7 @@ public abstract class PageElement {
     Set<ContentType> metadata = new HashSet<>();
 
     public abstract Element draw(Document document);
+    public abstract PageElement copyWithDifferentPlacement(Double x, Double y, Double width, Double height);
     public void setAttributes(Element element){
         element.setAttributeNS(null, Strings.X, Parsers.DoubleToStringPercent(this.getX()));
         element.setAttributeNS(null, Strings.Y, Parsers.DoubleToStringPercent(this.getY()));

@@ -8,6 +8,8 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class ColourGenerator {
 
+    public static ColourGenerator ColourGen;
+
     public enum PaletteTypes {
         RED, YELLOW, GREEN, VIOLET, BLUE
     }
@@ -25,6 +27,8 @@ public class ColourGenerator {
         palettes.put(PaletteTypes.GREEN, green);
         palettes.put(PaletteTypes.VIOLET, violet);
         palettes.put(PaletteTypes.BLUE, blue);
+
+        ColourGen = new ColourGenerator();
     }
 
     private String[] palette;

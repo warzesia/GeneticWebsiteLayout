@@ -28,6 +28,16 @@ public class SVGRectangle extends DrawablePageElement {
         return element;
     }
 
+    public DrawablePageElement copyWithDifferentPlacement(Double x, Double y, Double width, Double height){
+        SVGRectangle rectangleCopy = new SVGRectangle(x, y, width, height);
+        rectangleCopy.setFillColour(this.fillColour);
+        rectangleCopy.setFillOpacity(this.fillOpacity);
+        rectangleCopy.setStrokeColour(this.strokeColour);
+        rectangleCopy.setStrokeOpacity(this.strokeOpacity);
+        rectangleCopy.setStrokeWidth(this.strokeWidth);
+        return rectangleCopy;
+    }
+
     public SVGRectangle(Double x, Double y, Double width, Double height) {
         super(x, y, width, height);
     }

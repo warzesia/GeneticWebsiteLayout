@@ -1,5 +1,7 @@
 package page_components.tree_components;
 
+import content_generators.ColourGenerator;
+import content_generators.RandomElementGenerator;
 import content_generators.RandomLayoutGenerator;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -30,10 +32,28 @@ public class ViewportGroupNode extends Node {
     }
 
     @Override
-    public Node copyWithDifferentPlacement(Double x, Double y, Double width, Double height) {
+    public ViewportGroupNode copyWithDifferentPlacement(Double x, Double y, Double width, Double height) {
         ViewportGroupNode viewportGroup = new ViewportGroupNode(x, y, width, height, this.level);
         viewportGroup.setTwinChildren(this.twinChildren);
-        return  viewportGroup;
+        return viewportGroup;
+    }
+
+    public ViewportGroupNode copy() {
+        return copyWithDifferentPlacement(this.getX(), this.getY(), this.getWidth(), this.getHeight());
+    }
+
+    @Override
+    public ViewportGroupNode getMutation() {
+        ViewportGroupNode viewportGroupMutation = this.copy();
+        viewportGroupMutation.setTwinChildren(RandomLayoutGenerator.getRandomlyPlacedTwinChildren(twinChildren.getFirst()));
+        return viewportGroupMutation;
+    }
+
+    @Override
+    public void paintBackground(String colour) {
+        colour = this.getMetadata().isEmpty() ? colour : ColourGenerator.ColourGen.getRandomColour();
+        for (Node child: this.twinChildren)
+            child.paintBackground(colour);
     }
 
     public ViewportGroupNode(Integer level) {super(level);}

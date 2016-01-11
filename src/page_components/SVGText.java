@@ -28,8 +28,9 @@ public class SVGText extends DrawablePageElement {
         flowRootElement.appendChild(flowDivElement);
 
         Element bkgRectangleElement = this.getBackground().draw(document);
-        flowRegionElement.appendChild(bkgRectangleElement);
 
+        flowRegionElement.appendChild(bkgRectangleElement);
+        super.setAttributes(bkgRectangleElement);
         Element flowParaElement = document.createElementNS(Constants.SVG_NAMESPACE, Strings.FLOW_PARA);
         flowParaElement.setTextContent(this.getContent());
         flowDivElement.appendChild(flowParaElement);
@@ -38,25 +39,15 @@ public class SVGText extends DrawablePageElement {
         return flowRootElement;
     }
 
-//    @Override
-//    public Element draw(Document document) {
-//        Element flowRootElement = document.createElementNS(Constants.SVG_NAMESPACE, Strings.FLOW_ROOT);
-//
-//        Element flowRegionElement = document.createElementNS(Constants.SVG_NAMESPACE, Strings.FLOW_REGION);
-//        Element flowDivElement = document.createElementNS(Constants.SVG_NAMESPACE, Strings.FLOW_DIV);
-//        flowRootElement.appendChild(flowRegionElement);
-//        flowRootElement.appendChild(flowDivElement);
-//
-//        Element bkgRectangleElement = this.getBackground().draw(document);
-//        flowRegionElement.appendChild(bkgRectangleElement);
-//
-//        Element flowParaElement = document.createElementNS(Constants.SVG_NAMESPACE, Strings.FLOW_PARA);
-//        flowParaElement.setTextContent(this.getContent());
-//        flowDivElement.appendChild(flowParaElement);
-//
-//        super.setAttributes(flowRootElement);
-//        return flowRootElement;
-//    }
+    public DrawablePageElement copyWithDifferentPlacement(Double x, Double y, Double width, Double height){
+        SVGText textCopy = new SVGText(x, y, width, height);
+        textCopy.setBackground(this.background);
+        textCopy.setContent(this.content);
+        textCopy.setFillColour(this.fillColour);
+        textCopy.setFontSize(this.fontSize);
+        return textCopy;
+    }
+
 
     public SVGText(Double x, Double y, Double width, Double height) {
         super(x, y, width, height);

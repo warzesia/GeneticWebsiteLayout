@@ -31,7 +31,7 @@ import java.util.LinkedList;
  */
 public class JsonParser {
 
-    private static final String filePath = Constants.RESOURCE_PATTERNS_PATH + "/5.json";
+    private static final String filePath = Constants.RESOURCE_PATTERNS_PATH + "/1.json";
 
 
     private static Node parseNode(JSONObject jsonObject, int level){
@@ -46,7 +46,7 @@ public class JsonParser {
 
         switch (nodeType) {
             case LEAF: {
-                PageElement contentElement = parseElement((JSONObject)jsonObject.get("contentElement"), tag);
+                DrawablePageElement contentElement = parseElement((JSONObject)jsonObject.get("contentElement"), tag);
                 LeafNode parsedSVGLeaf = new LeafNode(x, y, width, height, level);
                 parsedSVGLeaf.setBackgroundRectangle(RandomContentGenerator.getBackgroundRectangle());
                 parsedSVGLeaf.setContentElement(contentElement);
@@ -99,17 +99,7 @@ public class JsonParser {
         Double y = (Double.parseDouble((String)jsonObject.get("y")));
         Double width = (Double.parseDouble((String)jsonObject.get("width")));
         Double height = (Double.parseDouble((String)jsonObject.get("height")));
-
-        System.out.println("Szukam contentu dla " + drawableType + " o tagu " + tag);
-
         return RandomContentGenerator.getContent(drawableType, tag, x, y, width, height);
-
-//        switch (drawableType) {
-//            case IMAGE: return RandomElementGenerator.getRandomSVGImage(x, y, width, height);
-//            case RECTANGLE: return RandomElementGenerator.getRandomSVGRectangle(x, y, width, height);
-//            case TEXT: return RandomElementGenerator.getRandomSVGText(x, y, width, height);
-//            default: return null;
-//        }
     }
 
     public static Node run() {

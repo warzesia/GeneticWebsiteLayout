@@ -19,8 +19,8 @@ public class Constants {
 
     static public final String SVG_VERSION = "1.2";
 
-    static public final Integer APP_FRAME_WIDTH = 1000;//((int) screenWidth);
-    static public final Integer APP_FRAME_HEIGHT = 700;//((int) screenHeight);
+    static public final Integer APP_FRAME_WIDTH = 700;//((int) screenWidth);
+    static public final Integer APP_FRAME_HEIGHT = 500;//((int) screenHeight);
 
     static public final Integer SVG_CANVAS_WIDTH = APP_FRAME_WIDTH*8/10;
     static public final Integer SVG_CANVAS_HEIGHT = APP_FRAME_HEIGHT*8/10;

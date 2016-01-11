@@ -42,7 +42,11 @@ public class MainView {
     public static final JPanel mainPanel = new JPanel();
 
     /*****/public static final JPanel layoutGenerationPanel = new JPanel();
-    /*****//*****/public static final JPanel svgCanvasPanel = new JPanel();
+    /*****//*****/public static final JPanel svgCanvasGroupPanel = new JPanel();
+    /*****//*****//*****/public static final JPanel svgCanvasPanel = new JPanel();
+    /*****//*****//*****/public static final JPanel svgCanvasPanel2 = new JPanel();
+    /*****//*****//*****/public static final JPanel svgCanvasPanel3 = new JPanel();
+    /*****//*****//*****/public static final JPanel svgCanvasPanel4 = new JPanel();
     /*****//*****/public static final JPanel buttonsPanel = new JPanel();
 
     /*****/public static final JPanel controlPanel = new JPanel();
@@ -52,7 +56,11 @@ public class MainView {
     /*****//*****//*****/public static final JPanel viewportGroupPanel = new JPanel();
 
 
-    public static final JSVGCanvas svgCanvas= new JSVGCanvas();
+    public static final JSVGCanvas svgCanvas = new JSVGCanvas();
+    public static final JSVGCanvas svgCanvas2 = new JSVGCanvas();
+    public static final JSVGCanvas svgCanvas3 = new JSVGCanvas();
+    public static final JSVGCanvas svgCanvas4 = new JSVGCanvas();
+
     public static final JButton nextButton = new JButton();
 
     public static JSlider leafSlider;
@@ -86,6 +94,19 @@ public class MainView {
         MainView.frame.setVisible(true);
     }
 
+    public static void setSVGDocuments(SVGDocument svgDocument, SVGDocument svgDocument2, SVGDocument svgDocument3, SVGDocument svgDocument4){
+        MainView.svgCanvas.setSVGDocument(svgDocument);
+        MainView.svgCanvas2.setSVGDocument(svgDocument2);
+        MainView.svgCanvas3.setSVGDocument(svgDocument3);
+        MainView.svgCanvas4.setSVGDocument(svgDocument4);
+
+        MainView.svgCanvasGroupPanel.add(svgCanvasPanel2);
+        MainView.svgCanvasGroupPanel.add(svgCanvasPanel3);
+        MainView.svgCanvasGroupPanel.add(svgCanvasPanel4);
+
+        MainView.frame.setVisible(true);
+    }
+
     private static void setupMainPanel(){
         MainView.mainPanel.setLayout(new BorderLayout());
         MainView.mainPanel.add("West", MainView.layoutGenerationPanel);
@@ -96,15 +117,24 @@ public class MainView {
 
     private static void setupLayoutGenerationPanel(){
         MainView.layoutGenerationPanel.setLayout(new BorderLayout());
-        MainView.layoutGenerationPanel.add("Center", MainView.svgCanvasPanel);
+        MainView.layoutGenerationPanel.add("Center", MainView.svgCanvasGroupPanel);
         MainView.layoutGenerationPanel.add("South", MainView.buttonsPanel);
-        setupCanvasPanel();
+        setupCanvasGroupPanel();
         setupButtonsPanel();
     }
 
-    private static void setupCanvasPanel() {
-        MainView.svgCanvasPanel.setSize(Constants.SVG_CANVAS_WIDTH, Constants.SVG_CANVAS_HEIGHT);
+    private static void setupCanvasGroupPanel() {
+        MainView.svgCanvasGroupPanel.setLayout(new GridLayout(2, 2));
+        MainView.svgCanvasGroupPanel.setSize(Constants.SVG_CANVAS_WIDTH, Constants.SVG_CANVAS_HEIGHT);
+
+        MainView.svgCanvasGroupPanel.add(svgCanvasPanel);
+
+//        MainView.svgCanvasPanel.setSize(Constants.SVG_CANVAS_WIDTH, Constants.SVG_CANVAS_HEIGHT);
         MainView.svgCanvasPanel.add(svgCanvas);
+        MainView.svgCanvasPanel2.add(svgCanvas2);
+        MainView.svgCanvasPanel3.add(svgCanvas3);
+        MainView.svgCanvasPanel4.add(svgCanvas4);
+
     }
 
     private static void setupButtonsPanel(){

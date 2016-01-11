@@ -51,7 +51,8 @@ public class RandomContentGenerator {
     static public SVGText getRandomParagraph(Double x, Double y, Double width, Double height){
         SVGText text = new SVGText(x, y, width, height);
         text.setContent(textGenerator.getParagraph());
-        SVGRectangle bcgRec = getBackgroundRectangle(x, y, width, height);
+        SVGRectangle bcgRec = RandomElementGenerator.getRandomSVGRectangle();
+//        SVGRectangle bcgRec = getBackgroundRectangle(x, y, width, height);
 //        bcgRec.setFillColour(ColourGenerator.grayscaleColor(bcgRec.getFillColour()));
         text.setBackground(bcgRec);
 //        text.setFillColour(ColourGenerator.shadeColor(ColourGenerator.grayscaleColor(bcgRec.getFillColour()), 100));
