@@ -2,54 +2,69 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e770c73e-c575-43d6-b939-4289aa5483de" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/patternLayouts/7.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/patternLayouts/8.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/content_generators/websiteContentFactories/LayoutGenerator.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/patternLayouts/9.json" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/patternLayouts/51.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/view/CrossoverStrategy.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/view/RandomTreesStrategy.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/view/Strategy.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/view/View.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/content_generators/websiteContentFactories/ButtonsFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/content_generators/websiteContentFactories/ConcreteNodesFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/content_generators/websiteContentFactories/ImagesFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/content_generators/websiteContentFactories/LayoutGenerator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/patternLayouts/8.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/view/MainView$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/view/MainView$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/view/MainView$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/view/MainView$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/view/MainView$5.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/view/MainView$6.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/view/MainView.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/content_generators/websiteContentFactories/ButtonsFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/content_generators/websiteContentFactories/ConcreteNodesFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/content_generators/websiteContentFactories/ImagesFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/view/MainView.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/patternLayouts/8.json" afterPath="$PROJECT_DIR$/resources/patternLayouts/50.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/content_generators/websiteContentFactories/LayoutGenerator.java" afterPath="$PROJECT_DIR$/src/content_generators/LayoutGenerator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/Application.class" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/Application.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/content_generators/websiteContentFactories/ConcreteNodesFactory.class" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/content_generators/websiteContentFactories/ConcreteNodesFactory.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/content_generators/ColourGenerator.class" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/content_generators/ColourGenerator.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/tools/Constants.class" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/tools/Constants.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/page_components/DrawablePageElement.class" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/page_components/DrawablePageElement.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/page_components/enums/ContentType.class" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/page_components/enums/ContentType.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/tools/JsonParser$1.class" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/tools/JsonParser$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/tools/JsonParser.class" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/tools/JsonParser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/page_components/tree_components/LeafNode.class" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/page_components/tree_components/LeafNode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/view/MainView$1.class" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/view/MainView$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/view/MainView$2.class" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/view/MainView$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/view/MainView$3.class" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/view/MainView$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/view/MainView$4.class" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/view/MainView$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/view/MainView$5.class" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/view/MainView$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/view/MainView$6.class" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/view/MainView$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/view/MainView.class" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/view/MainView.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/page_components/tree_components/Node.class" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/page_components/tree_components/Node.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/page_components/PageElement.class" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/page_components/PageElement.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/tools/Parameters.class" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/tools/Parameters.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/content_generators/RandomContentGenerator$1.class" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/content_generators/RandomContentGenerator$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/content_generators/RandomContentGenerator.class" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/content_generators/RandomContentGenerator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/content_generators/RandomElementGenerator$1.class" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/content_generators/RandomElementGenerator$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/content_generators/RandomElementGenerator.class" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/content_generators/RandomElementGenerator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/page_components/SVGImage.class" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/page_components/SVGImage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/page_components/SVGRectangle.class" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/page_components/SVGRectangle.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/page_components/SVGText.class" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/page_components/SVGText.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/tools/Strings.class" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/tools/Strings.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/page_components/tree_components/ViewportGroupNode.class" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/page_components/tree_components/ViewportGroupNode.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/page_components/tree_components/ViewportNode.class" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/page_components/tree_components/ViewportNode.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/patternLayouts/1.json" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/patternLayouts/1.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/patternLayouts/1.json" afterPath="$PROJECT_DIR$/resources/patternLayouts/1.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/patternLayouts/2.json" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/patternLayouts/2.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/patternLayouts/2.json" afterPath="$PROJECT_DIR$/resources/patternLayouts/2.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/patternLayouts/3.json" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/patternLayouts/3.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/patternLayouts/3.json" afterPath="$PROJECT_DIR$/resources/patternLayouts/3.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/patternLayouts/4.json" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/patternLayouts/4.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/patternLayouts/4.json" afterPath="$PROJECT_DIR$/resources/patternLayouts/4.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/patternLayouts/5.json" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/patternLayouts/5.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/patternLayouts/5.json" afterPath="$PROJECT_DIR$/resources/patternLayouts/5.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/patternLayouts/6.json" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/patternLayouts/6.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/patternLayouts/6.json" afterPath="$PROJECT_DIR$/resources/patternLayouts/6.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/patternLayouts/7.json" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/patternLayouts/7.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/patternLayouts/8.json" afterPath="$PROJECT_DIR$/out/production/GeneticWebsiteLayout/patternLayouts/8.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/patternLayouts/7.json" afterPath="$PROJECT_DIR$/resources/patternLayouts/7.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application.java" afterPath="$PROJECT_DIR$/src/Application.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/content_generators/ColourGenerator.java" afterPath="$PROJECT_DIR$/src/content_generators/ColourGenerator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tools/Constants.java" afterPath="$PROJECT_DIR$/src/tools/Constants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page_components/DrawablePageElement.java" afterPath="$PROJECT_DIR$/src/page_components/DrawablePageElement.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page_components/enums/ContentType.java" afterPath="$PROJECT_DIR$/src/page_components/enums/ContentType.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tools/JsonParser.java" afterPath="$PROJECT_DIR$/src/tools/JsonParser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page_components/tree_components/LeafNode.java" afterPath="$PROJECT_DIR$/src/page_components/tree_components/LeafNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/MainView.java" afterPath="$PROJECT_DIR$/src/view/MainView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page_components/tree_components/Node.java" afterPath="$PROJECT_DIR$/src/page_components/tree_components/Node.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page_components/PageElement.java" afterPath="$PROJECT_DIR$/src/page_components/PageElement.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tools/Parameters.java" afterPath="$PROJECT_DIR$/src/tools/Parameters.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/content_generators/RandomContentGenerator.java" afterPath="$PROJECT_DIR$/src/content_generators/RandomContentGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/content_generators/RandomElementGenerator.java" afterPath="$PROJECT_DIR$/src/content_generators/RandomElementGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/content_generators/RandomLayoutGenerator.java" afterPath="$PROJECT_DIR$/src/content_generators/RandomLayoutGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page_components/SVGImage.java" afterPath="$PROJECT_DIR$/src/page_components/SVGImage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page_components/SVGRectangle.java" afterPath="$PROJECT_DIR$/src/page_components/SVGRectangle.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/SVGCreator.java" afterPath="$PROJECT_DIR$/src/view/SVGCreator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page_components/SVGText.java" afterPath="$PROJECT_DIR$/src/page_components/SVGText.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tools/Strings.java" afterPath="$PROJECT_DIR$/src/tools/Strings.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page_components/tree_components/ViewportGroupNode.java" afterPath="$PROJECT_DIR$/src/page_components/tree_components/ViewportGroupNode.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page_components/tree_components/ViewportNode.java" afterPath="$PROJECT_DIR$/src/page_components/tree_components/ViewportNode.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -78,7 +93,7 @@
         <entry file="file://$PROJECT_DIR$/src/Application.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+              <caret line="69" column="30" selection-start-line="69" selection-start-column="30" selection-end-line="69" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -86,22 +101,86 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ColourGenerator.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/content_generators/ColourGenerator.java">
+      <file leaf-file-name="RandomTreesStrategy.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/RandomTreesStrategy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.60746">
-              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="22" column="37" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1333#1334#0" expanded="true" />
+                <element signature="e#1360#1361#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/tools/Constants.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5497925">
+              <caret line="34" column="68" selection-start-line="34" selection-start-column="68" selection-end-line="34" selection-end-column="68" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JsonParser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tools/JsonParser.java">
+      <file leaf-file-name="SVGCreator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/SVGCreator.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+              <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="View.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/View.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="133" column="18" selection-start-line="133" selection-start-column="18" selection-end-line="133" selection-end-column="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3608#3609#0" expanded="true" />
+                <element signature="e#3654#3655#0" expanded="true" />
+                <element signature="e#3696#3697#0" expanded="true" />
+                <element signature="e#3734#3735#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CrossoverStrategy.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/CrossoverStrategy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="53" column="35" selection-start-line="53" selection-start-column="35" selection-end-line="53" selection-end-column="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1620#1621#0" expanded="true" />
+                <element signature="e#1678#1679#0" expanded="true" />
+                <element signature="e#2402#2403#0" expanded="true" />
+                <element signature="e#2429#2430#0" expanded="true" />
+                <element signature="e#2459#2460#0" expanded="true" />
+                <element signature="e#2487#2488#0" expanded="true" />
+                <element signature="e#2517#2518#0" expanded="true" />
+                <element signature="e#2545#2546#0" expanded="true" />
+                <element signature="e#2575#2576#0" expanded="true" />
+                <element signature="e#2603#2604#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Strategy.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/Strategy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -113,6 +192,7 @@
       <list>
         <option value="Enum" />
         <option value="package-info" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -133,19 +213,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/treeComponents/SVGLeaf.java" />
-        <option value="$PROJECT_DIR$/src/treeComponents/SVGViewportGroup.java" />
-        <option value="$PROJECT_DIR$/src/treeComponents/drawable/SVGText.java" />
-        <option value="$PROJECT_DIR$/src/contentFactories/LayoutFactory.java" />
-        <option value="$PROJECT_DIR$/src/contentFactories/ElementFactory.java" />
-        <option value="$PROJECT_DIR$/src/tools/ColourGenerator.java" />
-        <option value="$PROJECT_DIR$/src/contentFactories/ConcreteNodesFactory.java" />
-        <option value="$PROJECT_DIR$/src/tools/ContentType.java" />
-        <option value="$PROJECT_DIR$/src/treeComponents/SVGElement.java" />
-        <option value="$PROJECT_DIR$/src/treeComponents/SVGViewport.java" />
-        <option value="$PROJECT_DIR$/src/evolution/Population.java" />
         <option value="$PROJECT_DIR$/src/page_tree_components/SVGViewport.java" />
-        <option value="$PROJECT_DIR$/src/tools/Parameters.java" />
         <option value="$PROJECT_DIR$/src/page_tree_components/SVGViewportGroup.java" />
         <option value="$PROJECT_DIR$/src/page_tree_components/TreeViewportNode.java" />
         <option value="$PROJECT_DIR$/src/page_components/TreeViewportNode.java" />
@@ -158,32 +226,44 @@
         <option value="$PROJECT_DIR$/src/content_generators/websiteContentFactories/TextGenerator.java" />
         <option value="$PROJECT_DIR$/src/content_generators/websiteContentFactories/ConcreteNodesFactory.java" />
         <option value="$PROJECT_DIR$/src/content_generators/TextGenerator.java" />
-        <option value="$PROJECT_DIR$/resources/patternLayouts/4.json" />
-        <option value="$PROJECT_DIR$/src/tools/Strings.java" />
-        <option value="$PROJECT_DIR$/src/page_components/enums/ContentType.java" />
-        <option value="$PROJECT_DIR$/resources/patternLayouts/6.json" />
         <option value="$PROJECT_DIR$/resources/patternLayouts/8.json" />
         <option value="$PROJECT_DIR$/resources/patternLayouts/9.json" />
-        <option value="$PROJECT_DIR$/resources/patternLayouts/5.json" />
-        <option value="$PROJECT_DIR$/resources/patternLayouts/7.json" />
         <option value="$PROJECT_DIR$/src/content_generators/RandomContentGenerator.java" />
-        <option value="$PROJECT_DIR$/src/page_components/PageElement.java" />
         <option value="$PROJECT_DIR$/src/page_components/DrawablePageElement.java" />
         <option value="$PROJECT_DIR$/src/page_components/SVGImage.java" />
         <option value="$PROJECT_DIR$/src/page_components/SVGRectangle.java" />
-        <option value="$PROJECT_DIR$/src/page_components/SVGText.java" />
-        <option value="$PROJECT_DIR$/src/tools/JsonParser.java" />
         <option value="$PROJECT_DIR$/src/content_generators/RandomElementGenerator.java" />
-        <option value="$PROJECT_DIR$/src/view/MainView.java" />
-        <option value="$PROJECT_DIR$/src/tools/Constants.java" />
         <option value="$PROJECT_DIR$/src/content_generators/RandomLayoutGenerator.java" />
         <option value="$PROJECT_DIR$/src/content_generators/websiteContentFactories/LayoutGenerator.java" />
+        <option value="$PROJECT_DIR$/src/tools/Strings.java" />
+        <option value="$PROJECT_DIR$/src/page_components/enums/ContentType.java" />
+        <option value="$PROJECT_DIR$/resources/patternLayouts/1.json" />
+        <option value="$PROJECT_DIR$/resources/patternLayouts/3.json" />
+        <option value="$PROJECT_DIR$/resources/patternLayouts/4.json" />
+        <option value="$PROJECT_DIR$/resources/patternLayouts/5.json" />
+        <option value="$PROJECT_DIR$/resources/patternLayouts/7.json" />
+        <option value="$PROJECT_DIR$/src/content_generators/LayoutGenerator.java" />
+        <option value="$PROJECT_DIR$/src/tools/JsonParser.java" />
         <option value="$PROJECT_DIR$/src/page_components/tree_components/Node.java" />
+        <option value="$PROJECT_DIR$/resources/patternLayouts/2.json" />
+        <option value="$PROJECT_DIR$/resources/patternLayouts/51.json" />
+        <option value="$PROJECT_DIR$/resources/patternLayouts/50.json" />
+        <option value="$PROJECT_DIR$/resources/patternLayouts/6.json" />
+        <option value="$PROJECT_DIR$/src/page_components/PageElement.java" />
+        <option value="$PROJECT_DIR$/src/page_components/tree_components/LeafNode.java" />
+        <option value="$PROJECT_DIR$/src/page_components/SVGText.java" />
+        <option value="$PROJECT_DIR$/src/tools/Parameters.java" />
+        <option value="$PROJECT_DIR$/src/content_generators/ColourGenerator.java" />
         <option value="$PROJECT_DIR$/src/page_components/tree_components/ViewportNode.java" />
         <option value="$PROJECT_DIR$/src/page_components/tree_components/ViewportGroupNode.java" />
-        <option value="$PROJECT_DIR$/src/page_components/tree_components/LeafNode.java" />
+        <option value="$PROJECT_DIR$/src/view/MainView.java" />
+        <option value="$PROJECT_DIR$/src/view/View.java" />
+        <option value="$PROJECT_DIR$/src/view/Strategy.java" />
         <option value="$PROJECT_DIR$/src/Application.java" />
-        <option value="$PROJECT_DIR$/src/content_generators/ColourGenerator.java" />
+        <option value="$PROJECT_DIR$/src/view/SVGCreator.java" />
+        <option value="$PROJECT_DIR$/src/view/RandomTreesStrategy.java" />
+        <option value="$PROJECT_DIR$/src/view/CrossoverStrategy.java" />
+        <option value="$PROJECT_DIR$/src/tools/Constants.java" />
       </list>
     </option>
   </component>
@@ -200,8 +280,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="43" />
     <option name="y" value="-4" />
-    <option name="width" value="1877" />
-    <option name="height" value="1084" />
+    <option name="width" value="1323" />
+    <option name="height" value="772" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -260,6 +340,7 @@
     <panes>
       <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -426,63 +507,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GeneticWebsiteLayout" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GeneticWebsiteLayout" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="content_generators" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websiteContentFactories" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GeneticWebsiteLayout" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GeneticWebsiteLayout" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="patternLayouts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GeneticWebsiteLayout" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GeneticWebsiteLayout" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -765,27 +791,27 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="43" y="-4" width="1877" height="1084" extended-state="6" />
-    <editor active="false" />
+    <frame x="43" y="-4" width="1323" height="772" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917964" sideWeight="0.49809057" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32872504" sideWeight="0.49809057" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.073727936" sideWeight="0.5040917" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924962" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3852544" sideWeight="0.49590835" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21505377" sideWeight="0.49590835" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924962" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22258593" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22126661" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29032257" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997923" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39631337" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -811,7 +837,21 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="18" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/page_components/tree_components/Node.java</url>
+          <line>33</line>
+          <properties class="page_components.tree_components.Node" method="getCrossoverAtMaxLevel" />
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/view/CrossoverStrategy.java</url>
+          <line>51</line>
+          <properties />
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="35" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -820,34 +860,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/Collection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33226836">
-          <caret line="188" column="16" selection-start-line="188" selection-start-column="16" selection-end-line="188" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33226836">
-          <caret line="239" column="6" selection-start-line="239" selection-start-column="6" selection-end-line="239" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/LinkedList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="243" column="0" selection-start-line="243" selection-start-column="0" selection-end-line="243" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/Iterable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.087579615">
-          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/tools/Params.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.39823008">
@@ -883,22 +895,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/evolution/Population.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tools/Parameters.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="66" selection-start-line="28" selection-start-column="66" selection-end-line="28" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/tools/enums/Ratio.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -906,25 +902,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/content_generators/websiteContentFactories/ButtonsFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/page_components/enums/DrawableType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.11563169">
           <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/content_generators/websiteContentFactories/ImagesFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5494186">
-          <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -951,97 +932,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33284885">
           <caret line="72" column="12" selection-start-line="72" selection-start-column="12" selection-end-line="72" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/content_generators/websiteContentFactories/ConcreteNodesFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tools/Strings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/content_generators/TextGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/patternLayouts/4.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.222222">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="28" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/patternLayouts/5.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="9.296296">
-          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/patternLayouts/6.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.3703704">
-          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/patternLayouts/7.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14574899">
-          <caret line="51" column="15" selection-start-line="51" selection-start-column="15" selection-end-line="51" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/patternLayouts/8.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/patternLayouts/2.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0629771">
-          <caret line="64" column="60" selection-start-line="64" selection-start-column="60" selection-end-line="64" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/patternLayouts/3.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17175573">
-          <caret line="11" column="24" selection-start-line="0" selection-start-column="0" selection-end-line="92" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/page_components/enums/ContentType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1053,22 +943,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/page_components/SVGRectangle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="29" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/page_components/DrawablePageElement.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35457706">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#447#448#0" expanded="true" />
-            <element signature="e#489#490#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#447#448#0" expanded="false" />
+            <element signature="e#489#490#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1077,45 +959,79 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34371257">
           <caret line="298" column="16" selection-start-line="298" selection-start-column="16" selection-end-line="298" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tools/Strings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8415493">
+          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/page_components/SVGText.java">
+    <entry file="file://$PROJECT_DIR$/resources/patternLayouts/3.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.11612903">
+          <caret line="69" column="14" selection-start-line="69" selection-start-column="14" selection-end-line="69" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/patternLayouts/4.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.16129032">
+          <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/patternLayouts/5.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.08387097">
+          <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/patternLayouts/7.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.61290324">
+          <caret line="81" column="9" selection-start-line="81" selection-start-column="9" selection-end-line="81" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/content_generators/RandomElementGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="52" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="1" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/MainView.java">
+    <entry file="file://$PROJECT_DIR$/src/evolution/Population.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4019608">
-          <caret line="91" column="23" selection-start-line="91" selection-start-column="23" selection-end-line="91" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.7659575">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/SVGCreator.java">
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/LinkedList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3277311">
-          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
-          <folding>
-            <element signature="e#698#699#0" expanded="true" />
-            <element signature="e#762#763#0" expanded="true" />
-            <element signature="e#1102#1103#0" expanded="true" />
-            <element signature="e#1146#1147#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0">
+          <caret line="887" column="0" selection-start-line="887" selection-start-column="0" selection-end-line="887" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tools/Constants.java">
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/AbstractList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42717087">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="754" column="0" selection-start-line="754" selection-start-column="0" selection-end-line="754" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1125,48 +1041,78 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding>
-            <element signature="e#562#563#0" expanded="true" />
-            <element signature="e#602#603#0" expanded="true" />
-            <element signature="e#856#857#0" expanded="true" />
+            <element signature="e#856#857#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/content_generators/RandomElementGenerator.java">
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/concurrent/ThreadLocalRandom.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="28.033333">
-          <caret line="9" column="1" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/content_generators/RandomContentGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.44">
-          <caret line="58" column="86" selection-start-line="58" selection-start-column="86" selection-end-line="58" selection-end-column="86" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/patternLayouts/1.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-26.666666">
-          <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
+        <state vertical-scroll-proportion="2.8300283">
+          <caret line="459" column="5" selection-start-line="459" selection-start-column="5" selection-end-line="459" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/page_components/tree_components/ViewportNode.java">
+    <entry file="file://$PROJECT_DIR$/src/content_generators/LayoutGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="45" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.62357414">
+          <caret line="89" column="63" selection-start-line="89" selection-start-column="63" selection-end-line="89" selection-end-column="63" />
           <folding>
-            <element signature="e#2066#2067#0" expanded="true" />
-            <element signature="e#2106#2107#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/patternLayouts/2.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.64748204">
+          <caret line="69" column="27" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/patternLayouts/51.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8746803">
+          <caret line="25" column="54" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="109" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/patternLayouts/6.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13705584">
+          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/patternLayouts/50.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7309645">
+          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page_components/enums/ContentType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21377672">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page_components/PageElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47047618">
+          <caret line="37" column="29" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
+          <folding>
+            <element signature="e#1488#1489#0" expanded="true" />
+            <element signature="e#1512#1513#0" expanded="true" />
+            <element signature="e#1600#1601#0" expanded="true" />
+            <element signature="e#1624#1625#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1174,94 +1120,199 @@
     <entry file="file://$PROJECT_DIR$/src/page_components/tree_components/Node.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="54" column="11" selection-start-line="54" selection-start-column="11" selection-end-line="54" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tools/Parameters.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="55" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/content_generators/RandomContentGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="100" column="88" selection-start-line="100" selection-start-column="60" selection-end-line="100" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/patternLayouts/1.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.0">
+          <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page_components/SVGText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page_components/SVGRectangle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/page_components/tree_components/LeafNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5168739">
-          <caret line="27" column="44" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="40" column="24" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#635#636#0" expanded="true" />
-            <element signature="e#710#711#0" expanded="true" />
+            <element signature="e#1841#1842#0" expanded="true" />
+            <element signature="e#1868#1869#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/content_generators/websiteContentFactories/LayoutGenerator.java">
+    <entry file="file://$PROJECT_DIR$/src/content_generators/TextGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1598579">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4137#4138#0" expanded="true" />
-            <element signature="e#4205#4206#0" expanded="true" />
+            <element signature="e#258#259#0" expanded="false" />
+            <element signature="e#303#304#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/page_components/tree_components/ViewportGroupNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5435169">
-          <caret line="56" column="5" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/content_generators/RandomLayoutGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1275797">
-          <caret line="137" column="46" selection-start-line="137" selection-start-column="46" selection-end-line="137" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.5021739">
+          <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/page_components/PageElement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45648313">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1488#1489#0" expanded="true" />
-            <element signature="e#1512#1513#0" expanded="true" />
-            <element signature="e#1600#1601#0" expanded="true" />
-            <element signature="e#1624#1625#0" expanded="true" />
-            <element signature="e#1716#1717#0" expanded="true" />
-            <element signature="e#1744#1745#0" expanded="true" />
-            <element signature="e#1882#1883#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2060#2061#0" expanded="true" />
+            <element signature="e#2087#2088#0" expanded="true" />
+            <element signature="e#2683#2684#0" expanded="true" />
+            <element signature="e#2724#2725#0" expanded="true" />
+            <element signature="e#3179#3180#0" expanded="true" />
+            <element signature="e#3219#3220#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tools/JsonParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.34565216">
+          <caret line="80" column="44" selection-start-line="80" selection-start-column="44" selection-end-line="80" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page_components/tree_components/ViewportNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1173913">
+          <caret line="88" column="33" selection-start-line="88" selection-start-column="33" selection-end-line="88" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/content_generators/ColourGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60746">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.75869566">
+          <caret line="52" column="5" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/content_generators/RandomLayoutGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34565216">
+          <caret line="109" column="35" selection-start-line="109" selection-start-column="35" selection-end-line="109" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="133" column="18" selection-start-line="133" selection-start-column="18" selection-end-line="133" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3608#3609#0" expanded="true" />
+            <element signature="e#3654#3655#0" expanded="true" />
+            <element signature="e#3696#3697#0" expanded="true" />
+            <element signature="e#3734#3735#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/Strategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/SVGCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="69" column="30" selection-start-line="69" selection-start-column="30" selection-end-line="69" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/RandomTreesStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="37" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1333#1334#0" expanded="true" />
+            <element signature="e#1360#1361#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/CrossoverStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="53" column="35" selection-start-line="53" selection-start-column="35" selection-end-line="53" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1620#1621#0" expanded="true" />
+            <element signature="e#1678#1679#0" expanded="true" />
+            <element signature="e#2402#2403#0" expanded="true" />
+            <element signature="e#2429#2430#0" expanded="true" />
+            <element signature="e#2459#2460#0" expanded="true" />
+            <element signature="e#2487#2488#0" expanded="true" />
+            <element signature="e#2517#2518#0" expanded="true" />
+            <element signature="e#2545#2546#0" expanded="true" />
+            <element signature="e#2575#2576#0" expanded="true" />
+            <element signature="e#2603#2604#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tools/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5497925">
+          <caret line="34" column="68" selection-start-line="34" selection-start-column="68" selection-end-line="34" selection-end-column="68" />
           <folding />
         </state>
       </provider>

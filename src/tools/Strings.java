@@ -33,6 +33,7 @@ public class Strings {
     static public final String TEXT_ANCHOR = "text-anchor";
     static public final String VIEWBOX = "viewBox";
     static public final String PRESERVE_ASPECT_RATIO = "preserveAspectRatio";
+    static public final String FONT_FAMILY = "font-family";
 
     static public final String XLINK_NAMESPACE = "http://www.w3.org/1999/xlink";
     static public final String SVG_NAMESPACE = SVG12DOMImplementation.SVG_NAMESPACE_URI;

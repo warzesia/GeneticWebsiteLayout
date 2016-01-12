@@ -119,7 +119,7 @@ public class RandomContentGenerator {
                 switch (tag) {
                     case TITLE: return getRandomTitle(x, y, width, height);
                     case PARAGRAPH: return getRandomParagraph(x, y, width, height);
-                    case BUTTONS: return getRandomWord(x, y, width, height);
+                    case BUTTON: return getRandomWord(x, y, width, height);
                     case FOOTER: return getRandomFooter(x, y, width, height);
                     default: return getRandomParagraph(x, y, width, height);
                 }

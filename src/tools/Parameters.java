@@ -16,6 +16,17 @@ public class Parameters {
 
     public static final Integer MAX_SVG_TREE_DEPTH = 3;
 
+    public static final Double MIN_MUTATION_MOVE = 0.05;
+    public static final Double MAX_MUTATION_MOVE = 0.7;
+
+    public static final Integer MAX_LOGO_COUNT = 1;
+    public static final Integer MAX_NAVIGATION_COUNT = 1;
+    public static final Integer MAX_FOOTER_COUNT = 1;
+    public static final Integer MAX_BUTTON_COUNT = 100;
+    public static final Integer MAX_PARAGRAPH_COUNT = 100;
+
+
+
     private static Map<NodeType, Integer> nodeTypeProbabilityMap = new HashMap<>();
     private static Map<DrawableType, Integer> elementTypeProbabilityMap = new HashMap<>();
     private static Map<Ratio, Integer> ratioProbabilityMap = new HashMap<>();

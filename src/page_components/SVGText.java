@@ -11,9 +11,10 @@ import tools.Strings;
 public class SVGText extends DrawablePageElement {
 
     String content;
-    Integer fontSize = 12;
+    Integer fontSize = 6;
     String fillColour = "black";
     DrawablePageElement background;
+    String fontFamily = "Helvetica";
 
 
     @Override
@@ -21,6 +22,7 @@ public class SVGText extends DrawablePageElement {
         Element flowRootElement = document.createElementNS(Constants.SVG_NAMESPACE, Strings.FLOW_ROOT);
         flowRootElement.setAttributeNS(null, Strings.FONT_SIZE, Integer.toString(fontSize));
         flowRootElement.setAttributeNS(null, Strings.FILL, fillColour);
+        flowRootElement.setAttributeNS(null, Strings.FONT_FAMILY, fontFamily);
 
         Element flowRegionElement = document.createElementNS(Constants.SVG_NAMESPACE, Strings.FLOW_REGION);
         Element flowDivElement = document.createElementNS(Constants.SVG_NAMESPACE, Strings.FLOW_DIV);

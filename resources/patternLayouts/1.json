@@ -1,6 +1,5 @@
 {
   "NodeType": "VIEWPORT",
-  "tag": "ROOT",
   "x": "0.0", "y": "0.0", "width": "1.0", "height": "1.0",
   "children": [
     {
@@ -11,7 +10,7 @@
     },
     {
       "NodeType": "VIEWPORT_GROUP",
-      "tag": "BUTTONS",
+      "tag": "NAVIGATION",
       "x": "0.0", "y": "0.2", "width": "1.0", "height": "0.1",
       "children": [
         {
@@ -25,7 +24,7 @@
             },
             {
               "NodeType": "LEAF",
-              "tag": "BUTTONS",
+              "tag": "BUTTON",
               "x": "0.0", "y": "0.5", "width": "1.0", "height": "0.5",
               "contentElement": { "DrawableType": "TEXT", "x": "0.2", "y": "0.1", "width": "0.6", "height": "0.5" }
             }
@@ -38,7 +37,7 @@
     },
     {
       "NodeType": "VIEWPORT",
-      "tag": "INFO",
+      "tag": "BLOCK",
       "x": "0.0", "y": "0.3", "width": "1.0", "height": "0.65",
       "children": [
         {

@@ -1,17 +1,11 @@
 package tools;
 
 import content_generators.RandomContentGenerator;
-import content_generators.RandomElementGenerator;
-import content_generators.RandomLayoutGenerator;
-import content_generators.TextGenerator;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import page_components.*;
-import page_components.SVGImage;
-import page_components.SVGRectangle;
-import page_components.SVGText;
 import page_components.enums.ContentType;
 import page_components.enums.DrawableType;
 import page_components.tree_components.LeafNode;
@@ -23,7 +17,6 @@ import page_components.tree_components.enums.NodeType;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Iterator;
 import java.util.LinkedList;
 
 /**
@@ -31,7 +24,7 @@ import java.util.LinkedList;
  */
 public class JsonParser {
 
-    private static final String filePath = Constants.RESOURCE_PATTERNS_PATH + "/1.json";
+
 
 
     private static Node parseNode(JSONObject jsonObject, int level){
@@ -42,7 +35,7 @@ public class JsonParser {
         Double width = (Double.parseDouble((String)jsonObject.get("width")));
         Double height = (Double.parseDouble((String)jsonObject.get("height")));
         String contentType  = (String)jsonObject.get("tag");
-        ContentType tag = contentType == null ? ContentType.DECOR : ContentType.valueOf(contentType) ;
+        ContentType tag = contentType == null ? ContentType.ANY : ContentType.valueOf(contentType) ;
 
         switch (nodeType) {
             case LEAF: {
@@ -102,7 +95,9 @@ public class JsonParser {
         return RandomContentGenerator.getContent(drawableType, tag, x, y, width, height);
     }
 
-    public static Node run() {
+    public static Node run(int fileNumber) {
+
+        String filePath = Constants.RESOURCE_PATTERNS_PATH + "/" + fileNumber + ".json";
 
         try {
             FileReader reader = new FileReader(filePath);

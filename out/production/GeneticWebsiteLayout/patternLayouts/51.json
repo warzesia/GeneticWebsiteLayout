@@ -1,0 +1,31 @@
+{
+  "NodeType": "VIEWPORT",
+  "x": "0.0", "y": "0.0", "width": "1.0", "height": "1.0",
+  "children": [
+    {
+      "NodeType": "LEAF",
+      "tag": "LOGO",
+      "x": "0.0", "y": "0.0", "width": "1.0", "height": "0.5",
+      "contentElement": { "DrawableType": "IMAGE", "x": "0.1", "y": "0.1", "width": "0.8", "height": "0.8" }
+    },
+    {
+      "NodeType": "VIEWPORT",
+      "tag": "BLOCK",
+      "x": "0.0", "y": "0.5", "width": "1.0", "height": "0.5",
+      "children": [
+        {
+          "NodeType": "LEAF",
+          "tag": "PICTURE",
+          "x": "0.0", "y": "0.0", "width": "0.5", "height": "1.0",
+          "contentElement": { "DrawableType": "IMAGE", "x": "0.1", "y": "0.1", "width": "0.8", "height": "0.8" }
+        },
+        {
+          "NodeType": "LEAF",
+          "tag": "PARAGRAPH",
+          "x": "0.5", "y": "0.0", "width": "0.5", "height": "1.0",
+          "contentElement": { "DrawableType": "TEXT", "x": "0.1", "y": "0.1", "width": "0.8", "height": "0.8" }
+        }
+      ]
+    }
+  ]
+}

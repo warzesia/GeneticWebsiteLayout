@@ -22,10 +22,10 @@ public class SVGCreator {
         rootElement.appendChild(rootNode.draw(document));
     }
 
-    public SVGCreator() {
+    public SVGCreator(String width, String height) {
         this.rootElement.setAttributeNS(null, Strings.VERSION, Constants.SVG_VERSION);
-        this.rootElement.setAttributeNS(null, Strings.WIDTH, Constants.SVG_ROOT_WIDTH);
-        this.rootElement.setAttributeNS(null, Strings.HEIGHT, Constants.SVG_ROOT_HEIGHT);
+        this.rootElement.setAttributeNS(null, Strings.WIDTH, width);
+        this.rootElement.setAttributeNS(null, Strings.HEIGHT, height);
     }
 
     public SVGDocument getSVGDocument(){

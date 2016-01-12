@@ -1,14 +1,14 @@
 package page_components.tree_components;
 
-import content_generators.ColourGenerator;
 import content_generators.RandomContentGenerator;
 import content_generators.RandomElementGenerator;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import page_components.DrawablePageElement;
-import page_components.PageElement;
 import page_components.SVGRectangle;
 import tools.Parsers;
+
+import java.util.LinkedList;
 
 /**
  * Created by warzesia on 28/11/15.
@@ -37,6 +37,7 @@ public class LeafNode extends Node {
         LeafNode leafCopy = new LeafNode(x, y, width, height, this.level);
         leafCopy.setBackgroundRectangle(this.backgroundRectangle);
         leafCopy.setContentElement(this.contentElement);
+        leafCopy.setMetadata(this.getMetadata());
         return leafCopy;
     }
 
@@ -49,6 +50,31 @@ public class LeafNode extends Node {
         LeafNode leafMutation = this.copy();
         leafMutation.setContentElement(RandomElementGenerator.getRandomlyPlacedDrawable(this.contentElement));
         return leafMutation;
+    }
+
+    @Override
+    public Node getCrossover(Node partner) {
+        return null;
+    }
+
+    @Override
+    public Node getRandomNode(int ttl) {
+        return null;
+    }
+
+    @Override
+    public Node getRandomChild() {
+        return null;
+    }
+
+    @Override
+    public void swapChild(Node childAlpha, Node childBeta) {
+        return;
+    }
+
+    @Override
+    public LinkedList<ViewportNode> getMutations(int count) {
+        return null;
     }
 
     @Override

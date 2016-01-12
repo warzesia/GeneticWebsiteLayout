@@ -7,6 +7,8 @@ import tools.Constants;
 import tools.Strings;
 import tools.Parsers;
 
+import java.util.LinkedList;
+
 /**
  * Created by warzesia on 28/11/15.
  */
@@ -18,9 +20,25 @@ public abstract class Node extends PageElement {
         return copyWithDifferentPlacement(this.getX(), this.getY(), this.getWidth(), this.getHeight());
     }
     public abstract Node copyWithDifferentPlacement(Double x, Double y, Double width, Double height);
+    public abstract Node getRandomNode(int ttl);
+    public abstract Node getRandomChild();
+    public abstract void swapChild(Node childAlpha, Node childBeta);
     public abstract Node getMutation();
+    public abstract LinkedList<ViewportNode> getMutations(int count);
     public abstract void paintBackground(String colour);
     public abstract void generate();
+
+    public Node getCrossover(Node partner) {
+        return getCrossoverAtMaxLevel(partner, 100);
+    }
+    public Node getCrossoverAtMaxLevel(Node partner, int ttl) {
+        Node offspring = this.copy();
+        Node offspringNode = offspring.getRandomNode(ttl);
+        Node geneAlpha = offspringNode.getRandomChild();
+        Node geneBeta = partner.getRandomNode(ttl).getRandomChild();
+        offspringNode.swapChild(geneAlpha, geneBeta);
+        return offspring;
+    }
 
     @Override
     public Element draw(Document document) {

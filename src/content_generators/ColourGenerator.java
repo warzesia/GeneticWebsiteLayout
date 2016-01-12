@@ -44,6 +44,14 @@ public class ColourGenerator {
 //        return shadeColor(this.colour, getRandomPercent());
     }
 
+    public String getRandomColourDifferentTo(String oldColour){
+        String colour;
+        do{
+            colour = getRandomColour();
+        } while (colour.equals(oldColour));
+        return colour;
+    }
+
 
     private int getRandomPercent(){
         return (ThreadLocalRandom.current().nextInt(12)-6)*10;
