@@ -1,6 +1,7 @@
 package content_generators;
 
 import content_generators.RandomLayoutGenerator;
+import page_components.DrawablePageElement;
 import page_components.PageElement;
 import page_components.tree_components.Node;
 import tools.Constants;
@@ -18,6 +19,28 @@ import java.util.stream.Collectors;
  */
 public class LayoutGenerator {
 
+    static public DrawablePageElement mutateDrawable(DrawablePageElement drawable){
+        return LayoutGenerator.mutateDrawable(drawable, 1).get(0);
+    }
+
+    static public LinkedList<DrawablePageElement> mutateDrawable(DrawablePageElement drawable, int count){
+        LinkedList<DrawablePageElement> mutatedDrawable = new LinkedList<>();
+        for(int i=0; i<count+1; i++)
+            mutatedDrawable.add(RandomElementGenerator.getRandomlyPlacedDrawable(drawable));
+        return mutatedDrawable;
+    }
+
+    static public LinkedList<Node> mutateTwinChildren(Node child){
+        return LayoutGenerator.mutateTwinChildren(child, 1).get(0);
+    }
+    static public List<LinkedList<Node>> mutateTwinChildren(Node child, int count) {
+        LinkedList<LinkedList<Node>> mutatedChildrenList = new LinkedList<>();
+        for(int i=0; i<count+1; i++)
+            mutatedChildrenList.add(RandomLayoutGenerator.getRandomlyPlacedTwinChildren(child.copy()));
+        return mutatedChildrenList;
+    }
+
+
     static public LinkedList<Node> mutateChildren(LinkedList<Node> children){
         return LayoutGenerator.mutateChildren(children, 1).get(0);
     }
@@ -32,10 +55,10 @@ public class LayoutGenerator {
                 }
             }
 
-        for(int i=mutatedChildrenList.size(); i<count; i++)
+        for(int i=mutatedChildrenList.size(); i<count+1; i++)
             mutatedChildrenList.add(i, children);
 
-        return mutatedChildrenList.subList(0, count);
+        return mutatedChildrenList.subList(0, count+1);
     }
 
 

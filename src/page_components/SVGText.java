@@ -41,9 +41,14 @@ public class SVGText extends DrawablePageElement {
         return flowRootElement;
     }
 
-    public DrawablePageElement copyWithDifferentPlacement(Double x, Double y, Double width, Double height){
+
+    public SVGText copy() {
+        return copyWithDifferentPlacement(this.getX(), this.getY(), this.getWidth(), this.getHeight());
+    }
+
+    public SVGText copyWithDifferentPlacement(Double x, Double y, Double width, Double height){
         SVGText textCopy = new SVGText(x, y, width, height);
-        textCopy.setBackground(this.background);
+        textCopy.setBackground(this.background.copy());
         textCopy.setContent(this.content);
         textCopy.setFillColour(this.fillColour);
         textCopy.setFontSize(this.fontSize);

@@ -49,10 +49,20 @@ public class ViewportNode extends Node {
     }
 
     @Override
+    public ViewportNode shallowCopyWithDifferentPlacement(Double x, Double y, Double width, Double height) {
+        ViewportNode viewport = new ViewportNode(x, y, width, height, this.level);
+        viewport.setChildren(this.children);
+        viewport.setMetadata(this.getMetadata());
+        return viewport;
+    }
+    public ViewportNode shallowCopy() {
+        return shallowCopyWithDifferentPlacement(this.getX(), this.getY(), this.getWidth(), this.getHeight());
+    }
+
+    @Override
     public Node getRandomNode(int ttl) {
-        return (ttl==0 || ThreadLocalRandom.current().nextBoolean()) ? this : getRandomNonLeafChild().getRandomNode(ttl-1);
-//        Node randomChild = getRandomNonLeafChild();
-//        return (ttl==0 || ThreadLocalRandom.current().nextBoolean()) ? randomChild : randomChild.getRandomNode(ttl-1);
+        return (ttl==0 || ThreadLocalRandom.current().nextBoolean()) ?
+                this : getRandomNonLeafChild().getRandomNode(ttl-1);
     }
 
     @Override
@@ -70,8 +80,16 @@ public class ViewportNode extends Node {
         return nonLeafChildren.get(ThreadLocalRandom.current().nextInt(nonLeafChildren.size()));
     }
 
+    public Node getRandomViewportChild() {
+        for(Node child: this.children)
+            if(child.getClass().equals(ViewportGroupNode.class))
+                return child;
+        return this;
+    }
+
     @Override
     public void swapChild(Node childAlpha, Node childBeta) {
+        childBeta.setLevel(childAlpha.getLevel());
         this.children.remove(childAlpha);
         this.children.add(childBeta.copyWithDifferentPlacement(
                 childAlpha.getX(), childAlpha.getY(), childAlpha.getWidth(), childAlpha.getHeight()));
@@ -85,10 +103,10 @@ public class ViewportNode extends Node {
     }
 
     @Override
-    public LinkedList<ViewportNode> getMutations(int count) {
-        LinkedList<ViewportNode> mutatedNodes = new LinkedList<>();
+    public LinkedList<Node> getMutations(int count) {
+        LinkedList<Node> mutatedNodes = new LinkedList<>();
         List<LinkedList<Node>> mutatedChildrenList = LayoutGenerator.mutateChildren(this.children, count);
-        for(int i=0; i<count; i++){
+        for(int i=0; i<count+1; i++){
             ViewportNode mutatedNode = this.copy();
             mutatedNode.setChildren(mutatedChildrenList.get(i));
             mutatedNodes.add(mutatedNode);
@@ -97,11 +115,24 @@ public class ViewportNode extends Node {
     }
 
     @Override
-    public void paintBackground(String colour) {
-//        colour = this.getMetadata().isEmpty() ? colour : ColourGenerator.ColourGen.getRandomColour();
-        colour = this.getMetadata().contains(ContentType.BLOCK) ? colour : ColourGenerator.getInstance().getRandomColourDifferentTo(colour);
-        for (Node child: this.children)
-            child.paintBackground(colour);
+    public void paintBackground(String colour, Boolean asBlock) {
+        if(asBlock){
+            for (Node child: this.children)
+                child.paintBackground(colour, true);
+        }
+        else if(this.getMetadata().contains(ContentType.BLOCK)) {
+            colour = ColourGenerator.getInstance().getRandomColourDifferentTo(colour);
+            for (Node child: this.children)
+                child.paintBackground(colour, true);
+        } else {
+            LinkedList<String> childrenColours = new LinkedList<>();
+            childrenColours.add(colour);
+            for (Node child: this.children){
+                colour = ColourGenerator.getInstance().getRandomColourDifferentTo(childrenColours);
+                child.paintBackground(colour, false);
+                childrenColours.add(colour);
+            }
+        }
     }
 
     public ViewportNode(Integer level) {super(level);}

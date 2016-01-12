@@ -1,6 +1,7 @@
 package content_generators;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -51,6 +52,14 @@ public class ColourGenerator {
         do{
             colour = getRandomColour();
         } while (colour.equals(oldColour));
+        return colour;
+    }
+
+    public String getRandomColourDifferentTo(LinkedList<String> oldColours){
+        String colour;
+        do{
+            colour = getRandomColour();
+        } while (oldColours.contains(colour));
         return colour;
     }
 

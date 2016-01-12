@@ -1,26 +1,30 @@
 package view;
 
+import content_generators.RandomLayoutGenerator;
 import org.apache.batik.swing.JSVGCanvas;
+import page_components.tree_components.LeafNode;
 import page_components.tree_components.Node;
+import page_components.tree_components.ViewportGroupNode;
+import page_components.tree_components.ViewportNode;
 import tools.Constants;
 import tools.JsonParser;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.LinkedList;
 
 /**
  * Created by warzesia on 12/01/16.
  */
-public class CrossoverStrategy implements Strategy {
+public class MutationStrategy implements Strategy {
 
-    int chosenRootNumber;
+    int level = 0;
+    int chosenRootNumber = 1;
 
     private Node root;
     private Node root2;
     private Node root3;
-    private Node root4;
+//    private Node root4;
 
     @Override
     public void setupSVGCanvasFields(JSVGCanvas svgCanvas, JSVGCanvas svgCanvas2, JSVGCanvas svgCanvas3, JSVGCanvas svgCanvas4) {
@@ -42,33 +46,36 @@ public class CrossoverStrategy implements Strategy {
                 break;
             }
         }
+
         this.reset();
 
         SVGCreator svgCreator = new SVGCreator(Constants.SVG_ROOT_WIDTH_FOUR, Constants.SVG_ROOT_HEIGHT_FOUR);
         SVGCreator svgCreator2 = new SVGCreator(Constants.SVG_ROOT_WIDTH_FOUR, Constants.SVG_ROOT_HEIGHT_FOUR);
         SVGCreator svgCreator3 = new SVGCreator(Constants.SVG_ROOT_WIDTH_FOUR, Constants.SVG_ROOT_HEIGHT_FOUR);
-        SVGCreator svgCreator4 = new SVGCreator(Constants.SVG_ROOT_WIDTH_FOUR, Constants.SVG_ROOT_HEIGHT_FOUR);
+//        SVGCreator svgCreator4 = new SVGCreator(Constants.SVG_ROOT_WIDTH_FOUR, Constants.SVG_ROOT_HEIGHT_FOUR);
 
         svgCreator.drawSVGTree(root);
         svgCreator2.drawSVGTree(root2);
         svgCreator3.drawSVGTree(root3);
-        svgCreator4.drawSVGTree(root4);
+//        svgCreator4.drawSVGTree(root4);
 
         svgCanvas.setSVGDocument(svgCreator.getSVGDocument());
         svgCanvas2.setSVGDocument(svgCreator2.getSVGDocument());
         svgCanvas3.setSVGDocument(svgCreator3.getSVGDocument());
-        svgCanvas4.setSVGDocument(svgCreator4.getSVGDocument());
+//        svgCanvas4.setSVGDocument(svgCreator4.getSVGDocument());
 
         System.out.println(root);
         System.out.println(root2);
         System.out.println(root3);
-        System.out.println(root4);
+//        System.out.println(root4);
+
+        level++;
     }
 
-    public CrossoverStrategy(Node root){
+    public MutationStrategy(Node root){
         this.root = root;
     }
-    public CrossoverStrategy(){
+    public MutationStrategy(){
         this(JsonParser.run(JsonParser.getRandomLayout()));
     }
 
@@ -81,14 +88,15 @@ public class CrossoverStrategy implements Strategy {
         svgCanvasGroupPanel.add(panel);
         svgCanvasGroupPanel.add(panel2);
         svgCanvasGroupPanel.add(panel3);
-        svgCanvasGroupPanel.add(panel4);
+//        svgCanvasGroupPanel.add(panel4);
     }
 
     @Override
     public void reset() {
-        root2 = JsonParser.run(JsonParser.getRandomLayout());
-        root3 = root.getCrossover(root2);
-        root4 = root2.getCrossover(root);
+        LinkedList<Node> mutatedNodes = root.getMutations(3);
+        root2 = mutatedNodes.get(0);
+        root3 = mutatedNodes.get(1);
+//        root4= mutatedNodes.get(2);
     }
 
     @Override
@@ -104,9 +112,10 @@ public class CrossoverStrategy implements Strategy {
         return root3;
     }
 
-    public Node getRoot4() {
-        return root4;
-    }
+//    public Node getRoot4() {
+//        return root4;
+//    }
+
 
     @Override
     public void setChosenRoot(int chosenRootNumber) {
@@ -115,7 +124,7 @@ public class CrossoverStrategy implements Strategy {
 
     @Override
     public Strategy getNextStrategy() {
-        return new MutationStrategy(this.root);
+        return new MutationStrategy();
     }
 
 }

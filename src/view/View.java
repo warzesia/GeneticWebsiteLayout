@@ -42,7 +42,7 @@ public class View {
     //*******************************************************************************
 
 
-    private Strategy strategy;
+    private Strategy strategy = new RandomTreesStrategy();
 
     private JFrame frame = new JFrame(Constants.APP_NAME);
     private JPanel mainPanel = new JPanel();
@@ -53,6 +53,10 @@ public class View {
     /*****//*****//*****/private JPanel svgCanvasPanel2 = new JPanel();
     /*****//*****//*****/private JPanel svgCanvasPanel3 = new JPanel();
     /*****//*****//*****/private JPanel svgCanvasPanel4 = new JPanel();
+    /*****//*****//*****/private JButton svgCanvasPanelButton = new JButton();
+    /*****//*****//*****/private JButton svgCanvasPanelButton2 = new JButton();
+    /*****//*****//*****/private JButton svgCanvasPanelButton3 = new JButton();
+    /*****//*****//*****/private JButton svgCanvasPanelButton4 = new JButton();
     /*****//*****/private JPanel buttonsPanel = new JPanel();
 
     /*****/private JPanel controlPanel = new JPanel();
@@ -84,13 +88,16 @@ public class View {
         frame.add(mainPanel);
         frame.setSize(Constants.APP_FRAME_WIDTH, Constants.APP_FRAME_HEIGHT);
 
-        this.setStrategy(new CrossoverStrategy());
-
         frame.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
                 System.exit(0);
             }
         });
+
+        strategy.adjustSvgCanvasGroup(
+                svgCanvasGroupPanel, svgCanvasPanel, svgCanvasPanel2, svgCanvasPanel3, svgCanvasPanel4);
+        strategy.setupSVGCanvasFields(svgCanvas, svgCanvas2, svgCanvas3, svgCanvas4);
+        frame.repaint();
     }
 
     public void run(){
@@ -133,10 +140,68 @@ public class View {
     private void setupCanvasGroupPanel() {
         //WARNING:
         //svgCanvasPanel(s) need to be added to svgCanvasGroupPanel
-        svgCanvasPanel.add(svgCanvas);
-        svgCanvasPanel2.add(svgCanvas2);
-        svgCanvasPanel3.add(svgCanvas3);
-        svgCanvasPanel4.add(svgCanvas4);
+
+        svgCanvasPanel.setLayout(new BorderLayout());
+        svgCanvasPanel.add("Center", svgCanvas);
+        svgCanvasPanel.add("South", svgCanvasPanelButton);
+
+        svgCanvasPanel2.setLayout(new BorderLayout());
+        svgCanvasPanel2.add("Center", svgCanvas2);
+        svgCanvasPanel2.add("South", svgCanvasPanelButton2);
+
+        svgCanvasPanel3.setLayout(new BorderLayout());
+        svgCanvasPanel3.add("Center", svgCanvas3);
+        svgCanvasPanel3.add("South", svgCanvasPanelButton3);
+
+        svgCanvasPanel4.setLayout(new BorderLayout());
+        svgCanvasPanel4.add("Center", svgCanvas4);
+        svgCanvasPanel4.add("South", svgCanvasPanelButton4);
+
+        setupCanvasPanelButtons();
+
+//        svgCanvasPanel.add(svgCanvas);
+//        svgCanvasPanel2.add(svgCanvas2);
+//        svgCanvasPanel3.add(svgCanvas3);
+//        svgCanvasPanel4.add(svgCanvas4);
+    }
+
+    private void setupCanvasPanelButtons(){
+        svgCanvasPanelButton.setBackground(Color.BLUE);
+        svgCanvasPanelButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                strategy.setChosenRoot(1);
+                strategy.setupSVGCanvasFields(svgCanvas, svgCanvas2, svgCanvas3, svgCanvas4);
+                frame.repaint();
+            }
+        });
+        svgCanvasPanelButton2.setBackground(Color.BLUE);
+        svgCanvasPanelButton2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                strategy.setChosenRoot(2);
+                strategy.setupSVGCanvasFields(svgCanvas, svgCanvas2, svgCanvas3, svgCanvas4);
+                frame.repaint();
+            }
+        });
+        svgCanvasPanelButton3.setBackground(Color.BLUE);
+        svgCanvasPanelButton3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                strategy.setChosenRoot(3);
+                strategy.setupSVGCanvasFields(svgCanvas, svgCanvas2, svgCanvas3, svgCanvas4);
+                frame.repaint();
+            }
+        });
+        svgCanvasPanelButton4.setBackground(Color.BLUE);
+        svgCanvasPanelButton4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                strategy.setChosenRoot(4);
+                strategy.setupSVGCanvasFields(svgCanvas, svgCanvas2, svgCanvas3, svgCanvas4);
+                frame.repaint();
+            }
+        });
     }
 
     private void setupButtonsPanel(){
@@ -147,6 +212,9 @@ public class View {
         nextButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                setStrategy(strategy.getNextStrategy());
+                strategy.adjustSvgCanvasGroup(
+                        svgCanvasGroupPanel, svgCanvasPanel, svgCanvasPanel2, svgCanvasPanel3, svgCanvasPanel4);
                 strategy.setupSVGCanvasFields(svgCanvas, svgCanvas2, svgCanvas3, svgCanvas4);
                 frame.repaint();
             }
@@ -248,6 +316,5 @@ public class View {
 
     public void setStrategy(Strategy strategy) {
         this.strategy = strategy;
-        this.strategy.adjustSvgCanvasGroup(svgCanvasGroupPanel, svgCanvasPanel, svgCanvasPanel2, svgCanvasPanel3, svgCanvasPanel4);
     }
 }

@@ -120,7 +120,7 @@ public class RandomLayoutGenerator {
 
         for(int x=0; x<xUnits; x++)
             for(int y=0; y<yUnits; y++)
-                nodes.add(twinChild.copyWithDifferentPlacement(lineCutX*x, lineCutY*y, lineCutX, lineCutY));
+                nodes.add(twinChild.shallowCopyWithDifferentPlacement(lineCutX*x, lineCutY*y, lineCutX, lineCutY));
 
         return nodes;
     }

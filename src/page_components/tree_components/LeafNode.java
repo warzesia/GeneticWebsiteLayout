@@ -1,5 +1,7 @@
 package page_components.tree_components;
 
+import content_generators.ColourGenerator;
+import content_generators.LayoutGenerator;
 import content_generators.RandomContentGenerator;
 import content_generators.RandomElementGenerator;
 import org.w3c.dom.Document;
@@ -9,6 +11,7 @@ import page_components.SVGRectangle;
 import tools.Parsers;
 
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by warzesia on 28/11/15.
@@ -32,11 +35,11 @@ public class LeafNode extends Node {
         return element;
     }
 
-    @Override
+    @Override /*TODO: doo deeper copy!*/
     public LeafNode copyWithDifferentPlacement(Double x, Double y, Double width, Double height){
         LeafNode leafCopy = new LeafNode(x, y, width, height, this.level);
-        leafCopy.setBackgroundRectangle(this.backgroundRectangle);
-        leafCopy.setContentElement(this.contentElement);
+        leafCopy.setBackgroundRectangle(this.backgroundRectangle.copy());
+        leafCopy.setContentElement(this.contentElement.copy());
         leafCopy.setMetadata(this.getMetadata());
         return leafCopy;
     }
@@ -46,11 +49,38 @@ public class LeafNode extends Node {
     }
 
     @Override
+    public LeafNode shallowCopyWithDifferentPlacement(Double x, Double y, Double width, Double height){
+        LeafNode leafCopy = new LeafNode(x, y, width, height, this.level);
+        leafCopy.setBackgroundRectangle(this.backgroundRectangle);
+        leafCopy.setContentElement(this.contentElement);
+        leafCopy.setMetadata(this.getMetadata());
+        return leafCopy;
+    }
+
+    public LeafNode shallowCopy() {
+        return shallowCopyWithDifferentPlacement(this.getX(), this.getY(), this.getWidth(), this.getHeight());
+    }
+
+    @Override
     public LeafNode getMutation() {
         LeafNode leafMutation = this.copy();
-        leafMutation.setContentElement(RandomElementGenerator.getRandomlyPlacedDrawable(this.contentElement));
+        leafMutation.setContentElement(LayoutGenerator.mutateDrawable(this.contentElement));
         return leafMutation;
     }
+
+    @Override
+    public LinkedList<Node> getMutations(int count) {
+        LinkedList<Node> mutatedNodes = new LinkedList<>();
+        LinkedList<DrawablePageElement> mutatedChildrenList = LayoutGenerator.mutateDrawable(this.contentElement, count);
+
+        for(int i=0; i<count+1; i++){
+            LeafNode mutatedNode = this.copy();
+            mutatedNode.setContentElement(mutatedChildrenList.get(i));
+            mutatedNodes.add(mutatedNode);
+        }
+        return mutatedNodes;
+    }
+
 
     @Override
     public Node getCrossover(Node partner) {
@@ -73,13 +103,8 @@ public class LeafNode extends Node {
     }
 
     @Override
-    public LinkedList<ViewportNode> getMutations(int count) {
-        return null;
-    }
-
-    @Override
-    public void paintBackground(String colour) {
-//        colour = this.getMetadata().isEmpty() ? colour : ColourGenerator.ColourGen.getRandomColour();
+    public void paintBackground(String colour, Boolean asBlock) {
+        colour = asBlock ? colour : ColourGenerator.getInstance().getRandomColourDifferentTo(colour);
         backgroundRectangle.setFillColour(colour);
     }
 

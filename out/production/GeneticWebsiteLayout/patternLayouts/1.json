@@ -15,6 +15,7 @@
       "children": [
         {
           "NodeType": "VIEWPORT",
+          "tag": "BLOCK",
           "x": "0.0", "y": "0.0", "width": "0.25", "height": "1.0",
           "children": [
             {
@@ -42,7 +43,7 @@
       "children": [
         {
           "NodeType": "VIEWPORT",
-          "tag": "PARAGRAPH",
+          "tag": "BLOCK",
           "x": "0.0", "y": "0.0", "width": "0.5", "height": "1.0",
           "children": [
             {

@@ -1,10 +1,15 @@
 package page_components.tree_components;
 
+import content_generators.ColourGenerator;
+import content_generators.LayoutGenerator;
 import content_generators.RandomLayoutGenerator;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import page_components.DrawablePageElement;
+import page_components.enums.ContentType;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -40,7 +45,6 @@ public class ViewportGroupNode extends Node {
         LinkedList<Node> newTwinChildren = new LinkedList<>();
         for(Node child: this.twinChildren)
             newTwinChildren.add(child.copy());
-
         viewportGroup.setTwinChildren(newTwinChildren);
         viewportGroup.setMetadata(this.getMetadata());
         return viewportGroup;
@@ -51,15 +55,36 @@ public class ViewportGroupNode extends Node {
     }
 
     @Override
+    public ViewportGroupNode shallowCopyWithDifferentPlacement(Double x, Double y, Double width, Double height) {
+        ViewportGroupNode viewportGroup = new ViewportGroupNode(x, y, width, height, this.level);
+        viewportGroup.setTwinChildren(this.twinChildren);
+        viewportGroup.setMetadata(this.getMetadata());
+        return viewportGroup;
+    }
+
+    public ViewportGroupNode shallowCopy() {
+        return shallowCopyWithDifferentPlacement(this.getX(), this.getY(), this.getWidth(), this.getHeight());
+    }
+
+    @Override
     public ViewportGroupNode getMutation() {
         ViewportGroupNode viewportGroupMutation = this.copy();
-        viewportGroupMutation.setTwinChildren(RandomLayoutGenerator.getRandomlyPlacedTwinChildren(twinChildren.getFirst()));
+        viewportGroupMutation.setTwinChildren(
+                RandomLayoutGenerator.getRandomlyPlacedTwinChildren(twinChildren.getFirst()));
         return viewportGroupMutation;
     }
 
     @Override
-    public LinkedList<ViewportNode> getMutations(int count) {
-        return null;
+    public LinkedList<Node> getMutations(int count) {
+        LinkedList<Node> mutatedNodes = new LinkedList<>();
+        List<LinkedList<Node>> mutatedChildrenList = LayoutGenerator.mutateTwinChildren(this.child, count);
+
+        for(int i=0; i<count+1; i++){
+            ViewportGroupNode mutatedNode = this.copy();
+            mutatedNode.setTwinChildren((mutatedChildrenList.get(i)));
+            mutatedNodes.add(mutatedNode);
+        }
+        return mutatedNodes;
     }
 
     @Override
@@ -82,17 +107,29 @@ public class ViewportGroupNode extends Node {
 
     @Override
     public void swapChild(Node childAlpha, Node childBeta) {
-        this.setChild(childAlpha);
+        childBeta.setLevel(childAlpha.getLevel());
+        this.setChild(childBeta);
     }
 
     @Override
-    public void paintBackground(String colour) {
-        this.child.paintBackground(colour);
-        for (Node child: this.twinChildren)
-            child.paintBackground(colour);
+    public void paintBackground(String colour, Boolean asBlock) {
+        if(asBlock)
+            this.child.paintBackground(colour, true);
+        else if(this.getMetadata().contains(ContentType.BLOCK)){
+            colour = ColourGenerator.getInstance().getRandomColourDifferentTo(colour);
+            this.child.paintBackground(colour, true);
+        }
+        else{
+            colour = ColourGenerator.getInstance().getRandomColourDifferentTo(colour);
+            this.child.paintBackground(colour, false);
+        }
+        this.updateTwinChildren();
     }
 
-    public ViewportGroupNode(Integer level) {super(level);}
+    public ViewportGroupNode(Integer level) {
+        super(level);
+    }
+
     public ViewportGroupNode(Double x, Double y, Double width, Double height, Integer level) {
         super(x, y, width, height, level);
     }
@@ -104,14 +141,16 @@ public class ViewportGroupNode extends Node {
     public void setTwinChildren(LinkedList<Node> twinChildren) {
         this.child = twinChildren.getFirst();
         this.twinChildren = twinChildren;
+        updateTwinChildren();
     }
 
     private void updateTwinChildren() {
         LinkedList<Node> newTwinChildren = new LinkedList<>();
         for(Node oldChild: this.twinChildren)
-            newTwinChildren.add(this.child.copyWithDifferentPlacement(
+            newTwinChildren.add(this.child.shallowCopyWithDifferentPlacement(
                     oldChild.getX(), oldChild.getY(), oldChild.getWidth(), oldChild.getHeight()
             ));
+        this.twinChildren = newTwinChildren;
     }
 
     public void setChild(Node child) {

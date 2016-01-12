@@ -8,6 +8,9 @@ import org.w3c.dom.Element;
  */
 public abstract class DrawablePageElement extends PageElement {
 
+    public DrawablePageElement copy() {
+        return copyWithDifferentPlacement(this.getX(), this.getY(), this.getWidth(), this.getHeight());
+    }
     public abstract DrawablePageElement copyWithDifferentPlacement(Double x, Double y, Double width, Double height);
     public DrawablePageElement(){
         super();

@@ -25,7 +25,11 @@ public class SVGImage extends DrawablePageElement {
         return element;
     }
 
-    public DrawablePageElement copyWithDifferentPlacement(Double x, Double y, Double width, Double height){
+
+    public SVGImage copy() {
+        return copyWithDifferentPlacement(this.getX(), this.getY(), this.getWidth(), this.getHeight());
+    }
+    public SVGImage copyWithDifferentPlacement(Double x, Double y, Double width, Double height){
         SVGImage imageCopy = new SVGImage(x, y, width, height);
         imageCopy.setHref(this.href);
         imageCopy.setPreserveAspectRatio(this.preserveAspectRatio);

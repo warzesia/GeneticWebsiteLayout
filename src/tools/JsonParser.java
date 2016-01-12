@@ -15,10 +15,12 @@ import page_components.tree_components.ViewportGroupNode;
 import page_components.tree_components.ViewportNode;
 import page_components.tree_components.enums.NodeType;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Created by warzesia on 04/01/16.
@@ -96,9 +98,9 @@ public class JsonParser {
         return RandomContentGenerator.getContent(drawableType, tag, x, y, width, height);
     }
 
-    public static Node run(int fileNumber) {
+    public static Node run(String filename) {
 
-        String filePath = Constants.RESOURCE_PATTERNS_PATH + "/" + fileNumber + ".json";
+        String filePath = Constants.RESOURCE_PATTERNS_PATH + "/" + filename;
 
         try {
             FileReader reader = new FileReader(filePath);
@@ -107,7 +109,7 @@ public class JsonParser {
             JSONObject jsonObject = (JSONObject) jsonParser.parse(reader);
 
             Node parsedRootNode = parseNode(jsonObject, 1);
-            parsedRootNode.paintBackground(ColourGenerator.getInstance().getRandomColour());
+            parsedRootNode.paintBackground(ColourGenerator.getInstance().getRandomColour(), false);
             return parsedRootNode;
 
         } catch (FileNotFoundException ex) {
@@ -121,6 +123,12 @@ public class JsonParser {
         }
 
         return null;
+    }
+
+    static public String getRandomLayout(){
+        String path = Constants.RESOURCE_PATTERNS_PATH;
+        String[] imageFiles = new File(path).list();
+        return imageFiles[ThreadLocalRandom.current().nextInt(imageFiles.length)];
     }
 
 }

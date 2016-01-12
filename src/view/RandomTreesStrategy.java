@@ -35,11 +35,21 @@ public class RandomTreesStrategy implements Strategy {
     public void reset() {
         root = RandomLayoutGenerator.getRandomRootNode();
         root.generateRandomly();
-        root.paintBackground(ColourGenerator.getInstance().getRandomColour());
+        root.paintBackground(ColourGenerator.getInstance().getRandomColour(), false);
     }
 
     @Override
     public Node getRoot() {
         return root;
+    }
+
+    @Override
+    public void setChosenRoot(int chosenRootNumber) {
+        ;
+    }
+
+    @Override
+    public Strategy getNextStrategy() {
+        return new CrossoverStrategy();
     }
 }

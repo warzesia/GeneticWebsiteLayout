@@ -20,13 +20,17 @@ public abstract class Node extends PageElement {
     public Node copy() {
         return copyWithDifferentPlacement(this.getX(), this.getY(), this.getWidth(), this.getHeight());
     }
+    public Node shallowCopy() {
+        return shallowCopyWithDifferentPlacement(this.getX(), this.getY(), this.getWidth(), this.getHeight());
+    }
     public abstract Node copyWithDifferentPlacement(Double x, Double y, Double width, Double height);
+    public abstract Node shallowCopyWithDifferentPlacement(Double x, Double y, Double width, Double height);
     public abstract Node getRandomNode(int ttl);
     public abstract Node getRandomChild();
     public abstract void swapChild(Node childAlpha, Node childBeta);
     public abstract Node getMutation();
-    public abstract LinkedList<ViewportNode> getMutations(int count);
-    public abstract void paintBackground(String colour);
+    public abstract LinkedList<Node> getMutations(int count);
+    public abstract void paintBackground(String colour, Boolean asBlock);
     public abstract void generateRandomly();
 
     public Node getCrossover(Node partner) {
@@ -36,10 +40,15 @@ public abstract class Node extends PageElement {
         Node offspring = this.copy();
         Node offspringNode = offspring.getRandomNode(ttl);
         Node geneAlpha = offspringNode.getRandomChild();
-        Node geneBeta = partner.getRandomNode(ttl).getRandomChild();
+        Node geneBeta = partner.getRandomNode(ttl).getRandomChild().copy();
         offspringNode.swapChild(geneAlpha, geneBeta);
-        offspring.paintBackground(ColourGenerator.getInstance().getRandomColour());
+        offspring.paintBackground(ColourGenerator.getInstance().getRandomColour(), false);
         return offspring;
+    }
+
+    public LinkedList<Node> getMutations(int count, int ttl){
+        return this.getRandomNode(ttl).getMutations(count);
+        //or this.copy?
     }
 
     @Override
