@@ -1,5 +1,6 @@
 package view;
 
+import content_generators.ColourGenerator;
 import content_generators.RandomLayoutGenerator;
 import org.apache.batik.swing.JSVGCanvas;
 import page_components.tree_components.Node;
@@ -17,8 +18,7 @@ public class RandomTreesStrategy implements Strategy {
 
     @Override
     public void setupSVGCanvasFields(JSVGCanvas svgCanvas, JSVGCanvas svgCanvas2, JSVGCanvas svgCanvas3, JSVGCanvas svgCanvas4) {
-        root = RandomLayoutGenerator.getRandomRootNode();
-        root.generate();
+        reset();
         SVGCreator svgCreator = new SVGCreator(Constants.SVG_ROOT_WIDTH_ONE, Constants.SVG_ROOT_HEIGHT_ONE);
         svgCreator.drawSVGTree(root);
         svgCanvas.setSVGDocument(svgCreator.getSVGDocument());
@@ -34,7 +34,8 @@ public class RandomTreesStrategy implements Strategy {
     @Override
     public void reset() {
         root = RandomLayoutGenerator.getRandomRootNode();
-        root.generate();
+        root.generateRandomly();
+        root.paintBackground(ColourGenerator.getInstance().getRandomColour());
     }
 
     @Override

@@ -1,5 +1,6 @@
 package page_components.tree_components;
 
+import content_generators.ColourGenerator;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import page_components.PageElement;
@@ -26,7 +27,7 @@ public abstract class Node extends PageElement {
     public abstract Node getMutation();
     public abstract LinkedList<ViewportNode> getMutations(int count);
     public abstract void paintBackground(String colour);
-    public abstract void generate();
+    public abstract void generateRandomly();
 
     public Node getCrossover(Node partner) {
         return getCrossoverAtMaxLevel(partner, 100);
@@ -37,6 +38,7 @@ public abstract class Node extends PageElement {
         Node geneAlpha = offspringNode.getRandomChild();
         Node geneBeta = partner.getRandomNode(ttl).getRandomChild();
         offspringNode.swapChild(geneAlpha, geneBeta);
+        offspring.paintBackground(ColourGenerator.getInstance().getRandomColour());
         return offspring;
     }
 

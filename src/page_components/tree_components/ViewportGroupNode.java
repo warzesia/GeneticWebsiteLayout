@@ -1,6 +1,5 @@
 package page_components.tree_components;
 
-import content_generators.ColourGenerator;
 import content_generators.RandomLayoutGenerator;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -18,9 +17,9 @@ public class ViewportGroupNode extends Node {
 
 
     @Override
-    public void generate() {
+    public void generateRandomly() {
         child = RandomLayoutGenerator.getRandomNode(0.0, 0.0, 0.0, 0.0, this.level);
-        child.generate();
+        child.generateRandomly();
         this.setChild(child);
         this.setTwinChildren(RandomLayoutGenerator.getRandomlyPlacedTwinChildren(child));
         this.updateTwinChildren();

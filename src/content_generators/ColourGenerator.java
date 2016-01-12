@@ -8,7 +8,12 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class ColourGenerator {
 
-    public static ColourGenerator ColourGen;
+    private static ColourGenerator Instance;
+    public static ColourGenerator getInstance(){
+        if(Instance == null)
+            Instance = new ColourGenerator();
+        return Instance;
+    }
 
     public enum PaletteTypes {
         RED, YELLOW, GREEN, VIOLET, BLUE
@@ -21,19 +26,16 @@ public class ColourGenerator {
         String[] green = {"#AAAA39", "#FFFFAA", "#D4D46A", "#808015", "#555500"};
         String[] violet = {"#A996A1", "#E8E5E6", "#CABFC5", "#8D7382", "#745365"};
         String[] blue = {"#365378", "#C8CDD2", "#70849E", "#0E2C52", "#01142C"};
-
         palettes.put(PaletteTypes.RED, red);
         palettes.put(PaletteTypes.YELLOW, yellow);
         palettes.put(PaletteTypes.GREEN, green);
         palettes.put(PaletteTypes.VIOLET, violet);
         palettes.put(PaletteTypes.BLUE, blue);
-
-        ColourGen = new ColourGenerator();
     }
 
     private String[] palette;
     private String colour;
-    public ColourGenerator(){
+    private ColourGenerator(){
         PaletteTypes pick = PaletteTypes.values()[ThreadLocalRandom.current().nextInt(PaletteTypes.values().length)];
         this.palette = palettes.get(pick);
         this.colour = palette[ThreadLocalRandom.current().nextInt(palette.length)];

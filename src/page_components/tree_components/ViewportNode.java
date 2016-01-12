@@ -20,10 +20,10 @@ public class ViewportNode extends Node {
 
 
     @Override
-    public void generate() {
+    public void generateRandomly() {
         children = RandomLayoutGenerator.getRandomlyPlacedNodes(this.level);
         for(Node child: children)
-            child.generate();
+            child.generateRandomly();
     }
 
     @Override
@@ -99,7 +99,7 @@ public class ViewportNode extends Node {
     @Override
     public void paintBackground(String colour) {
 //        colour = this.getMetadata().isEmpty() ? colour : ColourGenerator.ColourGen.getRandomColour();
-        colour = this.getMetadata().contains(ContentType.BLOCK) ? colour : ColourGenerator.ColourGen.getRandomColourDifferentTo(colour);
+        colour = this.getMetadata().contains(ContentType.BLOCK) ? colour : ColourGenerator.getInstance().getRandomColourDifferentTo(colour);
         for (Node child: this.children)
             child.paintBackground(colour);
     }

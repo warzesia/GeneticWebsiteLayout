@@ -12,7 +12,7 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class RandomElementGenerator {
 
-    static private ColourGenerator colourGenerator = new ColourGenerator();
+    static private ColourGenerator colourGenerator = ColourGenerator.getInstance();
     static private TextGenerator textGenerator = new TextGenerator();
 
     static public SVGImage getRandomSVGImage(){return getRandomSVGImage(0.1, 0.1, 0.8, 0.8);}

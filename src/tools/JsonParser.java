@@ -1,5 +1,6 @@
 package tools;
 
+import content_generators.ColourGenerator;
 import content_generators.RandomContentGenerator;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -105,7 +106,9 @@ public class JsonParser {
             JSONParser jsonParser = new JSONParser();
             JSONObject jsonObject = (JSONObject) jsonParser.parse(reader);
 
-            return parseNode(jsonObject, 1);
+            Node parsedRootNode = parseNode(jsonObject, 1);
+            parsedRootNode.paintBackground(ColourGenerator.getInstance().getRandomColour());
+            return parsedRootNode;
 
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();

@@ -1,6 +1,4 @@
 import view.CrossoverStrategy;
-import view.RandomTreesStrategy;
-import view.Strategy;
 import view.View;
 
 /**

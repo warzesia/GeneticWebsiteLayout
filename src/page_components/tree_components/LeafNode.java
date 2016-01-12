@@ -20,7 +20,7 @@ public class LeafNode extends Node {
 
 
     @Override
-    public void generate() {
+    public void generateRandomly() {
         contentElement = RandomElementGenerator.getRandomDrawable();
     }
 
